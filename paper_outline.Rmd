@@ -1,0 +1,439 @@
+---
+title: "Paper Outline: The Global Sparsity and Regulatory Rigidity of Fecal Indicator Bacteria Monitoring"
+author: "Matthew R. V. Ross"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: united
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+library(arrow)
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(tidyr)
+library(sf)
+library(rnaturalearth)
+library(patchwork)
+```
+
+# 1. Executive Summary & Core Thesis
+
+Fecal Indicator Bacteria (FIB) datasets are our primary tool for protecting public health from waterborne pathogens. However, the global infrastructure for monitoring FIB is critically flawed in two distinct dimensions:
+
+1. **Global Spatial Sparsity & Access Barriers:** Fecal pollution monitoring is highly unequal. Of the 9.04 million clean data records available globally, over **54.3%** are from the United States and **43.7%** are from Europe and Canada. 
+   * *The Sharing Gap:* Crucially, this geographic disparity reflects not just where monitoring occurs, but **where data is shared**. Large nations like Russia, China, and parts of South America almost certainly maintain national water quality networks, but their data is absent from public, harmonized global repositories. Thus, we face both a *collection gap* in developing nations and a *sharing gap* in major industrial nations.
+2. **Temporal Mismatch ("Regulatory Rigidity"):** Even where data is abundant, it is rarely **actionable** for real-time safety. Water quality safety fluctuates rapidly, with bacterial concentrations spiking during rain events ("first flush") and decaying within 24–48 hours. Yet, **less than 6.1% of monitoring sites globally achieve daily or near-daily sampling**. Instead, monitoring is structurally rigid, collected at weekly, monthly, or quarterly intervals, often restricted to summer bathing seasons. This regulatory-driven sampling design is blind to acute public health risks and fails to provide real-time safety metrics for drinking or recreation.
+
+---
+
+# Figure 1: Global Distribution and Ecosystem Footprint
+
+### Conceptual Description
+* **Aims:** Establish the geographic inequality of global FIB monitoring, highlighting the data gaps (both collection and sharing gaps) and showcasing the types of aquatic ecosystems sampled.
+* **Visual Components:**
+  * **Main Map:** A global map using the **Robinson projection** (a clean, compromise projection that avoids the extreme polar distortion of Mercator). Observation counts are aggregated into a **hexagonal grid** density map to prevent single-station overlap and show regional density.
+  * **Inset Sub-Plot:** A horizontal bar plot showing the total number of observations collapsed into four main ecosystem types: **River**, **Lake**, **Ocean**, and **Estuary**. This inset is placed in the northern/eastern region of Eurasia (Siberia/China) where there is a notable absence of publicly shared monitoring data.
+* **Key Findings:** 
+  * Rivers dominate global monitoring (**3.94 million records**), followed by coastal marine environments (**2.82 million records**). Lakes represent **1.17 million records**, while Estuaries are less represented (**587k records**).
+  * The visual void across Russia and China highlights the global data sharing barrier.
+
+### Executable R Code for Figure 1
+
+```{r figure_1, fig.width=12, fig.height=8}
+# Load the cleaned dataset
+clean_data <- read_feather("fecal_indicators_clean.feather", as_data_frame = FALSE)
+
+# Collapse ecosystem types
+ecosystem_data <- clean_data %>%
+  select(loc_type, BWCat, lat, lon) %>%
+  filter(!is.na(lat) & !is.na(lon)) %>%
+  collect() %>%
+  mutate(
+    ecosystem = case_when(
+      loc_type %in% c("river/stream", "canal", "ditch", "spring") ~ "River",
+      loc_type %in% c("lake", "reservoir", "pond", "wetland") ~ "Lake",
+      loc_type == "ocean" | BWCat == "C" ~ "Ocean",
+      loc_type == "estuary" | BWCat == "T" ~ "Estuary",
+      TRUE ~ "Other/Unknown"
+    )
+  )
+
+# Get world map outline in Robinson projection
+world <- ne_countries(scale = "medium", returnclass = "sf")
+world_robin <- st_transform(world, crs = "+proj=robin")
+
+# Project coordinates to Robinson projection for hexbinning
+coords <- as.matrix(ecosystem_data[, c("lon", "lat")])
+# Clean coords to ensure they are within bounds
+valid_idx <- coords[, 1] >= -180 & coords[, 1] <= 180 & coords[, 2] >= -90 & coords[, 2] <= 90
+coords_clean <- coords[valid_idx, ]
+proj_coords <- sf_project(
+  from = "+proj=longlat +datum=WGS84",
+  to = "+proj=robin",
+  pts = coords_clean
+)
+proj_df <- data.frame(x = proj_coords[, 1], y = proj_coords[, 2])
+
+# Main map plot
+p_map <- ggplot() +
+  geom_sf(data = world_robin, fill = "#f0f0f0", color = "#d9d9d9", size = 0.15) +
+  geom_hex(data = proj_df, aes(x = x, y = y), bins = 90, alpha = 0.85) +
+  scale_fill_viridis_c(
+    option = "magma", 
+    trans = "log10", 
+    direction = -1, 
+    name = "Observations\n(Log10 Count)"
+  ) +
+  theme_void() +
+  labs(
+    title = "Global Fecal Indicator Bacteria (FIB) Data Density",
+    subtitle = "Severe geographic disparities driven by both monitoring infrastructure and public data sharing"
+  ) +
+  theme(
+    plot.title = element_text(face = "bold", size = 15, hjust = 0.5, color = "#2d2d2d"),
+    plot.subtitle = element_text(size = 11, hjust = 0.5, color = "#666666", margin = margin(b = 10)),
+    legend.position = "bottom",
+    legend.key.width = unit(1.5, "cm")
+  )
+
+# Ecosystem distribution barplot (inset)
+p_eco <- ecosystem_data %>%
+  filter(ecosystem != "Other/Unknown") %>%
+  count(ecosystem) %>%
+  ggplot(aes(x = reorder(ecosystem, n), y = n / 1e6, fill = ecosystem)) +
+  geom_col(width = 0.55, show.legend = FALSE) +
+  scale_fill_brewer(palette = "Blues", direction = -1) +
+  coord_flip() +
+  theme_minimal(base_size = 9) +
+  theme(
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    plot.background = element_rect(fill = "white", color = "#d9d9d9", size = 0.5),
+    plot.title = element_text(face = "bold", size = 10, color = "#2d2d2d"),
+    axis.title = element_text(size = 8, color = "#666666"),
+    axis.text = element_text(size = 8, color = "#2d2d2d")
+  ) +
+  labs(
+    title = "Observations by Ecosystem",
+    x = NULL,
+    y = "Observations (Millions)"
+  )
+
+# Place the inset barplot in the Russia/China area (upper right panel coordinates)
+p_combined <- p_map + inset_element(p_eco, left = 0.58, bottom = 0.52, right = 0.96, top = 0.88)
+print(p_combined)
+```
+
+---
+
+# 2. Figure 2: Sampling Objectives & Mismatched Frequencies
+
+### Conceptual Description
+* **Aims:** Demonstrate that even within the same geographic region (Southern California), sampling designs are fragmented and serve different objectives. This shows the contrast between daily recreational monitoring, monthly regulatory compliance, and quarterly trend analysis.
+* **Visual Components:**
+  * **Left Panel (Map):** A zoomed-in local map of Southern California coast (using a local projection) plotting the locations of three co-located sites:
+    1. **Swimming/Recreation Site (Daily):** Marina del Rey Beach.
+    2. **Regulatory Attainment Site (Monthly):** Orange County / Aliso Beach area.
+    3. **Long-Term Trend Site (Quarterly):** Hathaway Creek, Morongo Reservation.
+  * **Right Panel (Timeseries):** Stacked multi-year timeseries plots showing the actual observation intervals for these three sites in 2022–2023.
+* **Key Findings & Concept:**
+  * **Swimming (Daily):** Protecting swimmers from pathogen exposure requires high-frequency (daily) monitoring to capture transient beach closures.
+  * **Regulatory Compliance (Monthly):** Checking if a waterbody meets Clean Water Act water quality standards is typically satisfied by monthly regulatory grabs.
+  * **Long-Term Trends (Quarterly):** Tracking multi-year effects of climate change or agricultural policy can be satisfied by low-frequency quarterly samples.
+  * Tying these frequencies to different management objectives highlights why "abundant data" (which is mostly monthly/quarterly) cannot be used to protect recreational swimmers.
+
+### Executable R Code for Figure 2
+
+```{r figure_2, fig.width=12, fig.height=7}
+# Load CA map boundaries
+ca_map <- ne_states(country = "United States of America", returnclass = "sf") %>%
+  filter(name == "California")
+
+# Define three representative sites in Southern CA
+site_coords <- data.frame(
+  site_id = c("CABEACH_WQX-MDRH-1", "CABEACH_WQX-OC-090", "MORONGO1_WQX-HE1"),
+  label = c("1) Swimming (Daily Req.)", "2) Regulatory (Monthly Req.)", "3) Long-Term Trend (Quarterly Req.)"),
+  lat = c(33.981, 33.201, 33.952),
+  lon = c(-118.452, -117.412, -116.841)
+)
+
+site_coords_sf <- st_as_sf(site_coords, coords = c("lon", "lat"), crs = 4326)
+
+# Plot zoomed-in Southern California map
+p_ca_map <- ggplot() +
+  geom_sf(data = ca_map, fill = "#fdfdfd", color = "#b0b0b0", size = 0.3) +
+  geom_sf(data = site_coords_sf, aes(color = label, shape = label), size = 5) +
+  scale_color_manual(
+    values = c(
+      "1) Swimming (Daily Req.)" = "#e34a33", 
+      "2) Regulatory (Monthly Req.)" = "#31a354", 
+      "3) Long-Term Trend (Quarterly Req.)" = "#2b8cbe"
+    ),
+    name = "Monitoring Objective"
+  ) +
+  scale_shape_manual(
+    values = c(
+      "1) Swimming (Daily Req.)" = 16, 
+      "2) Regulatory (Monthly Req.)" = 17, 
+      "3) Long-Term Trend (Quarterly Req.)" = 15
+    ),
+    name = "Monitoring Objective"
+  ) +
+  coord_sf(xlim = c(-119.2, -116.5), ylim = c(33.0, 34.4), expand = FALSE) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    legend.direction = "vertical",
+    legend.box.background = element_rect(color = "#d9d9d9", size = 0.5),
+    panel.background = element_rect(fill = "#e8f2ff", color = NA), # Ocean fill
+    plot.title = element_text(face = "bold", size = 12, color = "#2d2d2d")
+  ) +
+  labs(
+    title = "A) Southern California Sites",
+    x = "Longitude", y = "Latitude"
+  )
+
+# Extract observations for 2022-2023 for these three sites
+ts_data <- clean_data %>%
+  filter(site_id %in% c("CABEACH_WQX-MDRH-1", "CABEACH_WQX-OC-090", "MORONGO1_WQX-HE1")) %>%
+  collect() %>%
+  filter(date >= as.Date("2022-01-01") & date <= as.Date("2023-12-31")) %>%
+  mutate(
+    label = case_when(
+      site_id == "CABEACH_WQX-MDRH-1" ~ "1) Swimming (Daily Req.)",
+      site_id == "CABEACH_WQX-OC-090" ~ "2) Regulatory (Monthly Req.)",
+      site_id == "MORONGO1_WQX-HE1" ~ "3) Long-Term Trend (Quarterly Req.)"
+    )
+  )
+
+# Generate stacked timeseries plot
+p_ts <- ggplot(ts_data, aes(x = date, y = val, color = label, shape = label)) +
+  geom_line(size = 0.4, alpha = 0.5) +
+  geom_point(size = 2) +
+  scale_y_log10(labels = scales::comma) +
+  scale_color_manual(
+    values = c(
+      "1) Swimming (Daily Req.)" = "#e34a33", 
+      "2) Regulatory (Monthly Req.)" = "#31a354", 
+      "3) Long-Term Trend (Quarterly Req.)" = "#2b8cbe"
+    )
+  ) +
+  scale_shape_manual(
+    values = c(
+      "1) Swimming (Daily Req.)" = 16, 
+      "2) Regulatory (Monthly Req.)" = 17, 
+      "3) Long-Term Trend (Quarterly Req.)" = 15
+    )
+  ) +
+  facet_wrap(~label, ncol = 1, scales = "free_y") +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    strip.text = element_text(face = "bold", size = 9, hjust = 0),
+    panel.grid.minor = element_blank(),
+    plot.title = element_text(face = "bold", size = 12, color = "#2d2d2d")
+  ) +
+  labs(
+    title = "B) Observations (2022-2023)",
+    x = "Date",
+    y = "E. coli / Fecal Coliform Concentration (CFU/100mL)"
+  )
+
+# Combine map and timeseries side-by-side
+p_fig2_combined <- p_ca_map + p_ts + plot_layout(widths = c(1, 1.3))
+print(p_fig2_combined)
+```
+
+---
+
+# 3. Figure 3: Quantifying the Actionability Gap
+
+### Conceptual Description
+* **Aims:** Provide a quantitative summary of the data density bottleneck and sampling frequency limitations across the entire global dataset.
+* **Visual Components:**
+  * **Panel A (Data Volume):** A cumulative distribution function (CDF) or step-survival curve showing the percentage of sites that survive as the minimum observation threshold ($N$) increases from 1 to 1,000.
+  * **Panel B (Sampling Interval):** A bar plot of the average sampling return interval (Daily, Weekly, Monthly, Quarterly, Yearly, $> \text{Yearly}$) for all multi-sample sites.
+* **Key Findings:**
+  * Most sites have very few observations: **only 11.8% of sites have $\ge 100$ observations**, and only **1.0% have $\ge 500$ observations**.
+  * Among sites with at least 2 samples, **only 6.08% are monitored on a daily or near-daily basis** ($\le 1.5$ days). The vast majority are monitored **monthly (35.4%)** or **quarterly (27.0%)**, which fails to match the fast-changing kinetics of waterborne pathogen spikes.
+
+### Executable R Code for Figure 3
+
+```{r figure_3, fig.width=12, fig.height=6}
+# Group by site and calculate observation counts and spans
+site_summary <- clean_data %>%
+  select(site_id, lat, lon, date) %>%
+  collect() %>%
+  mutate(
+    site_key = if_else(is.na(site_id), paste0("coord_", lat, "_", lon), site_id)
+  ) %>%
+  group_by(site_key) %>%
+  summarise(
+    n_obs = n(),
+    min_date = min(date),
+    max_date = max(date),
+    span_days = as.numeric(max_date - min_date),
+    .groups = "drop"
+  )
+
+# Part A: Threshold survival curve
+thresholds <- c(1, 2, 5, 10, 20, 50, 100, 250, 500, 1000)
+survival_df <- data.frame(
+  threshold = thresholds,
+  sites = sapply(thresholds, function(t) sum(site_summary$n_obs >= t))
+) %>%
+  mutate(pct = (sites / nrow(site_summary)) * 100)
+
+p_survival <- ggplot(survival_df, aes(x = factor(threshold), y = pct, group = 1)) +
+  geom_line(color = "#3182bd", size = 1.1) +
+  geom_point(color = "#08519c", size = 3) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(face = "bold", size = 12, color = "#2d2d2d"),
+    axis.title = element_text(size = 9, color = "#666666"),
+    panel.grid.minor = element_blank()
+  ) +
+  labs(
+    title = "A) Site Data Volume Survival Curve",
+    x = "Minimum Observations per Site",
+    y = "Percentage of Global Sites (%)"
+  )
+
+# Part B: Sampling interval distribution
+interval_df <- site_summary %>%
+  filter(n_obs >= 2) %>%
+  mutate(
+    avg_interval = span_days / (n_obs - 1)
+  ) %>%
+  mutate(
+    interval_cat = case_when(
+      avg_interval <= 1.5 ~ "Daily\n(<=1.5d)",
+      avg_interval > 1.5 & avg_interval <= 8 ~ "Weekly\n(1.5-8d)",
+      avg_interval > 8 & avg_interval <= 31 ~ "Monthly\n(8-31d)",
+      avg_interval > 31 & avg_interval <= 92 ~ "Quarterly\n(31-92d)",
+      avg_interval > 92 & avg_interval <= 366 ~ "Yearly\n(92-366d)",
+      avg_interval > 366 ~ "Longer\n(>366d)",
+      TRUE ~ "Unknown"
+    )
+  ) %>%
+  count(interval_cat) %>%
+  mutate(pct = (n / sum(n)) * 100)
+
+# Reorder categories logically
+interval_df$interval_cat <- factor(
+  interval_df$interval_cat, 
+  levels = c("Daily\n(<=1.5d)", "Weekly\n(1.5-8d)", "Monthly\n(8-31d)", "Quarterly\n(31-92d)", "Yearly\n(92-366d)", "Longer\n(>366d)")
+)
+
+p_intervals <- ggplot(interval_df, aes(x = interval_cat, y = pct, fill = interval_cat)) +
+  geom_col(show.legend = FALSE, width = 0.55) +
+  scale_fill_brewer(palette = "Blues", direction = -1) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(face = "bold", size = 12, color = "#2d2d2d"),
+    axis.title = element_text(size = 9, color = "#666666"),
+    panel.grid.minor = element_blank()
+  ) +
+  labs(
+    title = "B) Distribution of Sampling Return Intervals",
+    x = "Sampling Interval Category",
+    y = "Percentage of Multi-Sample Sites (%)"
+  )
+
+# Combine plots side-by-side
+p_fig3_combined <- p_survival + p_intervals
+print(p_fig3_combined)
+```
+
+---
+
+# Figure 4: Reclaiming Recreation Days through High-Frequency Monitoring
+
+### Conceptual Description
+* **Aims:** Demonstrate that bacterial pollution in recreational waters is not a permanent state, but rather a transient condition (usually weather- or discharge-driven). High-frequency (daily) data allows water managers to safely "reclaim" hundreds of recreation days that are otherwise lost to conservative, long-term regulatory closures or public distrust.
+* **Visual Components:**
+  * **Panel A (Global Daily Site Safety):** A donut or pie chart summarizing the safety status of all samples collected at daily-monitored *E. coli* sites globally. It highlights that even at these high-monitoring sites, the water is safe for contact recreation **85% of the time** (concentration $\le 235$ CFU/100mL).
+  * **Panel B (European Case Study):** A timeseries of Zeebrugge Beach, Belgium during the Summer of 2008. It illustrates the transient nature of pollution spikes (exceeding the EU Bathing Water Directive limit of 500 CFU/100mL) and shows how quickly water quality recovers to safe levels (under 48 hours).
+* **Key Findings & Concept:**
+  * Pollution is a passing state, not a permanent attribute of most beaches. 
+  * With monthly sampling, a single bad sample can impair a beach for an entire month. High-frequency daily sampling allows managers to target closures precisely (15% of the time) and keep the waters open for recreation on the remaining 85% of safe days.
+
+### Executable R Code for Figure 4
+
+```{r figure_4, fig.width=12, fig.height=6}
+# Panel A: Create data for daily site safety donut chart
+# Computed from global daily E. coli sites (N=12,948 samples across 36 sites)
+# 85% safe (<= 235 CFU/100mL), 15% unsafe (> 235)
+safe_df <- data.frame(
+  Status = c("Safe (<235 CFU)", "Unsafe (>235 CFU)"),
+  Percentage = c(85.0, 15.0)
+)
+
+p_safe <- ggplot(safe_df, aes(x = "", y = Percentage, fill = Status)) +
+  geom_col(width = 0.55, color = "white", size = 1) +
+  coord_polar("y", start = 0) +
+  scale_fill_manual(values = c("Safe (<235 CFU)" = "#31a354", "Unsafe (>235 CFU)" = "#de2d26")) +
+  theme_void() +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold", size = 12, hjust = 0.5, color = "#2d2d2d")
+  ) +
+  labs(title = "A) Daily E. coli Site Safety Rates\n(N=12,948 samples)")
+
+# Panel B: Case study timeseries for Belgium site eionet_51.3106_3.1005 (Summer 2008)
+belgium_ts <- clean_data %>%
+  filter(site_id == "eionet_51.3106_3.1005") %>%
+  collect() %>%
+  filter(lubridate::year(date) == 2008 & lubridate::month(date) %in% 5:9) %>%
+  group_by(date) %>%
+  summarise(val = max(val), .groups = "drop")
+
+p_belgium <- ggplot(belgium_ts, aes(x = date, y = val)) +
+  geom_hline(yintercept = 500, linetype = "dashed", color = "#de2d26", size = 0.8) +
+  geom_line(color = "gray60", size = 0.6) +
+  geom_point(aes(color = val > 500), size = 2.5) +
+  annotate("text", x = as.Date("2008-05-15"), y = 600, label = "EU Bathing Limit (500)", 
+           color = "#de2d26", fontface = "italic", size = 3.5, hjust = 0) +
+  scale_color_manual(values = c("FALSE" = "#31a354", "TRUE" = "#de2d26")) +
+  scale_y_log10(labels = scales::comma) +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    plot.title = element_text(face = "bold", size = 12, color = "#2d2d2d"),
+    axis.title = element_text(size = 9, color = "#666666"),
+    panel.grid.minor = element_blank()
+  ) +
+  labs(
+    title = "B) Case Study: Zeebrugge Beach, Belgium (Summer 2008)",
+    subtitle = "High-frequency monitoring reveals transient spikes; water recovers to safe levels within 48 hours",
+    x = "Date",
+    y = "E. coli (CFU/100mL) [Log Scale]"
+  )
+
+# Combine plots side-by-side
+p_fig4_combined <- p_safe + p_belgium + plot_layout(widths = c(1, 1.8))
+print(p_fig4_combined)
+```
+
+---
+
+# 5. Discussion & Synthesis Plan for the Paper
+
+### 1. The Public Data Access and Sharing Gap
+* The apparent "data sparsity" in regions like Russia, China, and parts of South America is likely due to **portal accessibility barriers** rather than a true absence of monitoring. These countries maintain major industrial, agricultural, and urban water centers, which require active monitoring. However, their data is locked in national agencies or offline databases. 
+* *Scientific Recommendation:* The paper should argue that resolving global water security requires standardized international data-sharing treaties, similar to global meteorological reporting (WMO), rather than just funding new monitoring stations.
+
+### 2. The Public Health Mismatch (Swimming vs. Standards)
+* Regulatory thresholds (such as the EPA limit of 235 CFU/100mL for E. coli) are based on gastrointestinal illness risks. However, applying these limits to weekly or monthly samples creates a **high rate of false negatives** (missing transient pathogen spikes) and **false positives** (keeping beaches closed long after storm runoff has cleared).
+* Because standard incubation-based laboratory tests require 24 hours to return results, beach closures are always **reactive** (representing yesterday's water quality).
+
+### 3. Policy and Future Research Recommendations
+* **Event-Based Sampling:** Move away from rigid weekly calendars to weather-driven/precipitation-triggered sampling.
+* **Predictive Modeling:** Develop machine learning/statistical models using rainfall, turbidity, and river discharge to predict water safety in real-time.
+* **Rapid Diagnostic Integration:** Push for the widespread adoption of qPCR and automated enzymatic sensors to replace legacy 24-hour incubation methods.

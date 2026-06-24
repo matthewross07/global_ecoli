@@ -1,0 +1,13 @@
+# Ignore large binary feather files
+*.feather
+
+# R session history and user files
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# Temporary and log files
+*.log
+*.txt
+temp.feather
