@@ -20,6 +20,13 @@
     publishes only annual aggregates, not point observations.
 - All concentrations standardized to **CFU/100 mL**; original unit retained in `orig_unit`.
 - 9 point-observation sources + 1 annual-summary source (ANA) actually reached the final data.
+- **This paper is freshwater-focused.** `clean_data.R` cleans the harmonized data
+  (→ 9,044,108 records), restricts to inland freshwaters — excluding marine (`loc_type`
+  ocean/estuary **or** `BWCat` C/T) and groundwater — then resolves the unlabeled bucket
+  (reclassify Eionet `BWCat` L/R→lake/river; drop records with no `loc_type` and no
+  `BWCat`), yielding the **5,314,791-record freshwater analysis dataset**
+  (`fecal_indicators_clean.feather`). Counts in M2 below are **full-database** (incl.
+  marine); freshwater per-source counts are in `paper_outline.Rmd` §M.1.
 
 ## M2. Source contributions (point observations)
 
@@ -113,12 +120,18 @@ Full inventory with reasons in `data_sources_summary.csv`. Highlights:
   - ~1 km cross-source dedup tolerance may merge distinct nearby sites or miss true duplicates.
   - "Sharing gap": Russia/China and much of the Global South effectively absent despite likely
     national networks.
+  - **Freshwater scope:** marine/coastal bathing waters are excluded by design, so
+    enterococci (a marine indicator) is not a coverage gap here. The 'other'/unknown
+    `loc_type` bucket (506,058) was resolved: 212,554 Eionet inland bathing waters
+    reclassified to lake/river via `BWCat`, and 293,504 records lacking any `loc_type`/`BWCat`
+    signal dropped as not verifiably inland.
 
 ## M7. Open items / to verify before drafting
 
-- Confirm whether ANA annual data is used in the paper's headline counts or held aside (schema
-  differs — no individual obs).
-- Decide how WPdx (water-point, mostly developing-country, fecal-coliform-only) is framed —
-  small N but fills a geographic void.
-- Per-source temporal coverage table (start years above are approximate) if a temporal figure
-  is needed.
+- *Resolved:* ANA and WPdx are framed as **illustrative cases of global data-availability**
+  (ANA = sharing gap, annual-only public release; WPdx = fragmentary Global-South coverage),
+  not special cases. ANA annual stays in `harmonized_annual.feather`, outside per-obs counts.
+- **Rebuild marine-dependent figures on the freshwater dataset** (Fig 1 ecosystem inset,
+  Fig 2 recreation site, Fig 4 case study) — see `outline_review_flags.md`.
+- Per-source temporal coverage table (start years in `data_sources_summary.csv` are
+  approximate) if a temporal figure is needed.

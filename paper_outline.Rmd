@@ -39,49 +39,52 @@ Fecal Indicator Bacteria (FIB) datasets are our primary tool for protecting publ
 > excluded sources and reasons) is in `data_sources_summary.csv`.
 
 ### Overview
-* We assembled a harmonized, global database of fecal indicator bacteria (FIB)
-  concentrations from **nine public point-observation networks plus one annual-summary
-  source**, totaling **9,055,019 individual observations** (≈9.0 million after final
-  cleaning) standardized to a common schema and unit (**CFU/100 mL**).
-* The compilation was **prioritized around *Escherichia coli*** as the target indicator.
-  Other FIB (fecal coliform, total coliform, intestinal enterococci, fecal streptococci)
-  were captured where co-reported, but were **not exhaustively retrieved from every
-  source** (see *Indicator scope & coverage limits* below). The database is therefore
-  best described as an *E. coli–anchored* FIB dataset, not a comprehensive census of all
-  fecal-indicator monitoring.
+* This study is **freshwater-focused.** We assembled a harmonized global database of fecal
+  indicator bacteria (FIB) concentrations from **nine public point-observation networks plus
+  one annual-summary source**, standardized to a common schema and unit (**CFU/100 mL**).
+  After cleaning and restriction to inland freshwaters, the analysis dataset comprises
+  **5,314,791 individual observations** (`fecal_indicators_clean.feather`).
+* ***E. coli* is the appropriate primary indicator for freshwater** recreational and drinking
+  exposure (US EPA freshwater criteria; EU inland bathing standards), and it is the most
+  abundant indicator here (~43% of freshwater records). Other co-reported indicators (fecal
+  coliform, total coliform, intestinal enterococci, fecal streptococci) are retained where
+  available. **Marine/coastal bathing waters — and the enterococci-based monitoring that
+  dominates them — are out of scope by design** (see M.4).
+* **By ecosystem**, the freshwater data are dominated by rivers/streams (72.4%) and lakes
+  (22.6%), with reservoirs (2.1%), canals (1.9%), and ditches, springs, wetlands, and ponds
+  making up the remainder.
 
 ### M.1 Data sources
-| Source | Region | Observations | Access |
+Counts below are **freshwater observations** contributed by each source after cleaning
+(full-database counts, including marine, are in `methods_digest.md`).
+
+| Source | Region | Freshwater obs | Access |
 |---|---|--:|---|
-| WQP (US Water Quality Portal) | United States | 4,901,716 | API (`dataRetrieval`) |
-| Eionet (EEA Bathing Water Directive) | EU/EEA | 2,448,202 | Web/CDR scrape + XML/GML |
-| UK Open WIMS (EA Water Quality Archive) | United Kingdom | 495,119 | REST API |
-| GEMStat (UN GEMS/Water) | Global (ex-US) | 412,067 | Manual (Zenodo release) |
-| DataStream | Canada | 403,952 | API (`datastreamr`) |
-| NMMP | South Africa | 167,521 | Manual CSV |
-| Hub'Eau (Naïades) | France | 151,723 | API (`hubeau`) |
-| LAWA | New Zealand | 67,129 | Manual Excel |
-| WPdx (Water Point Data Exchange) | Global water points | 7,590 | Manual CSV |
+| WQP (US Water Quality Portal) | United States | 3,321,490 | API (`dataRetrieval`) |
+| Eionet (EEA Bathing Water Directive) | EU/EEA | 763,440 | Web/CDR scrape + XML/GML |
+| GEMStat (UN GEMS/Water) | Global (ex-US) | 399,706 | Manual (Zenodo release) |
+| DataStream | Canada | 296,913 | API (`datastreamr`) |
+| UK Open WIMS (EA Water Quality Archive) | United Kingdom | 189,485 | REST API |
+| NMMP | South Africa | 161,467 | Manual CSV |
+| Hub'Eau (Naïades) | France | 146,650 | API (`hubeau`) |
+| LAWA | New Zealand | 35,248 | Manual Excel |
+| WPdx (Water Point Data Exchange) | Global water points | 392 | Manual CSV |
 | ANA *(annual summaries only)* | Brazil | 14,853 | Manual CSV → separate table |
 
 * Five sources required **manual download** (GEMStat, NMMP, WPdx, LAWA, ANA); the rest
   were retrieved programmatically. Acquisition scripts are versioned in the companion
   data-pipeline repository.
 
-### M.2 Indicator scope & coverage limits *(state plainly; do not overclaim)*
-* The harmonized data span multiple indicators, with **no single indicator dominant**:
-  E. coli ≈ 3.46 M obs (~38%), fecal coliform ≈ 2.58 M (~29%), intestinal enterococci
-  ≈ 1.46 M (~16%), total coliform ≈ 1.26 M (~14%), fecal streptococci ≈ 0.28 M (~3%).
-* **Indicator capture is source-dependent and incomplete.** Notably:
-  * **WQP returned zero intestinal enterococci** (the characteristic was not in our query
-    list), and **Hub'Eau (France) also captured no enterococci** despite its availability.
-  * Because **enterococci is the primary recommended *marine/coastal* indicator** (US EPA;
-    EU Bathing Water Directive), coastal monitoring effort in the two largest single-country
-    sources is **undercounted**. Cross-region comparisons of "FIB monitoring intensity"
-    should be read with this in mind.
-* Implication for downstream analyses: site- and region-level **sampling-frequency and
-  ecosystem comparisons may be biased by which indicators were retrieved**, not only by
-  true monitoring effort.
+### M.2 Indicator mix (freshwater)
+* Within the freshwater dataset, no single indicator is dominant:
+  **E. coli 2,308,643 (43.4%)**, fecal coliform 1,692,665 (31.8%), total coliform
+  560,355 (10.5%), intestinal enterococci 479,053 (9.0%), fecal streptococci
+  274,075 (5.2%).
+* Retrieval was **prioritized around *E. coli***; other indicators were captured where
+  co-reported, so per-source coverage of non–E. coli indicators is uneven (e.g., enterococci
+  here come almost entirely from European inland bathing waters). Because the study is
+  freshwater- and E. coli–anchored, this is a scope choice rather than a coverage gap — but
+  cross-indicator comparisons of *total* monitoring effort should still be made cautiously.
 
 ### M.3 Harmonization
 * **Units:** all concentrations converted to **CFU/100 mL**; original unit retained
@@ -97,12 +100,37 @@ Fecal Indicator Bacteria (FIB) datasets are our primary tool for protecting publ
   `date | indicator | value | ~1 km lat/lon`, retaining the most metadata-complete record.
 * Default state backfill: WQP→"USA", DataStream→"Canada" where missing.
 
-### M.4 Cleaning
-* Final cleaning (`clean_data.R`) restricts to the canonical FIB keep-list, removes
-  invalid units/values, and yields the ~9.0 M-record analysis dataset
-  (`fecal_indicators_clean.feather`).
+### M.4 Cleaning & freshwater restriction (`clean_data.R`)
+* From the 9,055,019 harmonized records, cleaning keeps the canonical FIB keep-list and
+  removes invalid dates (outside 1950–2026), out-of-range/`(0,0)` coordinates, and
+  negative/extreme values (>10⁷ CFU/100 mL), leaving **9,044,108 cleaned records**.
+* **Freshwater restriction.** Each record is classified as marine, groundwater, or
+  freshwater. **Marine** is flagged by `loc_type` (ocean/estuary) **or** by the Eionet
+  bathing-water category `BWCat` (`C` = coastal, `T` = transitional); `BWCat` overrides an
+  ambiguous `loc_type`, which prevents coastal sites from hiding in the "other/unknown"
+  bucket. **Groundwater/well** is excluded (distinct exposure pathway). This removes
+  **3,409,529 marine** and **26,284 groundwater** records (→ 5,608,295).
+* **Other/unknown resolution.** 506,058 records arrived with `loc_type` = other/NA; the
+  marine guard leaves only `BWCat` L/R/NA here (no coastal leak). We **reclassify by
+  `BWCat`** — `L`→lake (161,801) and `R`→river/stream (50,753), i.e. 212,554 European
+  inland bathing waters relabeled — and **drop the 293,504 records that carry neither a
+  usable `loc_type` nor a `BWCat`**, as they cannot be verified as inland. The final dataset
+  is **5,314,791 freshwater records** (≈59% of the cleaned data), with no remaining
+  'other'/unknown `loc_type`.
 
-### M.5 Excluded sources, gaps, and the access spectrum
+### M.5 Geographic distribution (freshwater)
+* The freshwater data remain dominated by a few regions: **United States ≈ 62.9%**,
+  **Europe ≈ 20.7%**, **Canada ≈ 5.7%**, **rest of world ≈ 10.7%** (≈89.3% from the
+  US, Europe, and Canada combined).
+* Restricting to freshwater **raises** the relative Global-South share (10.7% vs. ~6.9%
+  across all water types), because Europe's contribution is heavily *coastal* bathing-water
+  data that drops out. Leading non-US/Europe/Canada contributors: Mexico (256k), South
+  Africa (161k), India (106k), New Zealand (35k).
+* *(Supersedes the Executive Summary's "54.3% US / 43.7% Europe & Canada" figures, which
+  were computed on all water types and mis-assigned global GEMStat records — see
+  `outline_review_flags.md`.)*
+
+### M.6 Excluded sources, gaps, and the access spectrum
 * A full accounting of attempted-but-excluded sources is in `data_sources_summary.csv`.
   Excluded for **known reasons** include Australia (Queensland; access wall), China (ESSD;
   monthly aggregates only), India (CPCB; access wall + aggregation), and EEA pre-2006

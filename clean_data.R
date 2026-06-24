@@ -4,7 +4,9 @@ library(tidyr)
 library(lubridate)
 
 # Input and Output file paths
-input_file <- "harmonized.feather"
+# Input: the harmonized DB produced by the data pipeline (sibling repo).
+# Output: the FRESHWATER-focused cleaned dataset this paper is built from.
+input_file <- "../../pipeline/data/harmonized/harmonized.feather"
 output_file <- "fecal_indicators_clean.feather"
 
 cat("Opening input feather database...\n")
@@ -90,9 +92,55 @@ clean_tab <- tab %>%
   ) %>%
   # Overwrite original var column with the cleaned/harmonized version
   mutate(var = var_clean) %>%
-  select(-var_clean)
+  select(-var_clean) %>%
 
-cat("Writing cleaned data to", output_file, "with ZSTD compression...\n")
+  # 6. Classify water-body type. This paper is FRESHWATER-focused.
+  #    Marine is flagged by loc_type (ocean/estuary) OR by the Eionet bathing-water
+  #    category BWCat ("C" = coastal, "T" = transitional/estuarine). BWCat overrides a
+  #    missing/ambiguous loc_type, which is what keeps coastal bathing sites from
+  #    leaking into the "other/unknown" bucket. Groundwater is a distinct exposure
+  #    pathway and is also excluded. Everything else -- rivers, lakes, reservoirs,
+  #    ponds, canals, ditches, springs, wetlands, and other/unknown -- is freshwater.
+  mutate(
+    water_type = case_when(
+      loc_type %in% c("ocean", "estuary") | BWCat %in% c("C", "T") ~ "marine",
+      loc_type == "groundwater/well" ~ "groundwater",
+      TRUE ~ "freshwater"
+    )
+  )
+
+cat("--- WATER-TYPE BREAKDOWN (of cleaned records) ---\n")
+print(clean_tab %>% count(water_type) %>% collect() %>% arrange(desc(n)))
+cat("\n")
+
+# Apply the freshwater focus: drop marine and groundwater records.
+clean_tab <- clean_tab %>%
+  filter(water_type == "freshwater") %>%
+  select(-water_type)
+
+# Resolve the 'other/unknown' loc_type bucket.
+#   Eionet inland bathing waters encode their body type in BWCat ("L" = lake, "R" = river)
+#   even when loc_type arrived as "other"/NA -- reclassify those. The marine guard above
+#   leaves only BWCat L / R / NA in this bucket (no coastal "C" or transitional "T").
+#   Records with NEITHER a usable loc_type NOR a BWCat signal cannot be verified as inland
+#   and are DROPPED.
+cat("--- 'OTHER/UNKNOWN' loc_type bucket, by BWCat (expect only L / R / NA) ---\n")
+ou_bucket <- clean_tab %>% filter(loc_type == "other" | is.na(loc_type))
+print(ou_bucket %>% count(BWCat) %>% collect() %>% arrange(desc(n)))
+n_bucket <- ou_bucket %>% summarise(n = n()) %>% collect() %>% pull(n)
+
+clean_tab <- clean_tab %>%
+  mutate(loc_type = case_when(
+    (loc_type == "other" | is.na(loc_type)) & BWCat == "L" ~ "lake",
+    (loc_type == "other" | is.na(loc_type)) & BWCat == "R" ~ "river/stream",
+    TRUE ~ loc_type
+  )) %>%
+  filter(!(loc_type == "other" | is.na(loc_type)))
+
+cat("  bucket size:", n_bucket,
+    "-> reclassified via BWCat (L->lake, R->river/stream); BWCat=NA records dropped.\n\n")
+
+cat("Writing FRESHWATER cleaned data to", output_file, "with ZSTD compression...\n")
 write_feather(clean_tab, output_file, compression = "zstd")
 
 cat("Reading cleaned data file to verify...\n")
@@ -116,6 +164,14 @@ country_dist <- clean_tab_check %>%
   arrange(desc(n)) %>%
   head(10)
 print(country_dist)
+cat("\n")
+
+cat("--- FRESHWATER ECOSYSTEM (loc_type) DISTRIBUTION ---\n")
+loc_dist <- clean_tab_check %>%
+  count(loc_type) %>%
+  collect() %>%
+  arrange(desc(n))
+print(loc_dist)
 cat("\n")
 
 cat("Dataset cleaned successfully and saved to:", output_file, "\n")

@@ -12,17 +12,20 @@ counts from `harmonized.feather`, and `methods_digest.md`.
 
 ## §1 Executive Summary & Core Thesis
 
-- 🔴 **"43.7% from Europe and Canada"** — does not reconcile with the data. From
-  `country_summary.csv`, US ≈ 54.4% (✓ matches "54.3%"), but Europe + Canada sums to
-  **≈38.7%**, not 43.7%. The "54.3% + 43.7% = 98%" framing implies only ~2% for the rest
-  of the world, yet **Mexico (268k), South Africa (167k), India (106k), New Zealand (67k),
-  Uruguay, Haiti** etc. are present (~7% RoW). *Fix:* recompute the regional shares; avoid
-  phrasing that erases the Global-South records we do have.
+- 🔴 **"54.3% US / 43.7% Europe & Canada" is wrong and now superseded.** Two problems:
+  (1) The 43.7% was computed by **source**, mis-assigning the globally-sourced **GEMStat**
+  records (India, Mexico, Uruguay…) to "Europe and Canada"; true all-water Europe+Canada is
+  ~38.7%. (2) The paper is now **freshwater-focused**, so the operative numbers come from the
+  freshwater dataset: **US ≈ 62.9%, Europe ≈ 20.7%, Canada ≈ 5.7%, RoW ≈ 10.7%** (≈89.3%
+  combined). *Fix:* replace the Exec Summary figures with the freshwater shares (now in
+  Methods M.5); note RoW is **larger** under the freshwater lens (coastal Europe drops out),
+  so the "98%" framing erased a real Global-South tail.
 
 - 🟡 **"our primary tool for protecting public health"** / **"FIB datasets"** framed as a
-  comprehensive whole — but our compilation is **E. coli–anchored** and unevenly captures
-  other indicators (e.g., **enterococci absent from WQP and Hub'Eau**). *Soften:* "the
-  most widely reported indicators of fecal contamination," and acknowledge indicator scope.
+  comprehensive whole — narrow to **freshwater FIB**, where *E. coli* is the appropriate
+  primary indicator. The compilation is E. coli–anchored; marine/coastal (enterococci-based)
+  monitoring is **out of scope** by design, not missing data — say so rather than implying
+  full coverage.
 
 - 🟡 **"less than 6.1% of monitoring sites globally achieve daily or near-daily sampling"**
   — Figure 3 computes this over **multi-sample sites (n ≥ 2)**, not "sites globally."
@@ -110,13 +113,21 @@ counts from `harmonized.feather`, and `methods_digest.md`.
 
 ## Cross-cutting
 
-- 🔴 **Indicator-coverage caveat is the most important omission.** Any statement framed as
-  "global FIB monitoring" should acknowledge the **E. coli-anchored, source-dependent**
-  indicator capture (esp. missing enterococci in WQP & Hub'Eau). Now stated in Methods §M.2;
-  ensure Exec Summary and figure captions don't contradict it.
+- 🔴 **Freshwater reframe breaks the marine figure components.** `clean_data.R` now outputs
+  **freshwater only** (5,314,791 records; marine/coastal + unverifiable records removed). So as written, several
+  figures will silently empty or mislead:
+  * **Fig 1** ecosystem inset — the **Ocean** and **Estuary** bins are now ~0 (those records
+    are gone). Rebuild the inset around freshwater classes (river/stream 72.4%, lake 22.6%,
+    reservoir 2.1%, canal 1.9%, …).
+  * **Fig 2** — the daily "Swimming" site is **Marina del Rey Beach** (marine) → dropped.
+    Replace with a freshwater high-frequency recreation site.
+  * **Fig 4** — the **Zeebrugge Beach** case study (Belgium coastal, `BWCat = C`) → dropped.
+    Replace with an inland spike-and-recovery example; and "Daily E. coli sites" must be
+    recomputed on freshwater.
+  *Action:* re-pick example sites from the freshwater dataset before these figures are run.
 
-- 🟡 **"9.04 million clean records"** vs **9,055,019 harmonized** — reconcile the exact
-  post-cleaning N and use it consistently.
+- 🔴 **Use the freshwater N consistently:** the analysis dataset is **5,314,791** records
+  (not "9.04 million"). The 9.0 M figure is the all-water cleaned count.
 
 - 🔵 **Data-quality artifacts** exist in source fields (e.g., a `max_date` of `2911-09-15`
   for Bulgaria; US records back to 1898) — screen before any temporal-range figure or claim.
