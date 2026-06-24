@@ -12,14 +12,14 @@ counts from `harmonized.feather`, and `methods_digest.md`.
 
 ## §1 Executive Summary & Core Thesis
 
-- 🔴 **"54.3% US / 43.7% Europe & Canada" is wrong and now superseded.** Two problems:
+- ✅ **"54.3% US / 43.7% Europe & Canada" — FIXED in Exec Summary (now ~63/~26/~11).** Two problems were:
   (1) The 43.7% was computed by **source**, mis-assigning the globally-sourced **GEMStat**
   records (India, Mexico, Uruguay…) to "Europe and Canada"; true all-water Europe+Canada is
   ~38.7%. (2) The paper is now **freshwater-focused**, so the operative numbers come from the
   freshwater dataset: **US ≈ 62.9%, Europe ≈ 20.7%, Canada ≈ 5.7%, RoW ≈ 10.7%** (≈89.3%
-  combined). *Fix:* replace the Exec Summary figures with the freshwater shares (now in
-  Methods M.5); note RoW is **larger** under the freshwater lens (coastal Europe drops out),
-  so the "98%" framing erased a real Global-South tail.
+  combined). *Resolved:* the Exec Summary now reports these freshwater shares (also in
+  Methods M.5); RoW is **larger** under the freshwater lens (coastal Europe drops out),
+  so the old "98%" framing had erased a real Global-South tail.
 
 - 🟡 **"our primary tool for protecting public health"** / **"FIB datasets"** framed as a
   comprehensive whole — narrow to **freshwater FIB**, where *E. coli* is the appropriate
@@ -29,9 +29,9 @@ counts from `harmonized.feather`, and `methods_digest.md`.
 
 - 🟡 **"less than 6.1% of monitoring sites globally achieve daily or near-daily sampling"**
   — Figure 3 computes this over **multi-sample sites (n ≥ 2)**, not "sites globally."
-  Single-observation sites are excluded from that denominator. *Fix:* align the denominator
-  wording ("of sites with ≥2 samples") between Exec Summary and Fig 3. **Note:** on freshwater
-  the value is now **7.0%**, so the "less than 6.1%" claim is no longer true.
+  Single-observation sites are excluded from that denominator. *Resolved:* the Exec Summary
+  now reads "**only ~7% of sites (with ≥2 samples)**" — matching the freshwater value (7.0%)
+  and fixing the denominator wording.
 
 - 🔵 **"absent from public, harmonized global repositories"** for Russia/China — defensible
   as stated, but pairs with the §5 "almost certainly" assertion (see Discussion).
@@ -72,13 +72,12 @@ counts from `harmonized.feather`, and `methods_digest.md`.
   *and* fecal coliform on different schedules is one "site" with pooled dates. *Verify*
   whether frequency is computed per indicator or pooled; state which.
 
-- 🔴 **Fig 3 prose now disagrees with its own (live-recomputed) figure.** Fig 3 wasn't
-  marine-broken so its code was left intact — but it recomputes on the freshwater
-  `clean_data`, so the rendered figure now shows freshwater values while the prose still
-  cites all-water numbers. Freshwater-correct values (133,328 sites; 116,489 multi-sample):
+- ✅ **Fig 3 prose updated to match its live-recomputed figure.** Fig 3 wasn't marine-broken
+  so its code was left intact, but it recomputes on the freshwater `clean_data`. Its Key
+  Findings now cite the freshwater-correct values (133,328 sites; 116,489 multi-sample):
   **≥100 obs 10.8%** (was 11.8%), **≥500 obs 0.7%** (was 1.0%); **Daily 7.0%** (was 6.08%),
   Weekly 9.1%, **Monthly 29.9%** (was 35.4%), **Quarterly 30.7%** (was 27.0%), Yearly 19.2%,
-  Longer 4.2%. *Fix:* update Fig 3's Key Findings to these.
+  Longer 4.2%.
 
 ## Figure 4 (Reclaiming Recreation Days)
 

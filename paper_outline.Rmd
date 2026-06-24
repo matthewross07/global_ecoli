@@ -24,11 +24,11 @@ library(patchwork)
 
 # 1. Executive Summary & Core Thesis
 
-Fecal Indicator Bacteria (FIB) datasets are our primary tool for protecting public health from waterborne pathogens. However, the global infrastructure for monitoring FIB is critically flawed in two distinct dimensions:
+Fecal Indicator Bacteria (FIB) datasets are our primary tool for protecting public health from waterborne pathogens. Focusing on **inland freshwaters** — rivers, lakes, and reservoirs, where *E. coli* is the standard indicator — we compiled a harmonized global dataset and find the monitoring infrastructure critically flawed in two distinct dimensions:
 
-1. **Global Spatial Sparsity & Access Barriers:** Fecal pollution monitoring is highly unequal. Of the 9.04 million clean data records available globally, over **54.3%** are from the United States and **43.7%** are from Europe and Canada. 
+1. **Global Spatial Sparsity & Access Barriers:** Fecal pollution monitoring is highly unequal. Of the **5.31 million** clean freshwater records compiled, **~63%** are from the United States and **~26%** from Europe and Canada — leaving only **~11%** for the rest of the world.
    * *The Sharing Gap:* Crucially, this geographic disparity reflects not just where monitoring occurs, but **where data is shared**. Large nations like Russia, China, and parts of South America almost certainly maintain national water quality networks, but their data is absent from public, harmonized global repositories. Thus, we face both a *collection gap* in developing nations and a *sharing gap* in major industrial nations.
-2. **Temporal Mismatch ("Regulatory Rigidity"):** Even where data is abundant, it is rarely **actionable** for real-time safety. Water quality safety fluctuates rapidly, with bacterial concentrations spiking during rain events ("first flush") and decaying within 24–48 hours. Yet, **less than 6.1% of monitoring sites globally achieve daily or near-daily sampling**. Instead, monitoring is structurally rigid, collected at weekly, monthly, or quarterly intervals, often restricted to summer bathing seasons. This regulatory-driven sampling design is blind to acute public health risks and fails to provide real-time safety metrics for drinking or recreation.
+2. **Temporal Mismatch ("Regulatory Rigidity"):** Even where data is abundant, it is rarely **actionable** for real-time safety. Water quality safety fluctuates rapidly, with bacterial concentrations spiking during rain events ("first flush") and decaying within 24–48 hours. Yet, **only ~7% of sites (with ≥2 samples) achieve daily or near-daily sampling**. Instead, monitoring is structurally rigid, collected at weekly, monthly, or quarterly intervals, often restricted to summer bathing seasons. This regulatory-driven sampling design is blind to acute public health risks and fails to provide real-time safety metrics for drinking or recreation.
 
 ---
 
@@ -126,9 +126,9 @@ Counts below are **freshwater observations** contributed by each source after cl
   across all water types), because Europe's contribution is heavily *coastal* bathing-water
   data that drops out. Leading non-US/Europe/Canada contributors: Mexico (256k), South
   Africa (161k), India (106k), New Zealand (35k).
-* *(Supersedes the Executive Summary's "54.3% US / 43.7% Europe & Canada" figures, which
-  were computed on all water types and mis-assigned global GEMStat records — see
-  `outline_review_flags.md`.)*
+* *(The Executive Summary now reports these freshwater shares. The earlier "54.3% US /
+  43.7% Europe & Canada" all-water figures mis-assigned global GEMStat records to Europe —
+  see `outline_review_flags.md`.)*
 
 ### M.6 Excluded sources, gaps, and the access spectrum
 * A full accounting of attempted-but-excluded sources is in `data_sources_summary.csv`.
@@ -277,7 +277,7 @@ site_coords <- data.frame(
 
 site_coords_sf <- st_as_sf(site_coords, coords = c("lon", "lat"), crs = 4326)
 
-# Plot zoomed-in Southern California map
+# Plot zoomed-in Wisconsin map
 p_ca_map <- ggplot() +
   geom_sf(data = ca_map, fill = "#fdfdfd", color = "#b0b0b0", size = 0.3) +
   geom_sf(data = site_coords_sf, aes(color = label, shape = label), size = 5) +
@@ -372,8 +372,8 @@ print(p_fig2_combined)
   * **Panel A (Data Volume):** A cumulative distribution function (CDF) or step-survival curve showing the percentage of sites that survive as the minimum observation threshold ($N$) increases from 1 to 1,000.
   * **Panel B (Sampling Interval):** A bar plot of the average sampling return interval (Daily, Weekly, Monthly, Quarterly, Yearly, $> \text{Yearly}$) for all multi-sample sites.
 * **Key Findings:**
-  * Most sites have very few observations: **only 11.8% of sites have $\ge 100$ observations**, and only **1.0% have $\ge 500$ observations**.
-  * Among sites with at least 2 samples, **only 6.08% are monitored on a daily or near-daily basis** ($\le 1.5$ days). The vast majority are monitored **monthly (35.4%)** or **quarterly (27.0%)**, which fails to match the fast-changing kinetics of waterborne pathogen spikes.
+  * Most sites have very few observations: **only 10.8% of sites have $\ge 100$ observations**, and only **0.7% have $\ge 500$ observations**.
+  * Among sites with at least 2 samples, **only 7.0% are monitored on a daily or near-daily basis** ($\le 1.5$ days). The vast majority are monitored **monthly (29.9%)** or **quarterly (30.7%)**, which fails to match the fast-changing kinetics of waterborne pathogen spikes.
 
 ### Executable R Code for Figure 3
 
