@@ -30,7 +30,8 @@ counts from `harmonized.feather`, and `methods_digest.md`.
 - 🟡 **"less than 6.1% of monitoring sites globally achieve daily or near-daily sampling"**
   — Figure 3 computes this over **multi-sample sites (n ≥ 2)**, not "sites globally."
   Single-observation sites are excluded from that denominator. *Fix:* align the denominator
-  wording ("of sites with ≥2 samples") between Exec Summary and Fig 3.
+  wording ("of sites with ≥2 samples") between Exec Summary and Fig 3. **Note:** on freshwater
+  the value is now **7.0%**, so the "less than 6.1%" claim is no longer true.
 
 - 🔵 **"absent from public, harmonized global repositories"** for Russia/China — defensible
   as stated, but pairs with the §5 "almost certainly" assertion (see Discussion).
@@ -71,8 +72,13 @@ counts from `harmonized.feather`, and `methods_digest.md`.
   *and* fecal coliform on different schedules is one "site" with pooled dates. *Verify*
   whether frequency is computed per indicator or pooled; state which.
 
-- 🔵 **11.8% ≥100 obs / 1.0% ≥500 obs** — verify against the cleaned dataset (numbers
-  currently asserted in prose without a shown computation).
+- 🔴 **Fig 3 prose now disagrees with its own (live-recomputed) figure.** Fig 3 wasn't
+  marine-broken so its code was left intact — but it recomputes on the freshwater
+  `clean_data`, so the rendered figure now shows freshwater values while the prose still
+  cites all-water numbers. Freshwater-correct values (133,328 sites; 116,489 multi-sample):
+  **≥100 obs 10.8%** (was 11.8%), **≥500 obs 0.7%** (was 1.0%); **Daily 7.0%** (was 6.08%),
+  Weekly 9.1%, **Monthly 29.9%** (was 35.4%), **Quarterly 30.7%** (was 27.0%), Yearly 19.2%,
+  Longer 4.2%. *Fix:* update Fig 3's Key Findings to these.
 
 ## Figure 4 (Reclaiming Recreation Days)
 
