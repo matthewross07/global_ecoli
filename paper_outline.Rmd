@@ -32,6 +32,91 @@ Fecal Indicator Bacteria (FIB) datasets are our primary tool for protecting publ
 
 ---
 
+# Methods: Global FIB Data Compilation & Harmonization
+
+> Outline draft for prose development. Full reference detail lives in
+> `methods_digest.md`; the complete machine-readable source inventory (including
+> excluded sources and reasons) is in `data_sources_summary.csv`.
+
+### Overview
+* We assembled a harmonized, global database of fecal indicator bacteria (FIB)
+  concentrations from **nine public point-observation networks plus one annual-summary
+  source**, totaling **9,055,019 individual observations** (≈9.0 million after final
+  cleaning) standardized to a common schema and unit (**CFU/100 mL**).
+* The compilation was **prioritized around *Escherichia coli*** as the target indicator.
+  Other FIB (fecal coliform, total coliform, intestinal enterococci, fecal streptococci)
+  were captured where co-reported, but were **not exhaustively retrieved from every
+  source** (see *Indicator scope & coverage limits* below). The database is therefore
+  best described as an *E. coli–anchored* FIB dataset, not a comprehensive census of all
+  fecal-indicator monitoring.
+
+### M.1 Data sources
+| Source | Region | Observations | Access |
+|---|---|--:|---|
+| WQP (US Water Quality Portal) | United States | 4,901,716 | API (`dataRetrieval`) |
+| Eionet (EEA Bathing Water Directive) | EU/EEA | 2,448,202 | Web/CDR scrape + XML/GML |
+| UK Open WIMS (EA Water Quality Archive) | United Kingdom | 495,119 | REST API |
+| GEMStat (UN GEMS/Water) | Global (ex-US) | 412,067 | Manual (Zenodo release) |
+| DataStream | Canada | 403,952 | API (`datastreamr`) |
+| NMMP | South Africa | 167,521 | Manual CSV |
+| Hub'Eau (Naïades) | France | 151,723 | API (`hubeau`) |
+| LAWA | New Zealand | 67,129 | Manual Excel |
+| WPdx (Water Point Data Exchange) | Global water points | 7,590 | Manual CSV |
+| ANA *(annual summaries only)* | Brazil | 14,853 | Manual CSV → separate table |
+
+* Five sources required **manual download** (GEMStat, NMMP, WPdx, LAWA, ANA); the rest
+  were retrieved programmatically. Acquisition scripts are versioned in the companion
+  data-pipeline repository.
+
+### M.2 Indicator scope & coverage limits *(state plainly; do not overclaim)*
+* The harmonized data span multiple indicators, with **no single indicator dominant**:
+  E. coli ≈ 3.46 M obs (~38%), fecal coliform ≈ 2.58 M (~29%), intestinal enterococci
+  ≈ 1.46 M (~16%), total coliform ≈ 1.26 M (~14%), fecal streptococci ≈ 0.28 M (~3%).
+* **Indicator capture is source-dependent and incomplete.** Notably:
+  * **WQP returned zero intestinal enterococci** (the characteristic was not in our query
+    list), and **Hub'Eau (France) also captured no enterococci** despite its availability.
+  * Because **enterococci is the primary recommended *marine/coastal* indicator** (US EPA;
+    EU Bathing Water Directive), coastal monitoring effort in the two largest single-country
+    sources is **undercounted**. Cross-region comparisons of "FIB monitoring intensity"
+    should be read with this in mind.
+* Implication for downstream analyses: site- and region-level **sampling-frequency and
+  ecosystem comparisons may be biased by which indicators were retrieved**, not only by
+  true monitoring effort.
+
+### M.3 Harmonization
+* **Units:** all concentrations converted to **CFU/100 mL**; original unit retained
+  (`orig_unit`). **MPN is treated as CFU** (an approximation), **qPCR equivalents and
+  non-convertible units (mass, turbidity, etc.) are dropped**.
+* **Censored values:** detection-limit handling records direction in `censor_side`
+  (left-censored → ½ × lower limit; right-censored → upper limit).
+* **Location type:** source-specific descriptors mapped to a controlled vocabulary
+  (river/stream, lake, ocean, estuary, canal, ditch, spring, pond, wetland, reservoir,
+  groundwater/well, other).
+* **Deduplication:** within-source averaging of repeated (site × date × time × indicator)
+  records, then **cross-source fuzzy de-duplication** keyed on
+  `date | indicator | value | ~1 km lat/lon`, retaining the most metadata-complete record.
+* Default state backfill: WQP→"USA", DataStream→"Canada" where missing.
+
+### M.4 Cleaning
+* Final cleaning (`clean_data.R`) restricts to the canonical FIB keep-list, removes
+  invalid units/values, and yields the ~9.0 M-record analysis dataset
+  (`fecal_indicators_clean.feather`).
+
+### M.5 Excluded sources, gaps, and the access spectrum
+* A full accounting of attempted-but-excluded sources is in `data_sources_summary.csv`.
+  Excluded for **known reasons** include Australia (Queensland; access wall), China (ESSD;
+  monthly aggregates only), India (CPCB; access wall + aggregation), and EEA pre-2006
+  bathing water (compliance classes, not concentrations). Colombia (IDEAM) and the APMP
+  database were identified but **not pursued (reason undocumented)**.
+* **Brazil (ANA) is an instructive case of the *sharing gap*:** sub-annual sampling
+  demonstrably exists, but the public-facing release provides **only annual min/max/median
+  summaries**, which we retain in a separate `harmonized_annual.feather` table (they cannot
+  enter the per-observation analyses). WPdx similarly contributes sparse, fragmentary
+  Global-South water-point data. Both illustrate that *public availability*, not just
+  *monitoring effort*, shapes the global picture.
+
+---
+
 # Figure 1: Global Distribution and Ecosystem Footprint
 
 ### Conceptual Description
