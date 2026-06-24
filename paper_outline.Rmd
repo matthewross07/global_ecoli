@@ -20,6 +20,28 @@ library(tidyr)
 library(sf)
 library(rnaturalearth)
 library(patchwork)
+library(scales)
+
+# Shared publication theme + palettes (used across all figures for a cohesive look)
+theme_pub <- function(base = 11) {
+  theme_minimal(base_size = base) +
+    theme(
+      plot.title = element_text(face = "bold", size = base + 1, color = "#1a1a1a"),
+      plot.subtitle = element_text(size = base - 1, color = "#5f5f5f", margin = margin(b = 8)),
+      axis.title = element_text(size = base - 1, color = "#444444"),
+      axis.text = element_text(color = "#444444"),
+      panel.grid.minor = element_blank(),
+      panel.grid.major = element_line(color = "grey92"),
+      plot.margin = margin(10, 12, 10, 12)
+    )
+}
+
+# Consistent colors for the three monitoring objectives (Fig 2)
+obj_pal <- c(
+  "1) Swimming (Daily Req.)"            = "#d7301f",
+  "2) Regulatory (Monthly Req.)"        = "#238b45",
+  "3) Long-Term Trend (Quarterly Req.)" = "#2b8cbe"
+)
 ```
 
 # 1. Executive Summary & Core Thesis
@@ -194,51 +216,55 @@ proj_df <- data.frame(x = proj_coords[, 1], y = proj_coords[, 2])
 
 # Main map plot
 p_map <- ggplot() +
-  geom_sf(data = world_robin, fill = "#f0f0f0", color = "#d9d9d9", size = 0.15) +
-  geom_hex(data = proj_df, aes(x = x, y = y), bins = 90, alpha = 0.85) +
+  geom_sf(data = world_robin, fill = "#eceff1", color = "#cfd8dc", linewidth = 0.12) +
+  geom_hex(data = proj_df, aes(x = x, y = y), bins = 62) +
   scale_fill_viridis_c(
-    option = "magma", 
-    trans = "log10", 
-    direction = -1, 
-    name = "Observations\n(Log10 Count)"
+    option = "viridis",
+    direction = -1,
+    trans = "log10",
+    labels = scales::comma,
+    name = "Observations per hex (log scale)"
   ) +
-  theme_void() +
+  guides(fill = guide_colorbar(barwidth = 14, barheight = 0.5,
+                               title.position = "top", title.hjust = 0.5)) +
+  theme_void(base_size = 11) +
   labs(
     title = "Global Freshwater Fecal Indicator Bacteria (FIB) Data Density",
     subtitle = "Severe geographic disparities driven by both monitoring infrastructure and public data sharing"
   ) +
   theme(
-    plot.title = element_text(face = "bold", size = 15, hjust = 0.5, color = "#2d2d2d"),
-    plot.subtitle = element_text(size = 11, hjust = 0.5, color = "#666666", margin = margin(b = 10)),
+    plot.title = element_text(face = "bold", size = 15, hjust = 0.5, color = "#1a1a1a"),
+    plot.subtitle = element_text(size = 11, hjust = 0.5, color = "#5f5f5f", margin = margin(b = 6)),
     legend.position = "bottom",
-    legend.key.width = unit(1.5, "cm")
+    legend.title = element_text(size = 9, color = "#444444"),
+    plot.margin = margin(8, 8, 8, 8)
   )
 
-# Ecosystem distribution barplot (inset)
+# Ecosystem distribution barplot (compact inset, with value labels)
 p_eco <- ecosystem_data %>%
   filter(ecosystem != "Other") %>%
   count(ecosystem) %>%
+  mutate(lbl = paste0(round(n / 1e6, 2), "M")) %>%
   ggplot(aes(x = reorder(ecosystem, n), y = n / 1e6, fill = ecosystem)) +
-  geom_col(width = 0.55, show.legend = FALSE) +
-  scale_fill_brewer(palette = "Blues", direction = -1) +
-  coord_flip() +
+  geom_col(width = 0.7, show.legend = FALSE) +
+  geom_text(aes(label = lbl), hjust = -0.12, size = 2.9, color = "#2d2d2d") +
+  scale_fill_manual(values = c("River/Stream" = "#2c7fb8", "Lake/Reservoir" = "#7fcdbb")) +
+  coord_flip(clip = "off") +
+  expand_limits(y = 4.9) +
+  labs(title = "Freshwater obs. by ecosystem", x = NULL, y = NULL) +
   theme_minimal(base_size = 9) +
   theme(
-    panel.grid.major.y = element_blank(),
-    panel.grid.minor = element_blank(),
-    plot.background = element_rect(fill = "white", color = "#d9d9d9", size = 0.5),
-    plot.title = element_text(face = "bold", size = 10, color = "#2d2d2d"),
-    axis.title = element_text(size = 8, color = "#666666"),
-    axis.text = element_text(size = 8, color = "#2d2d2d")
-  ) +
-  labs(
-    title = "Observations by Ecosystem",
-    x = NULL,
-    y = "Observations (Millions)"
+    panel.grid = element_blank(),
+    axis.text.x = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text.y = element_text(size = 8, color = "#2d2d2d"),
+    plot.title = element_text(face = "bold", size = 8.5, color = "#2d2d2d"),
+    plot.background = element_rect(fill = "white", color = "grey75", linewidth = 0.4),
+    plot.margin = margin(5, 7, 5, 5)
   )
 
-# Place the inset barplot in the Russia/China area (upper right panel coordinates)
-p_combined <- p_map + inset_element(p_eco, left = 0.58, bottom = 0.52, right = 0.96, top = 0.88)
+# Place the compact inset over empty ocean (lower-left / South Pacific), clear of Asian data
+p_combined <- p_map + inset_element(p_eco, left = 0.015, bottom = 0.13, right = 0.265, top = 0.32)
 print(p_combined)
 ```
 
@@ -263,9 +289,9 @@ print(p_combined)
 ### Executable R Code for Figure 2
 
 ```{r figure_2, fig.width=12, fig.height=7}
-# Load WI map boundaries
-ca_map <- ne_states(country = "United States of America", returnclass = "sf") %>%
-  filter(name == "Wisconsin")
+# Wisconsin + neighbouring-state context for the locator map
+us_states_sf <- ne_states(country = "United States of America", returnclass = "sf")
+wi <- us_states_sf %>% filter(name == "Wisconsin")
 
 # Define three representative freshwater sites in Wisconsin (Wisconsin DNR)
 site_coords <- data.frame(
@@ -277,39 +303,33 @@ site_coords <- data.frame(
 
 site_coords_sf <- st_as_sf(site_coords, coords = c("lon", "lat"), crs = 4326)
 
-# Plot zoomed-in Wisconsin map
+# Locator map: neighbouring states in grey, Wisconsin highlighted, lakes shown as water
 p_ca_map <- ggplot() +
-  geom_sf(data = ca_map, fill = "#fdfdfd", color = "#b0b0b0", size = 0.3) +
-  geom_sf(data = site_coords_sf, aes(color = label, shape = label), size = 5) +
-  scale_color_manual(
-    values = c(
-      "1) Swimming (Daily Req.)" = "#e34a33", 
-      "2) Regulatory (Monthly Req.)" = "#31a354", 
-      "3) Long-Term Trend (Quarterly Req.)" = "#2b8cbe"
-    ),
-    name = "Monitoring Objective"
-  ) +
+  geom_sf(data = us_states_sf, fill = "grey90", color = "white", linewidth = 0.4) +
+  geom_sf(data = wi, fill = "#fcfcf7", color = "#6b6b6b", linewidth = 0.6) +
+  geom_sf(data = site_coords_sf, aes(fill = label, shape = label),
+          size = 4.6, color = "white", stroke = 0.9) +
+  scale_fill_manual(values = obj_pal, name = "Monitoring Objective") +
   scale_shape_manual(
     values = c(
-      "1) Swimming (Daily Req.)" = 16, 
-      "2) Regulatory (Monthly Req.)" = 17, 
-      "3) Long-Term Trend (Quarterly Req.)" = 15
+      "1) Swimming (Daily Req.)" = 21,
+      "2) Regulatory (Monthly Req.)" = 24,
+      "3) Long-Term Trend (Quarterly Req.)" = 22
     ),
     name = "Monitoring Objective"
   ) +
-  coord_sf(xlim = c(-93.0, -86.5), ylim = c(42.3, 47.2), expand = FALSE) +
-  theme_minimal() +
+  coord_sf(xlim = c(-93.5, -86.0), ylim = c(42.2, 47.3), expand = FALSE) +
+  theme_minimal(base_size = 11) +
   theme(
     legend.position = "bottom",
     legend.direction = "vertical",
-    legend.box.background = element_rect(color = "#d9d9d9", size = 0.5),
-    panel.background = element_rect(fill = "#e8f2ff", color = NA), # Lake/water fill
-    plot.title = element_text(face = "bold", size = 12, color = "#2d2d2d")
+    legend.box.background = element_rect(color = "#d9d9d9"),
+    panel.background = element_rect(fill = "#d6e6f2", color = NA), # Great Lakes / water
+    panel.grid = element_blank(),
+    plot.title = element_text(face = "bold", size = 12, color = "#1a1a1a")
   ) +
-  labs(
-    title = "A) Wisconsin Sites",
-    x = "Longitude", y = "Latitude"
-  )
+  guides(fill = guide_legend(override.aes = list(size = 4))) +
+  labs(title = "A) Wisconsin Sites", x = NULL, y = NULL)
 
 # Extract observations for 2022-2023 for these three sites
 ts_data <- clean_data %>%
@@ -324,37 +344,31 @@ ts_data <- clean_data %>%
     )
   )
 
-# Generate stacked timeseries plot
-p_ts <- ggplot(ts_data, aes(x = date, y = val, color = label, shape = label)) +
-  geom_line(size = 0.4, alpha = 0.5) +
-  geom_point(size = 2) +
+# Per-facet sample counts make the frequency contrast explicit
+ts_counts <- ts_data %>% count(label) %>% mutate(lab = paste0("n = ", n, " samples"))
+
+# Timeseries: points only -- connecting lines would turn sampling gaps into false trends
+p_ts <- ggplot(ts_data, aes(x = date, y = val, color = label)) +
+  geom_point(size = 1.9, alpha = 0.8) +
+  geom_text(
+    data = ts_counts, aes(x = as.Date("2022-01-10"), y = Inf, label = lab),
+    hjust = 0, vjust = 1.5, size = 3, color = "#444444", inherit.aes = FALSE
+  ) +
   scale_y_log10(labels = scales::comma) +
-  scale_color_manual(
-    values = c(
-      "1) Swimming (Daily Req.)" = "#e34a33", 
-      "2) Regulatory (Monthly Req.)" = "#31a354", 
-      "3) Long-Term Trend (Quarterly Req.)" = "#2b8cbe"
-    )
-  ) +
-  scale_shape_manual(
-    values = c(
-      "1) Swimming (Daily Req.)" = 16, 
-      "2) Regulatory (Monthly Req.)" = 17, 
-      "3) Long-Term Trend (Quarterly Req.)" = 15
-    )
-  ) +
+  scale_x_date(date_breaks = "3 months", date_labels = "%b\n%Y",
+               limits = as.Date(c("2022-01-01", "2023-12-31"))) +
+  scale_color_manual(values = obj_pal) +
   facet_wrap(~label, ncol = 1, scales = "free_y") +
-  theme_minimal() +
+  theme_pub(11) +
   theme(
     legend.position = "none",
-    strip.text = element_text(face = "bold", size = 9, hjust = 0),
-    panel.grid.minor = element_blank(),
-    plot.title = element_text(face = "bold", size = 12, color = "#2d2d2d")
+    strip.text = element_text(face = "bold", size = 9, hjust = 0, color = "#1a1a1a"),
+    panel.grid.major.x = element_line(color = "grey93")
   ) +
   labs(
     title = "B) Observations (2022-2023)",
-    x = "Date",
-    y = "E. coli Concentration (CFU/100mL)"
+    x = NULL,
+    y = "E. coli (CFU/100mL)"
   )
 
 # Combine map and timeseries side-by-side
@@ -403,18 +417,16 @@ survival_df <- data.frame(
   mutate(pct = (sites / nrow(site_summary)) * 100)
 
 p_survival <- ggplot(survival_df, aes(x = factor(threshold), y = pct, group = 1)) +
-  geom_line(color = "#3182bd", size = 1.1) +
-  geom_point(color = "#08519c", size = 3) +
-  theme_minimal() +
-  theme(
-    plot.title = element_text(face = "bold", size = 12, color = "#2d2d2d"),
-    axis.title = element_text(size = 9, color = "#666666"),
-    panel.grid.minor = element_blank()
-  ) +
+  geom_area(fill = "#3182bd", alpha = 0.12) +
+  geom_line(color = "#3182bd", linewidth = 1.1) +
+  geom_point(color = "#08519c", size = 2.6) +
+  geom_text(aes(label = paste0(round(pct), "%")), vjust = -1, size = 2.8, color = "#08519c") +
+  expand_limits(y = 108) +
+  theme_pub(11) +
   labs(
     title = "A) Site Data Volume Survival Curve",
     x = "Minimum Observations per Site",
-    y = "Percentage of Global Sites (%)"
+    y = "Percentage of Sites (%)"
   )
 
 # Part B: Sampling interval distribution
@@ -443,15 +455,16 @@ interval_df$interval_cat <- factor(
   levels = c("Daily\n(<=1.5d)", "Weekly\n(1.5-8d)", "Monthly\n(8-31d)", "Quarterly\n(31-92d)", "Yearly\n(92-366d)", "Longer\n(>366d)")
 )
 
-p_intervals <- ggplot(interval_df, aes(x = interval_cat, y = pct, fill = interval_cat)) +
-  geom_col(show.legend = FALSE, width = 0.55) +
-  scale_fill_brewer(palette = "Blues", direction = -1) +
-  theme_minimal() +
-  theme(
-    plot.title = element_text(face = "bold", size = 12, color = "#2d2d2d"),
-    axis.title = element_text(size = 9, color = "#666666"),
-    panel.grid.minor = element_blank()
-  ) +
+# Highlight the policy-relevant "Daily" category (the key finding: very few sites)
+interval_df$highlight <- ifelse(grepl("Daily", interval_df$interval_cat), "Daily", "Other")
+
+p_intervals <- ggplot(interval_df, aes(x = interval_cat, y = pct, fill = highlight)) +
+  geom_col(show.legend = FALSE, width = 0.72) +
+  geom_text(aes(label = paste0(round(pct, 1), "%")), vjust = -0.5, size = 3, color = "#2d2d2d") +
+  scale_fill_manual(values = c("Daily" = "#d7301f", "Other" = "#74a9cf")) +
+  expand_limits(y = max(interval_df$pct) * 1.13) +
+  theme_pub(11) +
+  theme(panel.grid.major.x = element_blank()) +
   labs(
     title = "B) Distribution of Sampling Return Intervals",
     x = "Sampling Interval Category",
@@ -487,16 +500,22 @@ safe_df <- data.frame(
   Percentage = c(77.6, 22.4)
 )
 
-p_safe <- ggplot(safe_df, aes(x = "", y = Percentage, fill = Status)) +
-  geom_col(width = 0.55, color = "white", size = 1) +
-  coord_polar("y", start = 0) +
-  scale_fill_manual(values = c("Safe (<235 CFU)" = "#31a354", "Unsafe (>235 CFU)" = "#de2d26")) +
-  theme_void() +
+p_safe <- ggplot(safe_df, aes(x = 2, y = Percentage, fill = Status)) +
+  geom_col(width = 1, color = "white", linewidth = 1) +
+  coord_polar(theta = "y", start = 0) +
+  xlim(c(0.4, 2.5)) +
+  geom_text(aes(label = paste0(Percentage, "%")),
+            position = position_stack(vjust = 0.5), color = "white", fontface = "bold", size = 5) +
+  annotate("text", x = 0.4, y = 0, label = "631 sites\n235k samples",
+           size = 3, color = "#444444", lineheight = 0.95) +
+  scale_fill_manual(values = c("Safe (<235 CFU)" = "#2ca25f", "Unsafe (>235 CFU)" = "#d7301f"),
+                    name = NULL) +
+  theme_void(base_size = 11) +
   theme(
     legend.position = "bottom",
-    plot.title = element_text(face = "bold", size = 12, hjust = 0.5, color = "#2d2d2d")
+    plot.title = element_text(face = "bold", size = 12, hjust = 0.5, color = "#1a1a1a")
   ) +
-  labs(title = "A) High-Frequency Freshwater E. coli Safety\n(631 sites, 235,398 samples)")
+  labs(title = "A) High-Frequency Freshwater\nE. coli Safety")
 
 # Panel B: Case study timeseries for Lake Erie beach 21OHBCH-OHEUSP01 (Summer 2023)
 beach_ts <- clean_data %>%
@@ -507,24 +526,22 @@ beach_ts <- clean_data %>%
   summarise(val = max(val), .groups = "drop")
 
 p_beach <- ggplot(beach_ts, aes(x = date, y = val)) +
-  geom_hline(yintercept = 235, linetype = "dashed", color = "#de2d26", size = 0.8) +
-  geom_line(color = "gray60", size = 0.6) +
-  geom_point(aes(color = val > 235), size = 2.5) +
-  annotate("text", x = as.Date("2023-05-05"), y = 300, label = "EPA Beach Action Value (235)",
-           color = "#de2d26", fontface = "italic", size = 3.5, hjust = 0) +
-  scale_color_manual(values = c("FALSE" = "#31a354", "TRUE" = "#de2d26")) +
+  annotate("rect", xmin = min(beach_ts$date), xmax = max(beach_ts$date),
+           ymin = 1, ymax = 235, fill = "#2ca25f", alpha = 0.08) +
+  geom_hline(yintercept = 235, linetype = "dashed", color = "#d7301f", linewidth = 0.7) +
+  geom_line(color = "grey75", linewidth = 0.4) +
+  geom_point(aes(color = val > 235), size = 2.3) +
+  annotate("text", x = max(beach_ts$date), y = 250, label = "EPA Beach Action Value (235)",
+           color = "#d7301f", fontface = "italic", size = 3.2, hjust = 1, vjust = 0) +
+  scale_color_manual(values = c("FALSE" = "#2ca25f", "TRUE" = "#d7301f")) +
   scale_y_log10(labels = scales::comma) +
-  theme_minimal() +
-  theme(
-    legend.position = "none",
-    plot.title = element_text(face = "bold", size = 12, color = "#2d2d2d"),
-    axis.title = element_text(size = 9, color = "#666666"),
-    panel.grid.minor = element_blank()
-  ) +
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  theme_pub(11) +
+  theme(legend.position = "none") +
   labs(
     title = "B) Case Study: Lake Erie Beach, Ohio (Summer 2023)",
     subtitle = "High-frequency monitoring reveals transient spikes; water recovers to safe levels within ~48 hours",
-    x = "Date",
+    x = NULL,
     y = "E. coli (CFU/100mL) [Log Scale]"
   )
 
