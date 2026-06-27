@@ -1,0 +1,301 @@
+{
+  "plotting_plan": [
+    {
+      "figure_id": "fig_global_distribution_density",
+      "title": "Global Distribution of Freshwater FIB Monitoring",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Global hexbin density map (Robinson projection) of freshwater FIB observation counts with an ecosystem-composition summary, exposing spatial sparsity, the concentration in the US/Europe/Canada, and the apparent void over Russia/China that reflects an open-data sharing gap.",
+      "aspect_ratio": "21:9"
+    },
+    {
+      "figure_id": "fig_sampling_frequency_mismatch",
+      "title": "Sampling Objectives and Mismatched Frequencies",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Locator map plus stacked point time series for three Wisconsin sites sampled daily, monthly, and quarterly, contrasting sampling cadence with monitoring objective and showing that gaps in sampling are not trends.",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "figure_id": "fig_actionability_gap",
+      "title": "Quantifying the Actionability Gap",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Two-panel figure: a site data-volume survival curve and a bar distribution of per-site sampling return intervals, highlighting that only about 7 percent of multi-sample sites achieve daily or near-daily sampling.",
+      "aspect_ratio": "16:9"
+    },
+    {
+      "figure_id": "fig_high_frequency_case_studies",
+      "title": "High-Frequency Monitoring Reveals Transient and Chronic Pollution",
+      "plot_type": "plot",
+      "data_source": "both",
+      "objective": "Global locator map plus three 2023 high-frequency E. coli line-chart time series (Euclid Beach USA, River Lune UK, Taruheru River NZ) against the 235 CFU per 100 mL safe threshold, showing transient spikes at one site and chronic exceedance at the other two, and demonstrating that low-frequency sampling misrepresents safety in both cases.",
+      "aspect_ratio": "3:2"
+    },
+    {
+      "figure_id": "fig_global_safety_summary",
+      "title": "Global Safety of High-Frequency Monitoring Sites",
+      "plot_type": "plot",
+      "data_source": "experimental_log.md",
+      "objective": "Global scatter map of high-frequency E. coli sites colored by per-site exceedance rate, paired with a donut (pie) chart summarizing the overall split of 77.6 percent safe versus 22.4 percent unsafe across 235 thousand samples.",
+      "aspect_ratio": "21:9"
+    }
+  ],
+  "intro_related_work_plan": {
+    "introduction_strategy": {
+      "hook_hypothesis": "Fecal indicator bacteria, and Escherichia coli in particular, are the primary worldwide tool for judging whether inland fresh waters used for recreation and drinking-water supply are safe from waterborne pathogens.",
+      "problem_gap_hypothesis": "The public, harmonized freshwater FIB monitoring record is failing public health on two measurable axes at once: it is spatially unequal, with most openly shared data concentrated in the United States, Europe, and Canada in a way that reflects an open-data sharing barrier as much as a true collection gap; and it is temporally rigid, dominated by weekly to quarterly sampling that is poorly matched to the rapid, weather-driven dynamics of fecal contamination. All claims are scoped to the freshwater FIB observations actually compiled here (rivers, lakes, and reservoirs) and to the regions and indicators represented in those data; no completeness is claimed for unsampled regions.",
+      "search_directions": [
+        "Find highly cited papers and authoritative reports establishing the global public-health burden of waterborne fecal pathogens and the risk of fecal contamination in recreational and drinking water",
+        "Search for review or survey papers on global water-quality monitoring networks, water-quality data availability, and water-related Sustainable Development Goal monitoring",
+        "Find foundational papers establishing fecal indicator bacteria such as Escherichia coli and intestinal enterococci as indicators of fecal contamination and human health risk",
+        "Find papers on open environmental data, FAIR data principles, and barriers to publishing national water-quality monitoring data in machine-readable form",
+        "Find foundational papers establishing the short-term temporal variability of fecal indicator bacteria, including rainfall-driven first-flush spikes and rapid decay within days"
+      ]
+    },
+    "related_work_strategy": {
+      "overview": "Investigate four bodies of prior work to position this dataset and its two findings: existing water-quality data compilations, the indicator and threshold basis for FIB monitoring, the temporal-variability and high-frequency monitoring literature, and the environmental open-data and data-sharing literature. Searches are scoped to material published on or before June 2026.",
+      "subsections": [
+        {
+          "subsection_title": "Global and Harmonized Water-Quality Data Compilations",
+          "methodology_cluster": "Multi-source aggregation and harmonization of water-quality observations",
+          "sota_investigation_mission": "Identify prior efforts that aggregated and harmonized water-quality or fecal indicator observations across national networks and portals, and determine their geographic, parameter, and temporal coverage. Do not search for works published after June 2026.",
+          "limitation_hypothesis": "Existing compilations are typically single-nation or single-region, are not focused on freshwater fecal indicators, or do not characterize the spatial sharing structure and temporal sampling cadence of the record.",
+          "limitation_search_queries": [
+            "global harmonized water quality database fecal indicator bacteria coverage gaps",
+            "Water Quality Portal multi-source harmonization limitations",
+            "GEMStat global water quality data spatial coverage gaps"
+          ],
+          "bridge_to_our_method": "We assemble a freshwater-focused, ten-source harmonized FIB record and explicitly characterize its spatial sharing gap and its temporal sampling cadence rather than only its contents."
+        },
+        {
+          "subsection_title": "Fecal Indicator Bacteria, Thresholds, and Health Risk",
+          "methodology_cluster": "FIB indicators and regulatory safety thresholds for recreational water",
+          "sota_investigation_mission": "Find the regulatory and epidemiological basis for Escherichia coli and enterococci thresholds in fresh and marine recreational waters, including the recommended freshwater single-sample and geometric-mean thresholds, and identify why E. coli is the standard freshwater indicator.",
+          "limitation_hypothesis": "Safety thresholds are defined for single-sample or geometric-mean compliance and implicitly assume representative sampling, an assumption that low-frequency, season-limited monitoring violates.",
+          "limitation_search_queries": [
+            "EPA 2012 recreational water quality criteria E. coli beach action value 235",
+            "EU bathing water directive E. coli enterococci classification thresholds",
+            "fecal indicator bacteria epidemiology gastrointestinal illness risk recreational water"
+          ],
+          "bridge_to_our_method": "We adopt the freshwater E. coli safe threshold to quantify how sampling cadence changes the apparent safety of a water body."
+        },
+        {
+          "subsection_title": "Temporal Variability and High-Frequency Monitoring of FIB",
+          "methodology_cluster": "Short-term FIB dynamics, event-based sampling, and predictive nowcasting",
+          "sota_investigation_mission": "Find work characterizing sub-daily to weekly fecal indicator variability, first-flush dynamics, and studies that compare daily versus weekly or monthly sampling or that use rainfall, turbidity, and discharge to predict recreational water safety in near real time.",
+          "limitation_hypothesis": "High-frequency and predictive approaches are demonstrated only at a few sites, while most monitoring remains calendar-based and low-frequency, so it both misses transient spikes and can misrepresent chronically polluted waters.",
+          "limitation_search_queries": [
+            "daily versus weekly fecal indicator bacteria sampling recreational water management",
+            "first flush stormwater runoff E. coli temporal variability rapid decay",
+            "predictive nowcasting model beach water quality rainfall turbidity discharge"
+          ],
+          "bridge_to_our_method": "We quantify at global scale how rare daily sampling is and use high-frequency case studies to show that low-frequency sampling misrepresents both transient and chronic contamination, so higher-frequency data improve management even where pollution is chronic."
+        },
+        {
+          "subsection_title": "Open Environmental Data and Data-Sharing Barriers",
+          "methodology_cluster": "Open data, FAIR principles, and access barriers in environmental monitoring",
+          "sota_investigation_mission": "Find literature on open-data policies, FAIR data, and barriers to sharing national environmental and water-quality monitoring data, including comparisons to the international sharing of meteorological data.",
+          "limitation_hypothesis": "Substantial national monitoring data exist but are not published in open, machine-readable, harmonized form, producing an apparent data void that is in fact a sharing gap.",
+          "limitation_search_queries": [
+            "FAIR data environmental monitoring water quality open access barriers",
+            "national water quality monitoring data not publicly available sharing",
+            "international meteorological data sharing model environmental data WMO"
+          ],
+          "bridge_to_our_method": "Our regional shares and explicit source inventory make the distinction between collection gaps and sharing gaps measurable and motivate international data-sharing norms."
+        }
+      ]
+    }
+  },
+  "section_plan": [
+    {
+      "section_title": "Abstract",
+      "subsections": [
+        {
+          "subsection_title": "Abstract Content",
+          "content_bullets": [
+            "State that fecal indicator bacteria are the primary tool for protecting public health in inland fresh waters and that a harmonized global picture has been lacking.",
+            "Introduce the compiled freshwater dataset of 5,314,791 observations from ten public sources standardized to CFU per 100 mL.",
+            "Report the two central findings: a spatial concentration in the US, Europe, and Canada (89.3 percent of records) reflecting a sharing gap, and a temporal mismatch in which only about 7 percent of multi-sample sites achieve daily or near-daily sampling.",
+            "State the implication that rigid low-frequency monitoring misrepresents safety and that open data sharing and higher-frequency or predictive monitoring are needed.",
+            "Note key uncertainties: uneven indicator coverage, geographically biased high-frequency sites, and approximations in unit conversion."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "Plain Language Summary",
+      "subsections": [
+        {
+          "subsection_title": "Plain Language Summary Content",
+          "content_bullets": [
+            "Explain in jargon-free terms that bacteria such as E. coli are used worldwide to tell whether rivers and lakes are safe for swimming and drinking.",
+            "Describe how the study gathered millions of these measurements from many countries into one comparable dataset.",
+            "Explain the two problems found: most shared data come from a few wealthy regions, and most places are tested too infrequently to catch short-lived pollution.",
+            "State why this matters for keeping people safe and for fairer global data sharing."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "Data and Methods",
+      "subsections": [
+        {
+          "subsection_title": "Data Sources and Retrieval",
+          "content_bullets": [
+            "Enumerate the nine point-observation networks and one annual-summary source described in experimental_log.md, with their per-source freshwater contributions and whether each was retrieved by API or manual download.",
+            "Note that WQP contributed the majority of records and that GEMStat is a globally sourced compilation spanning many countries."
+          ],
+          "citation_hints": [
+            "research paper, data portal, or technical report introducing the 'US Water Quality Portal (WQP)'",
+            "research paper or technical report introducing the 'dataRetrieval R package' for the US Water Quality Portal",
+            "report or data system introducing the 'European Environment Agency Eionet bathing water reporting' system",
+            "report or data release introducing 'GEMStat UN GEMS/Water global water quality database'",
+            "data platform or report introducing 'DataStream open water quality data (Canada)'",
+            "data system or report introducing the 'UK Environment Agency Water Quality Archive (Open WIMS)'",
+            "report introducing 'South Africa National Microbial Monitoring Programme (NMMP)'",
+            "API or report introducing the 'Hub'Eau Naiades French water quality API'",
+            "data platform or report introducing 'LAWA Land Air Water Aotearoa water quality monitoring (New Zealand)'",
+            "data platform or report introducing the 'Water Point Data Exchange (WPdx)'",
+            "agency or report introducing 'Brazil ANA Agencia Nacional de Aguas water quality indicators'"
+          ]
+        },
+        {
+          "subsection_title": "Harmonization and Quality Control",
+          "content_bullets": [
+            "Describe standardization of all concentrations to CFU per 100 mL, the treatment of MPN values as CFU as an approximation, and the dropping of qPCR-equivalent and non-convertible units.",
+            "Describe detection-limit and censoring handling, mapping of location descriptors to a controlled vocabulary, within-source averaging, and cross-source fuzzy de-duplication with roughly 1 km coordinate tolerance."
+          ],
+          "citation_hints": [
+            "standard reference or guidance introducing 'most probable number (MPN) and colony forming units (CFU) enumeration of bacteria in water'"
+          ]
+        },
+        {
+          "subsection_title": "Freshwater Classification and Cleaning",
+          "content_bullets": [
+            "Describe the cleaning filters (valid indicator keep-list, plausible dates and coordinates, non-negative bounded values) that reduced 9,055,019 harmonized records to 9,044,108 cleaned records.",
+            "Describe the marine, groundwater, and freshwater classification using location type and the bathing-water category fields C and T, the removal of 3,409,529 marine and 26,284 groundwater records, the reclassification of 212,554 records and dropping of 293,504 unverifiable records, yielding 5,314,791 freshwater observations."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "Sampling-Cadence and Safety Metrics",
+          "content_bullets": [
+            "Define per-site observation counts, the mean return interval and median consecutive sampling gap, and the return-interval bands (daily, weekly, monthly, quarterly, yearly, longer).",
+            "Define high-frequency sites as those with a median consecutive gap of at most 3 days and at least 30 samples, and define the recreational safe threshold of 235 CFU per 100 mL used to compute exceedance."
+          ],
+          "citation_hints": [
+            "research report introducing the 'US EPA 2012 Recreational Water Quality Criteria' and the E. coli beach action value of 235 CFU per 100 mL"
+          ]
+        }
+      ]
+    },
+    {
+      "section_title": "Results",
+      "subsections": [
+        {
+          "subsection_title": "Geographic Distribution and the Sharing Gap",
+          "content_bullets": [
+            "Report the regional shares from experimental_log.md: United States 62.9 percent, Europe 20.7 percent, Canada 5.7 percent, and rest of world 10.7 percent, with leading rest-of-world contributors Mexico, South Africa, India, New Zealand, and Uruguay.",
+            "Contrast these freshwater shares with the all-water record and note the correction of an earlier tabulation that had misattributed globally sourced GEMStat records, and present Brazil's annual-only ANA release as an example of the sharing gap.",
+            "Reference the global density map figure that visualizes the concentration and the Russia and China void."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "Indicator and Ecosystem Composition",
+          "content_bullets": [
+            "Report the indicator composition: E. coli 43.4 percent, fecal coliform 31.8 percent, total coliform 10.5 percent, intestinal enterococci 9.0 percent, fecal streptococcus 5.2 percent, and note uneven non-E. coli coverage across sources.",
+            "Report the ecosystem composition dominated by rivers and streams at 72.4 percent and lakes at 22.6 percent."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "The Actionability Gap in Sampling Frequency",
+          "content_bullets": [
+            "Report that of 133,328 sites only 10.8 percent had at least 100 observations and 0.7 percent had at least 500.",
+            "Report the return-interval distribution among the 116,489 multi-sample sites: 7.0 percent daily, 9.1 percent weekly, 29.9 percent monthly, 30.7 percent quarterly, 19.2 percent yearly, 4.2 percent longer, and reference the actionability-gap figure."
+          ],
+          "citation_hints": []
+        },
+        {
+          "subsection_title": "High-Frequency Safety and Case Studies",
+          "content_bullets": [
+            "Report that across 631 high-frequency sites and 235,398 E. coli samples, 77.6 percent of samples were safe and 22.4 percent exceeded the threshold, and that high-frequency sites are almost entirely in North America and Europe.",
+            "Present the three 2023 case studies from experimental_log.md: Euclid Beach USA with 18.0 percent exceedance and transient spikes, River Lune UK with 83.7 percent exceedance, and Taruheru River NZ with 62.5 percent exceedance, showing both transient and chronic regimes.",
+            "Argue that low-frequency sampling misrepresents safety in both regimes, over-restricting after a single transient spike and under-detecting or misattributing chronic contamination, and reference the case-study and global-safety figures."
+          ],
+          "citation_hints": [
+            "research report introducing the 'US EPA 2012 Recreational Water Quality Criteria' and the E. coli beach action value of 235 CFU per 100 mL"
+          ]
+        }
+      ]
+    },
+    {
+      "section_title": "Discussion",
+      "subsections": [
+        {
+          "subsection_title": "Collection Gap versus Sharing Gap",
+          "content_bullets": [
+            "Argue that apparent sparsity in regions such as China, Russia, and parts of South America reflects open-data access and sharing barriers as well as true collection gaps.",
+            "Recommend international data-sharing norms for water quality analogous to those for meteorological data."
+          ],
+          "citation_hints": [
+            "paper or policy report on 'FAIR principles for scientific data management and stewardship'",
+            "report or paper on 'international sharing of meteorological and hydrological data'"
+          ]
+        },
+        {
+          "subsection_title": "Regulatory Rigidity and Management Implications",
+          "content_bullets": [
+            "Explain why calendar-based weekly to quarterly sampling is blind to rapid, weather-driven fecal contamination and why daily incubation-based results are inherently retrospective.",
+            "Argue that higher-frequency, event-based, and predictive monitoring improves management even at chronically polluted sites because low-frequency sampling can mislead in both directions, and discuss rapid diagnostics as an enabling technology."
+          ],
+          "citation_hints": [
+            "research paper on 'predictive modeling or nowcasting of recreational water quality using rainfall and turbidity'",
+            "research paper on 'rapid qPCR or enzymatic methods for fecal indicator bacteria detection'"
+          ]
+        },
+        {
+          "subsection_title": "Limitations",
+          "content_bullets": [
+            "State limitations: the MPN-to-CFU treatment is an approximation, datetimes and time zones were not globally harmonized, and non-E. coli indicator coverage is uneven across sources.",
+            "State that high-frequency sites are geographically biased toward North America and Europe and that the case studies are individual sites rather than representative samples."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "Conclusions",
+      "subsections": [
+        {
+          "subsection_title": "Conclusions Content",
+          "content_bullets": [
+            "Summarize the harmonized freshwater FIB dataset and its two structural findings of spatial sharing inequality and temporal rigidity.",
+            "Restate the call for open data sharing and for higher-frequency, event-based, and predictive monitoring to make FIB data actionable for public health."
+          ],
+          "citation_hints": []
+        }
+      ]
+    },
+    {
+      "section_title": "Open Research Section",
+      "subsections": [
+        {
+          "subsection_title": "Data and Software Availability",
+          "content_bullets": [
+            "Provide a data availability statement identifying where the harmonized freshwater dataset and the cleaning and figure code can be obtained, with a persistent identifier, and stating that data are not available only from the authors.",
+            "Cite each contributing data source and its access point in the reference list, consistent with the per-source inventory in the methods."
+          ],
+          "citation_hints": [
+            "data citation with persistent identifier for the 'archived harmonized global freshwater fecal indicator bacteria dataset'",
+            "data citations for each contributing source: US Water Quality Portal, Eionet, GEMStat, DataStream, UK Water Quality Archive, NMMP, Hub'Eau, LAWA, WPdx, and Brazil ANA"
+          ]
+        }
+      ]
+    }
+  ]
+}

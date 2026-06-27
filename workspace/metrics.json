@@ -1,0 +1,297 @@
+{
+  "tables": [
+    {
+      "label": "Table 1",
+      "headers": [
+        "Source",
+        "Region",
+        "Freshwater observations",
+        "Access"
+      ],
+      "rows": [
+        [
+          "WQP",
+          "United States",
+          "3,321,490",
+          "API"
+        ],
+        [
+          "Eionet",
+          "EU / EEA",
+          "763,440",
+          "Web scrape + XML/GML"
+        ],
+        [
+          "GEMStat",
+          "Global (excluding US)",
+          "399,706",
+          "Manual (curated release)"
+        ],
+        [
+          "DataStream",
+          "Canada",
+          "296,913",
+          "API"
+        ],
+        [
+          "UK Open WIMS",
+          "United Kingdom",
+          "189,485",
+          "REST API"
+        ],
+        [
+          "NMMP",
+          "South Africa",
+          "161,467",
+          "Manual CSV"
+        ],
+        [
+          "Hub'Eau",
+          "France",
+          "146,650",
+          "API"
+        ],
+        [
+          "LAWA",
+          "New Zealand",
+          "35,248",
+          "Manual Excel"
+        ],
+        [
+          "WPdx",
+          "Global water points",
+          "392",
+          "Manual CSV"
+        ],
+        [
+          "ANA (annual summaries)",
+          "Brazil",
+          "14,853",
+          "Manual CSV (separate annual table)"
+        ]
+      ]
+    },
+    {
+      "label": "Table 2",
+      "headers": [
+        "Stage",
+        "Records"
+      ],
+      "rows": [
+        [
+          "Harmonized (all water types)",
+          "9,055,019"
+        ],
+        [
+          "Cleaned (valid indicator, date, coordinates, value)",
+          "9,044,108"
+        ],
+        [
+          "Marine removed",
+          "3,409,529"
+        ],
+        [
+          "Groundwater removed",
+          "26,284"
+        ],
+        [
+          "Other/unknown reclassified via bathing-water category",
+          "212,554"
+        ],
+        [
+          "Other/unknown dropped as not verifiably inland",
+          "293,504"
+        ],
+        [
+          "Final freshwater analysis dataset",
+          "5,314,791"
+        ]
+      ]
+    },
+    {
+      "label": "Table 3",
+      "headers": [
+        "Region",
+        "Records",
+        "Share"
+      ],
+      "rows": [
+        [
+          "United States",
+          "3,342,758",
+          "62.9%"
+        ],
+        [
+          "Europe",
+          "1,099,575",
+          "20.7%"
+        ],
+        [
+          "Canada",
+          "305,432",
+          "5.7%"
+        ],
+        [
+          "Rest of world",
+          "567,026",
+          "10.7%"
+        ]
+      ]
+    },
+    {
+      "label": "Table 4",
+      "headers": [
+        "Indicator",
+        "Records",
+        "Share"
+      ],
+      "rows": [
+        [
+          "Escherichia coli",
+          "2,308,643",
+          "43.4%"
+        ],
+        [
+          "Fecal coliform",
+          "1,692,665",
+          "31.8%"
+        ],
+        [
+          "Total coliform",
+          "560,355",
+          "10.5%"
+        ],
+        [
+          "Intestinal enterococci",
+          "479,053",
+          "9.0%"
+        ],
+        [
+          "Fecal streptococcus group",
+          "274,075",
+          "5.2%"
+        ]
+      ]
+    },
+    {
+      "label": "Table 5",
+      "headers": [
+        "Ecosystem",
+        "Records",
+        "Share"
+      ],
+      "rows": [
+        [
+          "River / stream",
+          "3,848,418",
+          "72.4%"
+        ],
+        [
+          "Lake",
+          "1,199,766",
+          "22.6%"
+        ],
+        [
+          "Reservoir",
+          "109,751",
+          "2.1%"
+        ],
+        [
+          "Canal",
+          "101,042",
+          "1.9%"
+        ],
+        [
+          "Ditch",
+          "19,397",
+          "0.4%"
+        ],
+        [
+          "Spring",
+          "19,094",
+          "0.4%"
+        ],
+        [
+          "Wetland",
+          "14,482",
+          "0.3%"
+        ],
+        [
+          "Pond",
+          "2,841",
+          "0.1%"
+        ]
+      ]
+    },
+    {
+      "label": "Table 6",
+      "headers": [
+        "Return interval band",
+        "Share of multi-sample sites"
+      ],
+      "rows": [
+        [
+          "Daily (≤ 1.5 days)",
+          "7.0%"
+        ],
+        [
+          "Weekly (1.5–8 days)",
+          "9.1%"
+        ],
+        [
+          "Monthly (8–31 days)",
+          "29.9%"
+        ],
+        [
+          "Quarterly (31–92 days)",
+          "30.7%"
+        ],
+        [
+          "Yearly (92–366 days)",
+          "19.2%"
+        ],
+        [
+          "Longer (> 366 days)",
+          "4.2%"
+        ]
+      ]
+    },
+    {
+      "label": "Table 7",
+      "headers": [
+        "Site",
+        "Country",
+        "Samples",
+        "Exceedance (> 235)",
+        "Median",
+        "Maximum"
+      ],
+      "rows": [
+        [
+          "Euclid Beach",
+          "United States",
+          "128",
+          "18.0%",
+          "41",
+          "2,420"
+        ],
+        [
+          "River Lune",
+          "United Kingdom",
+          "43",
+          "83.7%",
+          "580",
+          "100,000"
+        ],
+        [
+          "Taruheru River",
+          "New Zealand",
+          "40",
+          "62.5%",
+          "465",
+          "11,000"
+        ]
+      ]
+    }
+  ]
+}

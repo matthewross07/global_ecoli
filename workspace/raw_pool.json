@@ -1,0 +1,1910 @@
+{
+  "papers": [
+    {
+      "paperId": "c44833c63927dbc6b649c57bf82ceb56d779836d",
+      "title": "Burden of disease from inadequate water, sanitation and hygiene in low- and middle-income settings: a retrospective analysis of data from 145 countries",
+      "abstract": "To estimate the burden of diarrhoeal diseases from exposure to inadequate water, sanitation and hand hygiene in low\u2010 and middle\u2010income settings and provide an overview of the impact on other diseases.",
+      "year": 2014,
+      "authors": [
+        {
+          "authorId": "1401654135",
+          "name": "A. Pr\u00fcss-Ust\u00fcn"
+        },
+        {
+          "authorId": "145764942",
+          "name": "J. Bartram"
+        },
+        {
+          "authorId": "144754630",
+          "name": "T. Clasen"
+        },
+        {
+          "authorId": "8436084",
+          "name": "J. Colford"
+        },
+        {
+          "authorId": "5844671",
+          "name": "O. Cumming"
+        },
+        {
+          "authorId": "11453874",
+          "name": "V. Curtis"
+        },
+        {
+          "authorId": "3957841",
+          "name": "S. Bonjour"
+        },
+        {
+          "authorId": "6921248",
+          "name": "A. Dangour"
+        },
+        {
+          "authorId": "5815686",
+          "name": "J. De France"
+        },
+        {
+          "authorId": "4408306",
+          "name": "L. Fewtrell"
+        },
+        {
+          "authorId": "26648209",
+          "name": "M. Freeman"
+        },
+        {
+          "authorId": "143644217",
+          "name": "Bruce Gordon"
+        },
+        {
+          "authorId": "33213708",
+          "name": "P. Hunter"
+        },
+        {
+          "authorId": "34825000",
+          "name": "R. Johnston"
+        },
+        {
+          "authorId": "3599815",
+          "name": "C. Mathers"
+        },
+        {
+          "authorId": "4580177",
+          "name": "D. M\u00e4usezahl"
+        },
+        {
+          "authorId": "8069808",
+          "name": "K. Medlicott"
+        },
+        {
+          "authorId": "34673265",
+          "name": "M. Neira"
+        },
+        {
+          "authorId": "40467849",
+          "name": "Meredith E. Stocks"
+        },
+        {
+          "authorId": "6915928",
+          "name": "J. Wolf"
+        },
+        {
+          "authorId": "2566910",
+          "name": "S. Cairncross"
+        }
+      ],
+      "venue": "Tropical medicine & international health",
+      "externalIds": {
+        "PubMedCentral": "4255749",
+        "MAG": "2110878250",
+        "DOI": "10.1111/tmi.12329",
+        "CorpusId": 566745,
+        "PubMed": "24779548"
+      },
+      "discovered_for": [
+        "intro_1"
+      ],
+      "match_score": 100
+    },
+    {
+      "paperId": "1dc5e175d4944d8e7580634458e49ab23a2b1b53",
+      "title": "Global assessment of exposure to faecal contamination through drinking water based on a systematic review",
+      "abstract": "To estimate exposure to faecal contamination through drinking water as indicated by levels of Escherichia coli (E. coli) or thermotolerant coliform (TTC) in water sources.",
+      "year": 2014,
+      "authors": [
+        {
+          "authorId": "6471811",
+          "name": "R. Bain"
+        },
+        {
+          "authorId": "46341710",
+          "name": "R. Cronk"
+        },
+        {
+          "authorId": "6041819",
+          "name": "R. Hossain"
+        },
+        {
+          "authorId": "3957841",
+          "name": "S. Bonjour"
+        },
+        {
+          "authorId": "6452146",
+          "name": "Kyle Onda"
+        },
+        {
+          "authorId": "2110144845",
+          "name": "Jim A. Wright"
+        },
+        {
+          "authorId": "46402445",
+          "name": "Hong Yang"
+        },
+        {
+          "authorId": "4009388",
+          "name": "T. Slaymaker"
+        },
+        {
+          "authorId": "33213708",
+          "name": "P. Hunter"
+        },
+        {
+          "authorId": "1401654135",
+          "name": "A. Pr\u00fcss-Ust\u00fcn"
+        },
+        {
+          "authorId": "145764942",
+          "name": "J. Bartram"
+        }
+      ],
+      "venue": "Tropical medicine & international health",
+      "externalIds": {
+        "PubMedCentral": "4255778",
+        "MAG": "2016803368",
+        "DOI": "10.1111/tmi.12334",
+        "CorpusId": 1359893,
+        "PubMed": "24811893"
+      },
+      "discovered_for": [
+        "intro_1",
+        "relwork_1"
+      ],
+      "match_score": 100
+    },
+    {
+      "paperId": "6cd14084de29e2a2d1108f448bf260bf688b6caa",
+      "title": "Estimating Waterborne Infectious Disease Burden by Exposure Route, United States, 2014",
+      "abstract": "More than 7.15 million cases of domestically acquired infectious waterborne illnesses occurred in the United States in 2014, causing 120,000 hospitalizations and 6,600 deaths. We estimated disease incidence for 17 pathogens according to recreational, drinking, and nonrecreational nondrinking (NRND) water exposure routes by using previously published estimates. In 2014, a total of 5.61 million (95% credible interval [CrI] 2.97\u20139.00 million) illnesses were linked to recreational water, 1.13 million (95% CrI 255,000\u20133.54 million) to drinking water, and 407,000 (95% CrI 72,800\u20131.29 million) to NRND water. Recreational water exposure was responsible for 36%, drinking water for 40%, and NRND water for 24% of hospitalizations from waterborne illnesses. Most direct costs were associated with pathogens found in biofilms. Estimating disease burden by water exposure route helps direct prevention activities. For each exposure route, water management programs are needed to control biofilm-associated pathogen growth; public health programs are needed to prevent biofilm-associated diseases.",
+      "year": 2023,
+      "authors": [
+        {
+          "authorId": "32296753",
+          "name": "Megan E. Gerdes"
+        },
+        {
+          "authorId": "2151783450",
+          "name": "Shanna Miko"
+        },
+        {
+          "authorId": "30324577",
+          "name": "Jasen M. Kunz"
+        },
+        {
+          "authorId": "83333688",
+          "name": "E. Hannapel"
+        },
+        {
+          "authorId": "5941351",
+          "name": "M. Hlavsa"
+        },
+        {
+          "authorId": "46831148",
+          "name": "M. Hughes"
+        },
+        {
+          "authorId": "4832462",
+          "name": "M. Stuckey"
+        },
+        {
+          "authorId": "14013714",
+          "name": "L. F. Francois Watkins"
+        },
+        {
+          "authorId": "36973812",
+          "name": "J. Cope"
+        },
+        {
+          "authorId": "144719250",
+          "name": "J. Yoder"
+        },
+        {
+          "authorId": "39391500",
+          "name": "V. Hill"
+        },
+        {
+          "authorId": "3970414",
+          "name": "S. Collier"
+        }
+      ],
+      "venue": "Emerging Infectious Diseases",
+      "externalIds": {
+        "PubMedCentral": "10310388",
+        "DOI": "10.3201/eid2907.230231",
+        "CorpusId": 259221794,
+        "PubMed": "37347505"
+      },
+      "discovered_for": [
+        "intro_1"
+      ],
+      "match_score": 100
+    },
+    {
+      "paperId": "b4e7854861ee1cc8ce5fe72403f7c304fc47b9a3",
+      "title": "Relationships between Microbial Indicators and Pathogens in Recreational Water Settings",
+      "abstract": "Fecal pollution of recreational waters can cause scenic blight and pose a threat to public health, resulting in beach advisories and closures. Fecal indicator bacteria (total and fecal coliforms, Escherichia coli, and enterococci), and alternative indicators of fecal pollution (Clostridium perfringens and bacteriophages) are routinely used in the assessment of sanitary quality of recreational waters. However, fecal indicator bacteria (FIB), and alternative indicators are found in the gastrointestinal tract of humans, and many other animals and therefore are considered general indicators of fecal pollution. As such, there is room for improvement in terms of their use for informing risk assessment and remediation strategies. Microbial source tracking (MST) genetic markers are closely associated with animal hosts and are used to identify fecal pollution sources. In this review, we examine 73 papers generated over 40 years that reported the relationship between at least one indicator and one pathogen group or species. Nearly half of the reports did not include statistical analysis, while the remainder were almost equally split between those that observed statistically significant relationships and those that did not. Statistical significance was reported less frequently in marine and brackish waters compared to freshwater, and the number of statistically significant relationships was considerably higher in freshwater (p < 0.0001). Overall, significant relationships were more commonly reported between FIB and pathogenic bacteria or protozoa, compared to pathogenic viruses (p: 0.0022\u20130.0005), and this was more pronounced in freshwater compared to marine. Statistically significant relationships were typically noted following wet weather events and at sites known to be impacted by recent fecal pollution. Among the studies that reported frequency of detection, FIB were detected most consistently, followed by alternative indicators. MST markers and the three pathogen groups were detected least frequently. This trend was mirrored by reported concentrations for each group of organisms (FIB > alternative indicators > MST markers > pathogens). Thus, while FIB, alternative indicators, and MST markers continue to be suitable indicators of fecal pollution, their relationship with waterborne pathogens, particularly viruses, is tenuous at best and influenced by many different factors such as frequency of detection, variable shedding rates, differential fate and transport characteristics, as well as a broad range of site-specific factors such as the potential for the presence of a complex mixture of multiple sources of fecal contamination and pathogens.",
+      "year": 2018,
+      "authors": [
+        {
+          "authorId": "10717156",
+          "name": "A. Korajkic"
+        },
+        {
+          "authorId": "1835642",
+          "name": "B. McMinn"
+        },
+        {
+          "authorId": "1930063",
+          "name": "V. Harwood"
+        }
+      ],
+      "venue": "International Journal of Environmental Research and Public Health",
+      "externalIds": {
+        "MAG": "2903943762",
+        "PubMedCentral": "6313479",
+        "DOI": "10.3390/ijerph15122842",
+        "CorpusId": 54632973,
+        "PubMed": "30551597"
+      },
+      "discovered_for": [
+        "intro_3"
+      ],
+      "match_score": 100
+    },
+    {
+      "paperId": "93bb02c0834f5afe87651f3033064164c7dfc243",
+      "title": "A global dataset of surface water and groundwater salinity measurements from 1980\u20132019",
+      "abstract": "Salinization of freshwater resources is a growing water quality challenge, which may negatively impact both sectoral water-use and food security, as well as biodiversity and ecosystem services. Although monitoring of salinity is relatively common compared to many other water quality parameters, no compilation and harmonisation of available datasets for both surface and groundwater components have been made yet at the global scale. Here, we present a new global salinity database, compiled from electrical conductivity (EC) monitoring data of both surface water (rivers, lakes/reservoirs) and groundwater locations over the period 1980\u20132019. The data were assembled from a range of sources, including local to global salinity databases, governmental organizations, river basin management commissions and water development boards. Our resulting database comprises more than 16.3 million measurements from 45,103 surface water locations and 208,550 groundwater locations around the world. This database could provide new opportunities for meta-analyses of salinity levels of water resources, as well as for addressing data and model-driven questions related to historic and future salinization patterns and impacts. Measurement(s) electrical conductivity Technology Type(s) water monitoring station \u2022 water quality sampling Factor Type(s) date \u2022 geographic location Sample Characteristic - Environment surface water \u2022 groundwater Sample Characteristic - Location global Machine-accessible metadata file describing the reported data: https://doi.org/10.6084/m9.figshare.12455954",
+      "year": 2020,
+      "authors": [
+        {
+          "authorId": "7014546",
+          "name": "J. Thorslund"
+        },
+        {
+          "authorId": "27707359",
+          "name": "M. V. van Vliet"
+        }
+      ],
+      "venue": "Scientific Data",
+      "externalIds": {
+        "PubMedCentral": "7359304",
+        "MAG": "3040919838",
+        "DOI": "10.1038/s41597-020-0562-z",
+        "CorpusId": 220490677,
+        "PubMed": "32661286"
+      },
+      "discovered_for": [
+        "relwork_1"
+      ],
+      "match_score": 99
+    },
+    {
+      "paperId": "e936f248b2c0489316ed1521656af2564c3502c3",
+      "title": "The FAIR Guiding Principles for scientific data management and stewardship",
+      "abstract": "There is an urgent need to improve the infrastructure supporting the reuse of scholarly data. A diverse set of stakeholders\u2014representing academia, industry, funding agencies, and scholarly publishers\u2014have come together to design and jointly endorse a concise and measureable set of principles that we refer to as the FAIR Data Principles. The intent is that these may act as a guideline for those wishing to enhance the reusability of their data holdings. Distinct from peer initiatives that focus on the human scholar, the FAIR Principles put specific emphasis on enhancing the ability of machines to automatically find and use the data, in addition to supporting its reuse by individuals. This Comment is the first formal publication of the FAIR Principles, and includes the rationale behind them, and some exemplar implementations in the community.",
+      "year": 2016,
+      "authors": [
+        {
+          "authorId": "31764087",
+          "name": "Mark D. Wilkinson"
+        },
+        {
+          "authorId": "1736389",
+          "name": "M. Dumontier"
+        },
+        {
+          "authorId": "1975615",
+          "name": "I. J. Aalbersberg"
+        },
+        {
+          "authorId": "74186014",
+          "name": "Gabrielle Appleton"
+        },
+        {
+          "authorId": "4006952",
+          "name": "M. Axton"
+        },
+        {
+          "authorId": "20313879",
+          "name": "A. Baak"
+        },
+        {
+          "authorId": "2776517",
+          "name": "N. Blomberg"
+        },
+        {
+          "authorId": "34945757",
+          "name": "J. Boiten"
+        },
+        {
+          "authorId": "115529154",
+          "name": "Luiz Olavo Bonino da Silva Santos"
+        },
+        {
+          "authorId": "2048644",
+          "name": "P. Bourne"
+        },
+        {
+          "authorId": "47611747",
+          "name": "J. Bouwman"
+        },
+        {
+          "authorId": "2160154",
+          "name": "A. Brookes"
+        },
+        {
+          "authorId": "145469718",
+          "name": "Tim Clark"
+        },
+        {
+          "authorId": "3000963",
+          "name": "M. Crosas"
+        },
+        {
+          "authorId": "145479127",
+          "name": "I. Dillo"
+        },
+        {
+          "authorId": "116235596",
+          "name": "Olivier Dumon"
+        },
+        {
+          "authorId": "1940242",
+          "name": "S. Edmunds"
+        },
+        {
+          "authorId": "2185817",
+          "name": "C. Evelo"
+        },
+        {
+          "authorId": "2425367",
+          "name": "R. Finkers"
+        },
+        {
+          "authorId": "1401553965",
+          "name": "Alejandra N. Gonz\u00e1lez-Beltr\u00e1n"
+        },
+        {
+          "authorId": "34071005",
+          "name": "A. Gray"
+        },
+        {
+          "authorId": "143772714",
+          "name": "Paul Groth"
+        },
+        {
+          "authorId": "46555127",
+          "name": "C. Goble"
+        },
+        {
+          "authorId": "1736528",
+          "name": "J. Grethe"
+        },
+        {
+          "authorId": "1699372",
+          "name": "J. Heringa"
+        },
+        {
+          "authorId": "1396879481",
+          "name": "P. '. \u2019t Hoen"
+        },
+        {
+          "authorId": "2359250",
+          "name": "R. Hooft"
+        },
+        {
+          "authorId": "145727607",
+          "name": "T. Kuhn"
+        },
+        {
+          "authorId": "47044989",
+          "name": "Ruben G. Kok"
+        },
+        {
+          "authorId": "1713683",
+          "name": "J. Kok"
+        },
+        {
+          "authorId": "4297975",
+          "name": "S. Lusher"
+        },
+        {
+          "authorId": "2969738",
+          "name": "M. Martone"
+        },
+        {
+          "authorId": "6027579",
+          "name": "Albert Mons"
+        },
+        {
+          "authorId": "2455243",
+          "name": "A. Packer"
+        },
+        {
+          "authorId": "2059300547",
+          "name": "Bengt Persson"
+        },
+        {
+          "authorId": "1397958214",
+          "name": "P. Rocca-Serra"
+        },
+        {
+          "authorId": "144140870",
+          "name": "M. Roos"
+        },
+        {
+          "authorId": "51420525",
+          "name": "Rene C. van Schaik"
+        },
+        {
+          "authorId": "1760490",
+          "name": "S. Sansone"
+        },
+        {
+          "authorId": "1883372",
+          "name": "E. Schultes"
+        },
+        {
+          "authorId": "2510671",
+          "name": "T. Sengstag"
+        },
+        {
+          "authorId": "38261192",
+          "name": "Ted Slater"
+        },
+        {
+          "authorId": "2013713",
+          "name": "George O. Strawn"
+        },
+        {
+          "authorId": "144034058",
+          "name": "M. Swertz"
+        },
+        {
+          "authorId": "143962914",
+          "name": "Mark Thompson"
+        },
+        {
+          "authorId": "84257307",
+          "name": "J. van der Lei"
+        },
+        {
+          "authorId": "11563451",
+          "name": "Erik M. van Mulligen"
+        },
+        {
+          "authorId": "3261874",
+          "name": "Jan Velterop"
+        },
+        {
+          "authorId": "48709451",
+          "name": "A. Waagmeester"
+        },
+        {
+          "authorId": "1681130",
+          "name": "P. Wittenburg"
+        },
+        {
+          "authorId": "143780913",
+          "name": "K. Wolstencroft"
+        },
+        {
+          "authorId": "48019160",
+          "name": "Jun Zhao"
+        },
+        {
+          "authorId": "1995836",
+          "name": "B. Mons"
+        }
+      ],
+      "venue": "Scientific Data",
+      "externalIds": {
+        "MAG": "3083522027",
+        "PubMedCentral": "4792175",
+        "DOI": "10.1038/sdata.2016.18",
+        "CorpusId": 8755162,
+        "PubMed": "26978244"
+      },
+      "discovered_for": [
+        "intro_4",
+        "relwork_4"
+      ],
+      "match_score": 100
+    },
+    {
+      "paperId": "3f67bda720654cea1ff1e56d855813beac687c58",
+      "title": "Social barriers to open (water) data",
+      "abstract": "Although the proliferation of open water data platforms and initiatives in recent years is a laudable phenomenon, there is little empirical evidence indicating whether and to what extent these efforts are generating anticipated benefits of improved transparency, citizen participation, innovation, and water resource decision making. Relatedly, water resource researchers have devoted little attention to identifying and accounting for barriers that may be limiting open water data efforts from realizing their potential. The premise of this overview is that (a) open water data efforts could be improved with a better understanding of the non\u2010technical challenges and that (b) water researchers interested in open water data would benefit from delving into the emerging body of research in public policy, information science, and other disciplines on open data barriers more broadly. However, the research on open data barriers has neglected water sustainability issues. In light of this asymmetry, the aim of this overview is to foster interdisciplinary engagement on this topic by introducing the water resource community to this literature via a discussion of key social barriers to open data. Additionally, I hope to motivate water resource researchers to develop a two\u2010way interdisciplinary engagement by making original research contributions to this larger literature.",
+      "year": 2021,
+      "authors": [
+        {
+          "authorId": "105035168",
+          "name": "Z. Sugg"
+        }
+      ],
+      "venue": "WIREs Water",
+      "externalIds": {
+        "DOI": "10.1002/wat2.1564",
+        "CorpusId": 240166771
+      },
+      "discovered_for": [
+        "relwork_4"
+      ],
+      "match_score": 100
+    },
+    {
+      "paperId": "7a5b810f026cbe7968163099e9024cc81fe2e633",
+      "title": "Socio-technical system analysis of responsible data sharing in water systems as critical infrastructure",
+      "abstract": "Attention is increasingly focused on the protection of water systems as critical infrastructure, including subsystems of supply, sanitation, hygiene, and management. Similarly increasing consideration is paid to the growing role and impact of data on water systems and management. We explore key challenges associated with data-driven water systems as critical infrastructure. First, we describe the status of water infrastructure as a part of national critical infrastructure. Second, as this infrastructure increasingly relies on the constant flow of data from a huge variety, quality, and complexity of sensors, we provide a descriptive framework to map in detail the particular expertise needed across data-driven water management, applied to the UK water infrastructure as our use case. Third, through the framework of Capabilities Approach (CA) we analyze the specific challenges of data-driven water management, and argue that the current predominant narratives in the water infrastructure discourse have difficulties to effectively convey existing and emerging challenges. Fourth, we further demonstrate the widening gap between infrastructure services and consumer goods, arguing for increased convergence of the utilization of consumer data, and developing open data ecosystems.",
+      "year": 2023,
+      "authors": [
+        {
+          "authorId": "152908862",
+          "name": "P. Hazell"
+        },
+        {
+          "authorId": "1928572",
+          "name": "P. Novitzky"
+        },
+        {
+          "authorId": "83141727",
+          "name": "S. V. D. Oord"
+        }
+      ],
+      "venue": "Frontiers in Big Data",
+      "externalIds": {
+        "PubMedCentral": "9846639",
+        "DBLP": "journals/fdata/HazellNO22",
+        "DOI": "10.3389/fdata.2022.1057155",
+        "CorpusId": 255496605,
+        "PubMed": "36687772"
+      },
+      "discovered_for": [
+        "relwork_4"
+      ],
+      "match_score": 100
+    },
+    {
+      "paperId": "9c09ed49e38e0455186bc57ad48f6fdbc60c617f",
+      "title": "Burden of disease attributable to unsafe drinking water, sanitation, and hygiene in domestic settings: a global analysis for selected adverse health outcomes",
+      "abstract": "Summary Background Assessments of disease burden are important to inform national, regional, and global strategies and to guide investment. We aimed to estimate the drinking water, sanitation, and hygiene (WASH)-attributable burden of disease for diarrhoea, acute respiratory infections, undernutrition, and soil-transmitted helminthiasis, using the WASH service levels used to monitor the UN Sustainable Development Goals (SDGs) as counterfactual minimum risk-exposure levels. Methods We assessed the WASH-attributable disease burden of the four health outcomes overall and disaggregated by region, age, and sex for the year 2019. We calculated WASH-attributable fractions of diarrhoea and acute respiratory infections by country using modelled WASH exposures and exposure\u2013response relationships from two updated meta-analyses. We used the WHO and UNICEF Joint Monitoring Programme for Water Supply, Sanitation and Hygiene public database to estimate population exposure to different WASH service levels. WASH-attributable undernutrition was estimated by combining the population attributable fractions (PAF) of diarrhoea caused by unsafe WASH and the PAF of undernutrition caused by diarrhoea. Soil-transmitted helminthiasis was fully attributed to unsafe WASH. Findings We estimate that 1\u00b74 (95% CI 1\u00b73\u20131\u00b75) million deaths and 74 (68\u201380) million disability-adjusted life-years (DALYs) could have been prevented by safe WASH in 2019 across the four designated outcomes, representing 2\u00b75% of global deaths and 2\u00b79% of global DALYs from all causes. The proportion of diarrhoea that is attributable to unsafe WASH is 0\u00b769 (0\u00b765\u20130\u00b772), 0\u00b714 (0\u00b713\u20130\u00b717) for acute respiratory infections, and 0\u00b710 (0\u00b709\u20130\u00b710) for undernutrition, and we assume that the entire disease burden from soil-transmitted helminthiasis was attributable to unsafe WASH. Interpretation WASH-attributable burden of disease estimates based on the levels of service established under the SDG framework show that progress towards the internationally agreed goal of safely managed WASH services for all would yield major public-health returns. Funding WHO and Foreign, Commonwealth & Development Office.",
+      "year": 2023,
+      "authors": [
+        {
+          "authorId": "6915928",
+          "name": "J. Wolf"
+        },
+        {
+          "authorId": "34825000",
+          "name": "R. Johnston"
+        },
+        {
+          "authorId": "1897369",
+          "name": "A. Ambelu"
+        },
+        {
+          "authorId": "143723954",
+          "name": "B. Arnold"
+        },
+        {
+          "authorId": "47952110",
+          "name": "Robert E S Bain"
+        },
+        {
+          "authorId": "2105437952",
+          "name": "Michael Brauer"
+        },
+        {
+          "authorId": "2116700773",
+          "name": "Joe Brown"
+        },
+        {
+          "authorId": "34250634",
+          "name": "B. Caruso"
+        },
+        {
+          "authorId": "144754630",
+          "name": "T. Clasen"
+        },
+        {
+          "authorId": "137825336",
+          "name": "J. Colford"
+        },
+        {
+          "authorId": "2218998268",
+          "name": "J. Mills"
+        },
+        {
+          "authorId": "2055339826",
+          "name": "B. Evans"
+        },
+        {
+          "authorId": "26648209",
+          "name": "M. Freeman"
+        },
+        {
+          "authorId": "143644217",
+          "name": "Bruce Gordon"
+        },
+        {
+          "authorId": "2125272271",
+          "name": "Gagandeep Kang"
+        },
+        {
+          "authorId": "40602691",
+          "name": "C. Lanata"
+        },
+        {
+          "authorId": "8069808",
+          "name": "K. Medlicott"
+        },
+        {
+          "authorId": "1401654135",
+          "name": "A. Pr\u00fcss-Ust\u00fcn"
+        },
+        {
+          "authorId": "5457462",
+          "name": "C. Troeger"
+        },
+        {
+          "authorId": "4250060",
+          "name": "Sophie Boisson"
+        },
+        {
+          "authorId": "5844671",
+          "name": "O. Cumming"
+        }
+      ],
+      "venue": "The Lancet",
+      "externalIds": {
+        "PubMedCentral": "10290941",
+        "DOI": "10.1016/S0140-6736(23)00458-0",
+        "CorpusId": 259078597,
+        "PubMed": "37290458"
+      },
+      "discovered_for": [
+        "intro_1"
+      ],
+      "match_score": 100
+    },
+    {
+      "paperId": "31d95effc3140452da2fdb3911afb407a147d764",
+      "title": "Health risks to children from exposure to fecally-contaminated recreational water",
+      "abstract": "Background Children may be at higher risk for swimming-associated illness following exposure to fecally-contaminated recreational waters. We analyzed a pooled data set of over 80,000 beachgoers from 13 beach sites across the United States to compare risks associated with the fecal indicator bacteria Enterococcus spp. (measured by colony forming units, CFU and quantitative polymerase chain reaction cell equivalents, qPCR CE) for different age groups across different exposures, sites and health endpoints. Methods Sites were categorized according to the predominant type of fecal contamination (human or non-human). Swimming exposures of varying intensity were considered according to degree of contact and time spent in the water. Health endpoints included gastrointestinal and respiratory symptoms and skin rashes. Logistic regression models were used to analyze the risk of illness as a function of fecal contamination in water as measured by Enterococcus spp. among the exposed groups. Non-swimmers (those who did not enter the water) were excluded from the models to reduce bias and facilitate comparison across groups. Results Gastrointestinal symptoms were the most sensitive health endpoint and strongest associations were observed with Enterococcus qPCR CE at sites impacted by human fecal contamination. Under several exposure scenarios, associations between illness and Enterococcus spp. levels were significantly higher among children compared to adolescents and adults. Respiratory symptoms were also associated with Enterococcus spp. exposures among young children at sites affected by human fecal sources, although small sample sizes resulted in imprecise estimates for these associations. Conclusion Under many exposure scenarios, children were at higher risk of illness associated with exposure to fecal contamination as measured by the indicator bacteria Enterococcus spp. The source of fecal contamination and the intensity of swimming exposure were also important factors affecting the association between Enterococcus spp. and swimming-associated illness.",
+      "year": 2022,
+      "authors": [
+        {
+          "authorId": "3712766",
+          "name": "T. Wade"
+        },
+        {
+          "authorId": "2113867641",
+          "name": "B. Arnold"
+        },
+        {
+          "authorId": "5805947",
+          "name": "K. Schiff"
+        },
+        {
+          "authorId": "137825336",
+          "name": "J. Colford"
+        },
+        {
+          "authorId": "2822340",
+          "name": "S. Weisberg"
+        },
+        {
+          "authorId": "34833551",
+          "name": "J. Griffith"
+        },
+        {
+          "authorId": "32389299",
+          "name": "A. Dufour"
+        }
+      ],
+      "venue": "PLoS ONE",
+      "externalIds": {
+        "PubMedCentral": "9004770",
+        "DOI": "10.1371/journal.pone.0266749",
+        "CorpusId": 248126775,
+        "PubMed": "35413082"
+      },
+      "discovered_for": [
+        "intro_1"
+      ],
+      "match_score": 100
+    },
+    {
+      "paperId": "6eda218083e5b7556d3aaa92aad60a6cbbaf2936",
+      "title": "Do U.S. Environmental Protection Agency water quality guidelines for recreational waters prevent gastrointestinal illness? A systematic review and meta-analysis.",
+      "abstract": "Despite numerous studies, uncertainty remains about how water quality indicators can best be used in the regulation of recreational water. We conducted a systematic review of this topic with the goal of quantifying the association between microbial indicators of recreational water quality and gastrointestinal (GI) illness. A secondary goal was to evaluate the potential for GI illness below current guidelines. We screened 976 potentially relevant studies and from these identified 27 studies. From the latter, we determined summary relative risks for GI illness in relation to water quality indicator density. Our results support the use of enterococci in marine water at U.S. Environmental Protection Agency guideline levels. In fresh water, (Italic)Escherichia(/Italic) coli was a more consistent predictor of GI illness than are enterococci and other bacterial indicators. A log (base 10) unit increase in enterococci was associated with a 1.34 [95% confidence intervals (CI), 1.00-1.75] increase in relative risk in marine waters, and a log (base 10) unit increase in E. coli was associated with a 2.12 (95% CI, 0.925-4.85) increase in relative risk in fresh water. Indicators of viral contamination were strong predictors of GI illness in both fresh and marine environments. Significant heterogeneity was noted among the studies. In our analysis of heterogeneity, studies that used a nonswimming control group, studies that focused on children, and studies of athletic or other recreational events found elevated relative risks. Future studies should focus on the ability of new, more rapid and specific microbial methods to predict health effects, and estimating the risks of recreational water exposure among susceptible persons.",
+      "year": 2003,
+      "authors": [
+        {
+          "authorId": "3712766",
+          "name": "T. Wade"
+        },
+        {
+          "authorId": "1849105",
+          "name": "N. Pai"
+        },
+        {
+          "authorId": "33767283",
+          "name": "J. Eisenberg"
+        },
+        {
+          "authorId": "8436084",
+          "name": "J. Colford"
+        }
+      ],
+      "venue": "Environmental Health Perspectives",
+      "externalIds": {
+        "PubMedCentral": "1241558",
+        "MAG": "2156262706",
+        "DOI": "10.1289/ehp.6241",
+        "CorpusId": 11679703,
+        "PubMed": "12826481"
+      },
+      "discovered_for": [
+        "intro_3",
+        "relwork_2"
+      ],
+      "match_score": 100
+    },
+    {
+      "paperId": "416ff4d0e2868fdccf84197e7015b1f3a95aed46",
+      "title": "Rapidly measured indicators of recreational water quality and swimming-associated illness at marine beaches: a prospective cohort study",
+      "abstract": "IntroductionIn the United States and elsewhere, recreational water quality is monitored for fecal indicator bacteria to help prevent swimming-associated illnesses. Standard methods to measure these bacteria take at least 24 hours to obtain results. Molecular approaches such as quantitative polymerase chain reaction (qPCR) can estimate these bacteria faster, in under 3 hours. Previously, we demonstrated that measurements of the fecal indicator bacteria Enterococcus using qPCR were associated with gastrointestinal (GI) illness among swimmers at freshwater beaches. In this paper, we report on results from three marine beach sites.MethodsWe interviewed beach-goers and collected water samples at marine beaches affected by treated sewage discharges in Mississippi in 2005, and Rhode Island and Alabama in 2007. Ten to twelve days later, we obtained information about gastrointestinal, respiratory, eye, ear and skin symptoms by telephone. We tested water samples for fecal indicator organisms using qPCR and other methods.ResultsWe enrolled 6,350 beach-goers. The occurrence of GI illness among swimmers was associated with a log10-increase in exposure to qPCR-determined estimates of fecal indicator organisms in the genus Enterococcus (AOR = 2.6, 95% CI 1.3-5.1) and order Bacteroidales (AOR = 1.9, 95% CI 1.3-2.9). Estimates of organisms related to Clostridium perfringens and a subgroup of organisms in the genus Bacteroides were also determined by qPCR in 2007, as was F+ coliphage, but relationships between these indicators and illness were not statistically significant.ConclusionsThis study provides the first evidence of a relationship between gastrointestinal illness and estimates of fecal indicator organisms determined by qPCR at marine beaches.",
+      "year": 2010,
+      "authors": [
+        {
+          "authorId": "3712766",
+          "name": "T. Wade"
+        },
+        {
+          "authorId": "4914706",
+          "name": "E. Sams"
+        },
+        {
+          "authorId": "3442266",
+          "name": "K. Brenner"
+        },
+        {
+          "authorId": "21677496",
+          "name": "R. Haugland"
+        },
+        {
+          "authorId": "4578494",
+          "name": "E. Chern"
+        },
+        {
+          "authorId": "2512959",
+          "name": "M. Beach"
+        },
+        {
+          "authorId": "3693385",
+          "name": "L. Wymer"
+        },
+        {
+          "authorId": "144366624",
+          "name": "C. C. Rankin"
+        },
+        {
+          "authorId": "6081624",
+          "name": "D. Love"
+        },
+        {
+          "authorId": "2108647523",
+          "name": "Quanlin Li"
+        },
+        {
+          "authorId": "34838642",
+          "name": "R. Noble"
+        },
+        {
+          "authorId": "32389299",
+          "name": "A. Dufour"
+        }
+      ],
+      "venue": "Environmental Health",
+      "externalIds": {
+        "PubMedCentral": "2990738",
+        "MAG": "2165331940",
+        "DOI": "10.1186/1476-069X-9-66",
+        "CorpusId": 15215190,
+        "PubMed": "21040526"
+      },
+      "discovered_for": [
+        "intro_3",
+        "relwork_2"
+      ],
+      "match_score": 100
+    },
+    {
+      "paperId": "ae89de6f44253d0e0058136402a5afa8f00096e0",
+      "title": "AquaSat: A Data Set to Enable Remote Sensing of Water Quality for Inland Waters",
+      "abstract": "Satellite estimates of inland water quality have the potential to vastly expand our ability to observe and monitor the dynamics of large water bodies. For almost 50 years, we have been able to remotely sense key water quality constituents like total suspended sediment, dissolved organic carbon, chlorophyll a, and Secchi disk depth. Nonetheless, remote sensing of water quality is poorly integrated into inland water sciences, in part due to a lack of publicly available training data and a perception that remote estimates are unreliable. Remote sensing models of water quality can be improved by training and validation on larger data sets of coincident field and satellite observations, here called matchups. To facilitate model development and deeper integration of remote sensing into inland water science, we have built AquaSat, the largest such matchup data set ever assembled. AquaSat contains more than 600,000 matchups, covering 1984\u20132019, of ground\u2010based total suspended sediment, dissolved organic carbon, chlorophyll a, and SDDSecchi disk depth measurements paired with spectral reflectance from Landsat 5, 7, and 8 collected within \u00b11 day of each other. To build AquaSat, we developed open source tools in R and Python and applied them to existing public data sets covering the contiguous United States, including the Water Quality Portal, LAGOS\u2010NE, and the Landsat archive. In addition to publishing the data set, we are also publishing our full code architecture to facilitate expanding and improving AquaSat. We anticipate that this work will help make remote sensing of inland water accessible to more hydrologists, ecologists, and limnologists while facilitating novel data\u2010driven approaches to monitoring and understanding critical water resources at large spatiotemporal scales.",
+      "year": 2019,
+      "authors": [
+        {
+          "authorId": "46612665",
+          "name": "M. Ross"
+        },
+        {
+          "authorId": "1388215940",
+          "name": "S. Topp"
+        },
+        {
+          "authorId": "13775930",
+          "name": "A. Appling"
+        },
+        {
+          "authorId": "46402311",
+          "name": "Xiao Yang"
+        },
+        {
+          "authorId": "33463855",
+          "name": "C. Kuhn"
+        },
+        {
+          "authorId": "144442645",
+          "name": "D. Butman"
+        },
+        {
+          "authorId": "144752671",
+          "name": "M. Simard"
+        },
+        {
+          "authorId": "3418431",
+          "name": "T. Pavelsky"
+        }
+      ],
+      "venue": "Water Resources Research",
+      "externalIds": {
+        "MAG": "2979313052",
+        "DOI": "10.1029/2019WR024883",
+        "CorpusId": 210314932
+      },
+      "discovered_for": [
+        "relwork_1"
+      ],
+      "match_score": 100
+    },
+    {
+      "paperId": "9ef4fb064b6503ddca4d34bd1bada945b061b89b",
+      "title": "A Brief Overview of the GLObal RIver Chemistry Database, GLORICH",
+      "abstract": "Abstract Over the last decade the number of regional to global scale studies of river chemical fluxes and their steering factors increased rapidly, entailing a growing demand for appropriate databases to calculate mass budgets, to calibrate models, or to test hypotheses. We present a short overview of the recently established GLObal RIver CHemistry database GLORICH, which combines an assemblage of hydrochemical data from varying sources with catchment characteristics of the sampling locations. The information provided include e.g. catchment size, lithology, soil, climate, land cover, net primary production, population density and average slope gradient. The data base comprises 1.27 million samples distributed over 17,000 sampling locations.",
+      "year": 2014,
+      "authors": [
+        {
+          "authorId": "46481551",
+          "name": "J. Hartmann"
+        },
+        {
+          "authorId": "7872971",
+          "name": "R. Lauerwald"
+        },
+        {
+          "authorId": "15580531",
+          "name": "N. Moosdorf"
+        }
+      ],
+      "venue": "",
+      "externalIds": {
+        "MAG": "2017262766",
+        "DOI": "10.1016/J.PROEPS.2014.08.005",
+        "CorpusId": 95761809
+      },
+      "discovered_for": [
+        "relwork_1"
+      ],
+      "match_score": 100
+    },
+    {
+      "paperId": "6e7bdcc98863ef6cbc47f6c77bcfaad45d0729b6",
+      "title": "A Day at the Beach: Enabling Coastal Water Quality Prediction with High-Frequency Sampling and Data-Driven Models.",
+      "abstract": "To reduce the incidence of recreational waterborne illness, fecal indicator bacteria (FIB) are measured to assess water quality and inform beach management. Recently, predictive FIB models have been used to aid managers in making beach posting and closure decisions. However, those predictive models must be trained using rich historical data sets consisting of FIB and environmental data that span years, and many beaches lack such data sets. Here, we investigate whether water quality data collected during discrete short duration, high-frequency beach sampling events (e.g., samples collected at sub-hourly intervals for 24-48 h) are sufficient to train predictive models that can be used for beach management. We use data collected during six high-frequency sampling events at three California marine beaches and train a total of 126 models using common data-driven techniques. Tide, solar irradiation, water temperature, significant wave height, and offshore wind speed were found to be the most important environmental variables in the models. We validate the predictive performance of models using withheld data. Random forests are consistently the top performing model type. Overall, we find that data-driven models trained using high-frequency FIB and environmental data perform well at predicting water quality and can be used to inform public health decisions at beaches.",
+      "year": 2021,
+      "authors": [
+        {
+          "authorId": "51046345",
+          "name": "Ryan T. Searcy"
+        },
+        {
+          "authorId": "5766241",
+          "name": "A. Boehm"
+        }
+      ],
+      "venue": "Environmental Science and Technology",
+      "externalIds": {
+        "DOI": "10.1021/acs.est.0c06742",
+        "CorpusId": 231663737,
+        "PubMed": "33471505"
+      },
+      "discovered_for": [
+        "relwork_3"
+      ],
+      "match_score": 100
+    },
+    {
+      "paperId": "5c5f34b5506dcd1c825c5acb6137e78e8727c007",
+      "title": "Systematic review of predictive models of microbial water quality at freshwater recreational beaches",
+      "abstract": "Monitoring of fecal indicator bacteria at recreational waters is an important public health measure to minimize water-borne disease, however traditional culture methods for quantifying bacteria can take 18\u201324 hours to obtain a result. To support real-time notifications of water quality, models using environmental variables have been created to predict indicator bacteria levels on the day of sampling. We conducted a systematic review of predictive models of fecal indicator bacteria at freshwater recreational sites in temperate climates to identify and describe the existing approaches, trends, and their performance to inform beach water management policies. We conducted a comprehensive search strategy, including five databases and grey literature, screened abstracts for relevance, and extracted data using structured forms. Data were descriptively summarized. A total of 53 relevant studies were identified. Most studies (n = 44, 83%) were conducted in the United States and evaluated water quality using E. coli as fecal indicator bacteria (n = 46, 87%). Studies were primarily conducted in lakes (n = 40, 75%) compared to rivers (n = 13, 25%). The most commonly reported predictive model-building method was multiple linear regression (n = 37, 70%). Frequently used predictors in best-fitting models included rainfall (n = 39, 74%), turbidity (n = 31, 58%), wave height (n = 24, 45%), and wind speed and direction (n = 25, 47%, and n = 23, 43%, respectively). Of the 19 (36%) studies that measured accuracy, predictive models averaged an 81.0% accuracy, and all but one were more accurate than traditional methods. Limitations identifed by risk-of-bias assessment included not validating models (n = 21, 40%), limited reporting of whether modelling assumptions were met (n = 40, 75%), and lack of reporting on handling of missing data (n = 37, 70%). Additional research is warranted on the utility and accuracy of more advanced predictive modelling methods, such as Bayesian networks and artificial neural networks, which were investigated in comparatively fewer studies and creating risk of bias tools for non-medical predictive modelling.",
+      "year": 2021,
+      "authors": [
+        {
+          "authorId": "2003072806",
+          "name": "Cole Heasley"
+        },
+        {
+          "authorId": "2119260944",
+          "name": "J. S\u00e1nchez"
+        },
+        {
+          "authorId": "40643484",
+          "name": "J. Tustin"
+        },
+        {
+          "authorId": "145177041",
+          "name": "I. Young"
+        }
+      ],
+      "venue": "PLoS ONE",
+      "externalIds": {
+        "PubMedCentral": "8389397",
+        "DOI": "10.1371/journal.pone.0256785",
+        "CorpusId": 237322056,
+        "PubMed": "34437625"
+      },
+      "discovered_for": [
+        "relwork_3"
+      ],
+      "match_score": 100
+    },
+    {
+      "paperId": "da39b8135523085a636c25abf7a964729f3a1303",
+      "title": "Enhancing Data Integration, Interoperability, and Reuse to Address Complex and Emerging Environmental Health Problems",
+      "abstract": "Environmental health sciences (EHS) span many diverse disciplines. Within the EHS community, the National Institute of Environmental Health Sciences Superfund Research Program (SRP) funds multidisciplinary research aimed to address pressing and complex issues on how people are exposed to hazardous substances and their related health consequences with the goal of identifying strategies to reduce exposures and protect human health. While disentangling the interrelationships that contribute to environmental exposures and their effects on human health over the course of life remains difficult, advances in data science and data sharing offer a path forward to explore data across disciplines to reveal new insights. Multidisciplinary SRP-funded teams are well-positioned to examine how to best integrate EHS data across diverse research domains to address multifaceted environmental health problems. As such, SRP supported collaborative research projects designed to foster and enhance the interoperability and reuse of diverse and complex data streams. This perspective synthesizes those experiences as a landscape view of the challenges identified while working to increase the FAIR-ness (Findable, Accessible, Interoperable, and Reusable) of EHS data and opportunities to address them.",
+      "year": 2022,
+      "authors": [
+        {
+          "authorId": "6695181",
+          "name": "M. Heacock"
+        },
+        {
+          "authorId": "152692646",
+          "name": "Adeline R. Lopez"
+        },
+        {
+          "authorId": "51217705",
+          "name": "Sara M. Amolegbe"
+        },
+        {
+          "authorId": "4149415",
+          "name": "D. Carlin"
+        },
+        {
+          "authorId": "5054228",
+          "name": "H. Henry"
+        },
+        {
+          "authorId": "51222444",
+          "name": "B. Trottier"
+        },
+        {
+          "authorId": "2397902044",
+          "name": "M. L. Velasco"
+        },
+        {
+          "authorId": "2250766923",
+          "name": "William Suk"
+        }
+      ],
+      "venue": "Environmental Science and Technology",
+      "externalIds": {
+        "PubMedCentral": "9227711",
+        "DOI": "10.1021/acs.est.1c08383",
+        "CorpusId": 248748666,
+        "PubMed": "35549252"
+      },
+      "discovered_for": [
+        "relwork_4"
+      ],
+      "match_score": 100
+    },
+    {
+      "paperId": "https://openalex.org/W2944592180",
+      "title": "Burden of disease from inadequate water, sanitation and hygiene for selected adverse health outcomes: An updated analysis with a focus on low- and middle-income countries",
+      "abstract": "BACKGROUND: To develop updated estimates in response to new exposure and exposure-response data of the burden of diarrhoea, respiratory infections, malnutrition, schistosomiasis, malaria, soil-transmitted helminth infections and trachoma from exposure to inadequate drinking-water, sanitation and hygiene behaviours (WASH) with a focus on low- and middle-income countries. METHODS: For each of the analysed diseases, exposure levels with both sufficient global exposure data for 2016 and a matching exposure-response relationship were combined into population-attributable fractions. Attributable deaths and disability-adjusted life years (DALYs) were estimated for each disease and, for most of the diseases, by country, age and sex group separately for inadequate water, sanitation and hygiene behaviours and for the cluster of risk factors. Uncertainty estimates were computed on the basis of uncertainty surrounding exposure estimates and relative risks. FINDINGS: An estimated 829,000 WASH-attributable deaths and 49.8 million DALYs occurred from diarrhoeal diseases in 2016, equivalent to 60% of all diarrhoeal deaths. In children under 5 years, 297,000 WASH-attributable diarrhoea deaths occurred, representing 5.3% of all deaths in this age group. If the global disease burden from different diseases and several counterfactual exposure distributions was combined it would amount to 1.6 million deaths, representing 2.8% of all deaths, and 104.6 million DALYs in 2016. CONCLUSIONS: Despite recent declines in attributable mortality, inadequate WASH remains an important determinant of global disease burden, especially among young children. These estimates contribute to global monitoring such as for the Sustainable Development Goal indicator on mortality from inadequate WASH.",
+      "year": 2019,
+      "authors": [
+        {
+          "name": "Annette Pr\u00fcss\u2010\u00dcst\u00fcn"
+        },
+        {
+          "name": "Jennyfer Wolf"
+        },
+        {
+          "name": "Jamie Bartram"
+        },
+        {
+          "name": "Thomas Clasen"
+        },
+        {
+          "name": "Oliver Cumming"
+        },
+        {
+          "name": "Matthew C. Freeman"
+        },
+        {
+          "name": "Bruce Gordon"
+        },
+        {
+          "name": "Paul Hunter"
+        },
+        {
+          "name": "Kate Medlicott"
+        },
+        {
+          "name": "Richard B. Johnston"
+        }
+      ],
+      "venue": "International Journal of Hygiene and Environmental Health",
+      "externalIds": {
+        "DOI": "10.1016/j.ijheh.2019.05.004"
+      },
+      "discovered_for": [
+        "intro_1"
+      ],
+      "match_score": 100,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "https://openalex.org/W2168270561",
+      "title": "Fecal Contamination of Drinking-Water in Low- and Middle-Income Countries: A Systematic Review and Meta-Analysis",
+      "abstract": "BACKGROUND: Access to safe drinking-water is a fundamental requirement for good health and is also a human right. Global access to safe drinking-water is monitored by WHO and UNICEF using as an indicator \"use of an improved source,\" which does not account for water quality measurements. Our objectives were to determine whether water from \"improved\" sources is less likely to contain fecal contamination than \"unimproved\" sources and to assess the extent to which contamination varies by source type and setting. METHODS AND FINDINGS: Studies in Chinese, English, French, Portuguese, and Spanish were identified from online databases, including PubMed and Web of Science, and grey literature. Studies in low- and middle-income countries published between 1990 and August 2013 that assessed drinking-water for the presence of Escherichia coli or thermotolerant coliforms (TTC) were included provided they associated results with a particular source type. In total 319 studies were included, reporting on 96,737 water samples. The odds of contamination within a given study were considerably lower for \"improved\" sources than \"unimproved\" sources (odds ratio [OR] = 0.15 [0.10-0.21], I2 = 80.3% [72.9-85.6]). However over a quarter of samples from improved sources contained fecal contamination in 38% of 191 studies. Water sources in low-income countries (OR = 2.37 [1.52-3.71]; p<0.001) and rural areas (OR = 2.37 [1.47-3.81] p<0.001) were more likely to be contaminated. Studies rarely reported stored water quality or sanitary risks and few achieved robust random selection. Safety may be overestimated due to infrequent water sampling and deterioration in quality prior to consumption. CONCLUSION: Access to an \"improved source\" provides a measure of sanitary protection but does not ensure water is free of fecal contamination nor is it consistent between source types or settings. International estimates therefore greatly overstate use of safe drinking-water and do not fully reflect disparities in access. An enhanced monitoring strategy would combine indicators of sanitary protection with measures of water quality.",
+      "year": 2014,
+      "authors": [
+        {
+          "name": "Robert Bain"
+        },
+        {
+          "name": "Ryan Cronk"
+        },
+        {
+          "name": "Jim Wright"
+        },
+        {
+          "name": "Hong Yang"
+        },
+        {
+          "name": "Tom Slaymaker"
+        },
+        {
+          "name": "Jamie Bartram"
+        }
+      ],
+      "venue": "PLoS Medicine",
+      "externalIds": {
+        "DOI": "10.1371/journal.pmed.1001644"
+      },
+      "discovered_for": [
+        "intro_1"
+      ],
+      "match_score": 100,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "https://openalex.org/W1992617095",
+      "title": "Risks Associated with the Microbiological Quality of Bodies of Fresh and Marine Water Used for Recreational Purposes: Summary Estimates Based on Published Epidemiological Studies",
+      "abstract": "The current European standards for microbiological quality of bathing water (i.e., all running or still fresh waters or parts thereof and/or sea water [with the exception of water intended for therapeutic purposes and water used in swimming pools]) were issued in 1976 and are currently undergoing revision. In this article, the authors propose parameters for select microorganism indicators to assist in the establishment of public-health-based objectives for fresh and marine water quality. A type-II meta-analysis of the results of 18 published epidemiological studies was implemented in an attempt to characterize the relationship(s) between concentrations of bacterial indicators and rates of acute gastrointestinal diseases among bathers who had used fresh or marine water for recreational purposes. The authors fit multiple linear-regression models, which allowed for random effects across studies, to derive dose-response curves. Several confounders and effect modifiers were controlled for in the analyses. Risks were then estimated for a hypothetical individual who would bathe 20 times/yr in water that contained a given concentration of microorganisms. For fresh-water-associated highly credible gastrointestinal illnesses, a level of 10 fecal coliforms/100 ml water yielded an attributable risk of 0.2 cases/1,000 person-years; a risk of 2 cases/1,000 person-years was found for fecal streptococci. The corresponding yearly attributable risks were 1 and 13 cases/1,000 person-years, respectively, for 100 bacteria/100 ml fresh water. Risks associated with fecal coliforms were found to be lower in marine water than in fresh water. Irrespective of the type of water examined, total coliforms were related only weakly with acute digestive morbidity. Developers of future bathing-water standards should state the level of risk deemed acceptable for public health. The authors of this study maintain that levels of fecal coliforms and fecal streptococci should be used as criteria for infectious risk management associated with bodies of marine and fresh water used for recreational purposes.",
+      "year": 2003,
+      "authors": [
+        {
+          "name": "Denis Zmirou"
+        },
+        {
+          "name": "Laurent Pena"
+        },
+        {
+          "name": "Martine Ledrans"
+        },
+        {
+          "name": "Alain LeTertre"
+        }
+      ],
+      "venue": "Archives of Environmental Health An International Journal",
+      "externalIds": {
+        "DOI": "10.3200/aeoh.58.11.703-711"
+      },
+      "discovered_for": [
+        "intro_1"
+      ],
+      "match_score": 100,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "https://openalex.org/W4205343929",
+      "title": "GRQA: Global River Water Quality Archive",
+      "abstract": "Abstract. Large-scale hydrological studies are often limited by the lack of available observation data with a good spatiotemporal coverage. This has affected the reproducibility of previous studies and the potential improvement of existing hydrological models. In addition to the observation data themselves, insufficient or poor-quality metadata have also discouraged researchers from integrating the already-available datasets. Therefore, improving both the availability and quality of open water quality data would increase the potential to implement predictive modeling on a global scale. The Global River Water Quality Archive (GRQA) aims to contribute to improving water quality data coverage by aggregating and harmonizing five national, continental and global datasets: CESI (Canadian Environmental Sustainability Indicators program), GEMStat (Global Freshwater Quality Database), GLORICH (GLObal RIver CHemistry), Waterbase and WQP (Water Quality Portal). The GRQA compilation involved converting observation data from the five sources into a common format and harmonizing the corresponding metadata, flagging outliers, calculating time series characteristics and detecting duplicate observations from sources with a spatial overlap. The final dataset extends the spatial and temporal coverage of previously available water quality data and contains 42 parameters and over 17 million measurements around the globe covering the 1898\u20132020 time period. Metadata in the form of statistical tables, maps and figures are provided along with observation time series. The GRQA dataset, supplementary metadata and figures are available for download on the DataCite- and OpenAIRE-enabled Zenodo repository at https://doi.org/10.5281/zenodo.5097436 (Virro et al., 2021).",
+      "year": 2021,
+      "authors": [
+        {
+          "name": "Holger Virro"
+        },
+        {
+          "name": "Giuseppe Amatulli"
+        },
+        {
+          "name": "Alexander Kmoch"
+        },
+        {
+          "name": "Longzhu Q. Shen"
+        },
+        {
+          "name": "Evelyn Uuemaa"
+        }
+      ],
+      "venue": "Earth system science data",
+      "externalIds": {
+        "DOI": "10.5194/essd-13-5483-2021"
+      },
+      "discovered_for": [
+        "intro_2",
+        "relwork_1"
+      ],
+      "match_score": 100,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "https://openalex.org/W3080671339",
+      "title": "From data to decisions: understanding information flows within regulatory water quality monitoring programs",
+      "abstract": "Abstract Most countries maintain regulatory requirements for testing of drinking water supplies to guide treatment procedures and ensure safe water delivery to consumers. It is unclear, however, if water quality data are always used effectively, particularly in low-resource settings. Efforts to improve the use of water quality data will benefit from a comprehensive understanding of existing systems for managing and sharing information. This study evaluates the methods used to organize, analyze, and transmit drinking water quality data among 26 water supplier or surveillance institutions and two regulatory agencies in six countries of sub-Saharan Africa. Following extensive qualitative and quantitative data collection, we developed data flow diagrams to map formal and informal water quality networks. We found high levels of similarities between the information systems established by different institutions operating under different regulatory structures. We determined that the key barriers to information flows were the limited aggregation and analysis of data and the poor enforcement of data sharing requirements. Our results suggest that broad reforms are necessary to improve the use of these water quality data to manage water safety. These measures could include strengthening enforcement of testing and reporting, building staff capacity for managing and using data, and integrating collection of water quality data with other information systems.",
+      "year": 2020,
+      "authors": [
+        {
+          "name": "Emily Kumpel"
+        },
+        {
+          "name": "Clara MacLeod"
+        },
+        {
+          "name": "Kara Stuart"
+        },
+        {
+          "name": "Alicea Cock-Esteb"
+        },
+        {
+          "name": "Ranjiv Khush"
+        },
+        {
+          "name": "Rachel Peletz"
+        }
+      ],
+      "venue": "npj Clean Water",
+      "externalIds": {
+        "DOI": "10.1038/s41545-020-00084-0"
+      },
+      "discovered_for": [
+        "intro_2"
+      ],
+      "match_score": 100,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "https://openalex.org/W2133131777",
+      "title": "SWIMMING-ASSOCIATED GASTROENTERITIS AND WATER QUALITY",
+      "abstract": "A direct, linear relationship between swimming-associated gastrointestinal illness and the quality of the bathing water was obtained from a multi-year, multiple-location prospective epidemiologic-microbiologic research program conducted in New York City, 1973-1975, Lake Pontchartrain, Louisiana, 1977-1978, and Boston, Massachusetts, 1978. Several microbial indicators were used in attempting to define the quality of the water; and, of those examined, enterococci showed the best correlation to total and \"highly credible\" gastrointestinal symptoms. The frequency of gastrointestinal symptoms also had a high degree of association with distance from known sources of municipal wastewater. A striking feature of the relationship was the very low enterococcus and Escherichia coli densities in the water (10/100 ml) associated with appreciable attack rates (about 10/1000 persons) for \"highly credible\" gastrointestinal symptoms. Moreover, the ratio of the swimmer to nonswimmer symptom rates indicated that swimming in even marginally polluted marine bathing water is a significant route of transmission for the observed gastroenteritis.",
+      "year": 1982,
+      "authors": [
+        {
+          "name": "V. J. Cabelli"
+        },
+        {
+          "name": "Alfred Dufour"
+        },
+        {
+          "name": "Leland J. McCabe"
+        },
+        {
+          "name": "M. A. Levin"
+        }
+      ],
+      "venue": "American Journal of Epidemiology",
+      "externalIds": {
+        "DOI": "10.1093/oxfordjournals.aje.a113342"
+      },
+      "discovered_for": [
+        "intro_3",
+        "relwork_2"
+      ],
+      "match_score": 100,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "https://openalex.org/W2008644502",
+      "title": "Rapidly Measured Indicators of Recreational Water Quality Are Predictive of Swimming-Associated Gastrointestinal Illness",
+      "abstract": "Standard methods to measure recreational water quality require at least 24 hr to obtain results, making it impossible to assess the quality of water within a single day. Methods to measure recreational water quality in <or=2 hr have been developed. Application of rapid methods could give considerably more accurate and timely assessments of recreational water quality. We conducted a prospective study of beachgoers at two Great Lakes beaches to examine the association between recreational water quality, obtained using rapid methods, and gastrointestinal (GI) illness after swimming. Beachgoers were asked about swimming and other beach activities and 10-12 days later were asked about the occurrence of GI symptoms. We tested water samples for Enterococcus and Bacteroides species using the quantitative polymerase chain reaction (PCR) method. We observed significant trends between increased GI illness and Enterococcus at the Lake Michigan beach and a positive trend for Enterococcus at the Lake Erie beach. The association remained significant for Enterococcus when the two beaches were combined. We observed a positive trend for Bacteroides at the Lake Erie beach, but no trend was observed at the Lake Michigan beach. Enterococcus samples collected at 0800 hr were predictive of GI illness that day. The association between Enterococcus and illness strengthened as time spent swimming in the water increased. This is the first study to show that water quality measured by rapid methods can predict swimming-associated health effects.",
+      "year": 2005,
+      "authors": [
+        {
+          "name": "Timothy J. Wade"
+        },
+        {
+          "name": "Rebecca L. Calderon"
+        },
+        {
+          "name": "Elizabeth Sams"
+        },
+        {
+          "name": "Michael J. Beach"
+        },
+        {
+          "name": "Kristen P. Brenner"
+        },
+        {
+          "name": "Ann H. Williams"
+        },
+        {
+          "name": "Alfred Dufour"
+        }
+      ],
+      "venue": "Environmental Health Perspectives",
+      "externalIds": {
+        "DOI": "10.1289/ehp.8273"
+      },
+      "discovered_for": [
+        "intro_3",
+        "relwork_2"
+      ],
+      "match_score": 100,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "https://openalex.org/W2150447127",
+      "title": "Review of epidemiological studies on health effects from exposure to recreational water",
+      "abstract": "BACKGROUND: In order to facilitate the setting of guidelines, this review article evaluates the health risks caused by poor microbiological quality of recreational natural water. METHODS: Studies on uncontrolled waters, such as sea, lakes and rivers were considered in this review through MEDLINE and WHO resources. Out of the 37 studies identified, 22 were reviewed because they addressed associations of interest and fulfilled the validity criteria. RESULTS: Most studies reported a dose-related increase of health risk in swimmers with an increase in the indicator-bacteria count in recreational waters. Relative risk (RR) values for swimming in polluted water versus clean water were often significant (usually 1.0 < RR < 3.0). The indicator microorganisms that correlate best with health outcomes were enterococci/faecal streptococci for both marine and freshwater, and Escherichia coli for freshwater. In both marine and freshwater, increased risk of gastro-intestinal symptoms was reported for water quality values ranging from only a few indicator counts/100 ml to about 30 indicator counts/100 ml. These values are low compared with the water qualities frequently encountered in coastal recreational waters. Studies which showed a higher threshold for increased risk and case-rate values in some countries may suggest immunity due to endemicity or a lower pathogen-to-indicator ratio in the natural waters. CONCLUSIONS: The review strongly suggests a causal dose-related relationship between gastrointestinal symptoms and recreational water quality measured by bacterial indicator counts.",
+      "year": 1998,
+      "authors": [
+        {
+          "name": "Annette Pr\u00fcss"
+        }
+      ],
+      "venue": "International Journal of Epidemiology",
+      "externalIds": {
+        "DOI": "10.1093/ije/27.1.1"
+      },
+      "discovered_for": [
+        "intro_3",
+        "relwork_2"
+      ],
+      "match_score": 100,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "https://openalex.org/W1599380810",
+      "title": "Enterococci as Indicators of Environmental Fecal Contamination",
+      "abstract": "Enterococci are found in high concentrations in human feces, usually between 104 and 106 bacteria per gram wet weight (Layton, Walters, Lam, & Boehm, 2010; Slanetz & Bartley, 1957; Zubrzycki & Spaulding, 1962); see also Enterococcus Diversity, Origins in Nature, and Gut Colonization). Although enterococci usually represent less than 1% of the flora (Tendolkar, Baghdayan, & Shankar, 2003), they are usually present in the fecal consortium, but are outnumbered by other bacteria, including Escherichia coli, clostridia, and the Bacteroidales (Zubrzycki & Spaulding, 1962). Due to their ubiquity in human feces and persistence in the environment, enterococci have been adopted as indicators of human fecal pollution in water. More recently, their densities on human hands have been used as indicators of hand hygiene. The use of enterococci as indicators of human fecal pollution or contamination can be problematic, however, because enterococci are also found in animal feces (Harwood, Whitlock, & Withington, 2000; Layton, Walters, Lam, & Boehm, 2010), in soils (Byappanahalli & Fujioka, 2004; Goto & Yan, 2011), and on plants (Byappanahalli, Shively, Nevers, Sadowsky, & Whitman, 2003; Imamura, Thompson, Boehm, & Jay, 2011; Muller, Ulrich, Ott, & Muller, 2001). Although there is debate about the extent to which this happens in nature, there is evidence that enterococci are capable of replicating in extra-enteric environments, such as on beach sands (Bahirathan, Puente, & Seyfried, 1998; Zubrzycki & Spaulding, 1962) and in water containing kelp (Byappanahalli, Shively, Nevers, Sadowsky, & Whitman, 2003; Imamura, Thompson, Boehm, & Jay, 2011) and plankton (Mote, Turner, & Lipp, 2012). Identification of human-specific enterococcal species or genotypes could aid in the discrimination of human fecal contamination from other environmental sources of the organisms. Some data suggest that Enterococcus faecium and Enterococcus faecalis may be more prevalent in human feces than other enterococcal species, while Enterococcus casseliflavus and Enterococcus mundtii may be more abundant in environmental reservoirs (such as on plants) than other species (Bahirathan, Puente, & Seyfried, 1998; Ferguson, Moore, Getrich, & Zhowandai, 2005; Wheeler, Hartel, Godfrey, Hill, & Segars, 2002). However, a number of species of Enterococcus have been isolated from human feces (Layton, Walters, Lam, & Boehm, 2010); Enterococcus Diversity, Origins in Nature, and Gut Colonization), so it will be difficult to derive a single host-specific indicator. It has been suggested that E. faecium that contains the enterococcal surface protein (esp) gene may be human-specific (Scott, Jenkins, Lukasik, & Rose, 2005), but esp-containing E. faecium can also be found in select animal hosts (Layton, Walters, & Boehm, 2009; Whitman, Przybyla-Kelly, Shively, & Byappanahalli, 2007).Fecal enterococci from the GI tract consortia of healthy humans are generally not virulent. Nevertheless, multidrug-resistant Enterococcus strains have emerged as leading causes of hospital-acquired infections (Tendolkar, Baghdayan, & Shankar, 2003). Vancomycin-resistant enterococci are particularly important pathogens (Willems, et al., 2005), as are esp-containing E. faecalis (Shankar, Baghdayan, Huycke, Lindahl, & Gilmore, 1999) and E. faecium (Willems, et al., 2001), as well as other types of E. faecalis and E. faecium (Wisplinghoff, Bischoff, Tallent, Seifert, Wenzel, & Edmond, 2004). It is estimated that there are 800,000 cases of enterococcal infection in the US each year, adding $500,000,000 to annual healthcare costs (Tendolkar, Baghdayan, & Shankar, 2003). Therefore, the presence of enterococci in the environment and on hands may have important direct health implications.",
+      "year": 2014,
+      "authors": [
+        {
+          "name": "Alexandria B. Boehm"
+        },
+        {
+          "name": "Lauren M. Sassoubre"
+        }
+      ],
+      "venue": null,
+      "externalIds": {},
+      "discovered_for": [
+        "intro_3"
+      ],
+      "match_score": 100,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "https://openalex.org/W1963962444",
+      "title": "Escherichia coli: the best biological drinking water indicator for public health protection",
+      "abstract": "Public health protection requires an indicator of fecal pollution. It is not necessary to analyse drinking water for all pathogens. Escherichia coli is found in all mammal faeces at concentrations of 10 log 9(-1), but it does not multiply appreciably in the environment. In the 1890s, it was chosen as the biological indicator of water treatment safety. Because of method deficiencies, E. coli surrogates such as the 'fecal coliform' and total coliforms tests were developed and became part of drinking water regulations. With the advent of the Defined Substrate Technology in the late 1980s, it became possible to analyse drinking water directly for E. coli (and, simultaneously, total coliforms) inexpensively and simply. Accordingly, E. coli was re-inserted in the drinking water regulations. E. coli survives in drinking water for between 4 and 12 weeks, depending on environmental conditions (temperature, microflora, etc.). Bacteria and viruses are approximately equally oxidant-sensitive, but parasites are less so. Under the conditions in distribution systems, E. coli will be much more long-lived. Therefore, under most circumstances it is possible to design a monitoring program that permits public health protection at a modest cost. Drinking water regulations currently require infrequent monitoring which may not adequately detect intermittent contamination events; however, it is cost-effective to markedly increase testing with E. coli to better protect the public's health. Comparison with other practical candidate fecal indicators shows that E. coli is far superior overall.",
+      "year": 2000,
+      "authors": [
+        {
+          "name": "Stephen C. Edberg"
+        },
+        {
+          "name": "Eugene W. Rice"
+        },
+        {
+          "name": "Richard J. Karlin"
+        },
+        {
+          "name": "Martin J. Allen"
+        }
+      ],
+      "venue": "Journal of Applied Microbiology",
+      "externalIds": {
+        "DOI": "10.1111/j.1365-2672.2000.tb05338.x"
+      },
+      "discovered_for": [
+        "relwork_2"
+      ],
+      "match_score": 100,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "https://openalex.org/W2094290519",
+      "title": "A sea change ahead for recreational water quality criteria",
+      "abstract": "The United States Environmental Protection Agency is committed to developing new recreational water quality criteria for coastal waters by 2012 to provide increased protection to swimmers. We review the uncertainties and shortcomings of the current recreational water quality criteria, describe critical research needs for the development of new criteria, as well as recommend a path forward for new criteria development. We believe that among the most needed research needs are the completion of epidemiology studies in tropical waters and in waters adversely impacted by urban runoff and animal feces, as well as studies aimed to validate the use of models for indicator and pathogen concentration and health risk predictions.",
+      "year": 2008,
+      "authors": [
+        {
+          "name": "Alexandria B. Boehm"
+        },
+        {
+          "name": "Nicholas J. Ashbolt"
+        },
+        {
+          "name": "John M. Colford"
+        },
+        {
+          "name": "Lee E. Dunbar"
+        },
+        {
+          "name": "Lora E. Fleming"
+        },
+        {
+          "name": "Mark Gold"
+        },
+        {
+          "name": "Joel A. Hansel"
+        },
+        {
+          "name": "Paul Hunter"
+        },
+        {
+          "name": "Audrey Ichida"
+        },
+        {
+          "name": "Charles D. McGee"
+        },
+        {
+          "name": "Jeffrey A. Soller"
+        },
+        {
+          "name": "Stephen B. Weisberg"
+        }
+      ],
+      "venue": "Journal of Water and Health",
+      "externalIds": {
+        "DOI": "10.2166/wh.2009.122"
+      },
+      "discovered_for": [
+        "relwork_2"
+      ],
+      "match_score": 75,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "https://openalex.org/W2582343773",
+      "title": "Water quality data for national\u2010scale aquatic research: The Water Quality Portal",
+      "abstract": "Abstract Aquatic systems are critical to food, security, and society. But, water data are collected by hundreds of research groups and organizations, many of which use nonstandard or inconsistent data descriptions and dissemination, and disparities across different types of water observation systems represent a major challenge for freshwater research. To address this issue, the Water Quality Portal (WQP) was developed by the U.S. Environmental Protection Agency, the U.S. Geological Survey, and the National Water Quality Monitoring Council to be a single point of access for water quality data dating back more than a century. The WQP is the largest standardized water quality data set available at the time of this writing, with more than 290 million records from more than 2.7 million sites in groundwater, inland, and coastal waters. The number of data contributors, data consumers, and third\u2010party application developers making use of the WQP is growing rapidly. Here we introduce the WQP, including an overview of data, the standardized data model, and data access and services; and we describe challenges and opportunities associated with using WQP data. We also demonstrate through an example the value of the WQP data by characterizing seasonal variation in lake water clarity for regions of the continental U.S. The code used to access, download, analyze, and display these WQP data as shown in the figures is included as supporting information.",
+      "year": 2017,
+      "authors": [
+        {
+          "name": "Emily K. Read"
+        },
+        {
+          "name": "Lindsay Carr"
+        },
+        {
+          "name": "Laura A. De Cicco"
+        },
+        {
+          "name": "Hilary A. Dugan"
+        },
+        {
+          "name": "Paul C. Hanson"
+        },
+        {
+          "name": "Julia A. Hart"
+        },
+        {
+          "name": "James Kreft"
+        },
+        {
+          "name": "Jordan S. Read"
+        },
+        {
+          "name": "Luke Winslow"
+        }
+      ],
+      "venue": "Water Resources Research",
+      "externalIds": {
+        "DOI": "10.1002/2016wr019993"
+      },
+      "discovered_for": [
+        "relwork_1"
+      ],
+      "match_score": 99,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "50b741f0b5224a0a5d7f6ec5ac5d21c0b5bca98a",
+      "title": "Challenges with secondary use of multi-source water-quality data in the United States.",
+      "abstract": "Combining water-quality data from multiple sources can help counterbalance diminishing resources for stream monitoring in the United States and lead to important regional and national insights that would not otherwise be possible. Individual monitoring organizations understand their own data very well, but issues can arise when their data are combined with data from other organizations that have used different methods for reporting the same common metadata elements. Such use of multi-source data is termed \"secondary use\"-the use of data beyond the original intent determined by the organization that collected the data. In this study, we surveyed more than 25 million nutrient records collected by 488 organizations in the United States since 1899 to identify major inconsistencies in metadata elements that limit the secondary use of multi-source data. Nearly 14.5 million of these records had missing or ambiguous information for one or more key metadata elements, including (in decreasing order of records affected) sample fraction, chemical form, parameter name, units of measurement, precise numerical value, and remark codes. As a result, metadata harmonization to make secondary use of these multi-source data will be time consuming, expensive, and inexact. Different data users may make different assumptions about the same ambiguous data, potentially resulting in different conclusions about important environmental issues. The value of these ambiguous data is estimated at $US12 billion, a substantial collective investment by water-resource organizations in the United States. By comparison, the value of unambiguous data is estimated at $US8.2 billion. The ambiguous data could be preserved for uses beyond the original intent by developing and implementing standardized metadata practices for future and legacy water-quality data throughout the United States.",
+      "year": 2017,
+      "authors": [
+        {
+          "authorId": "40432286",
+          "name": "L. Sprague"
+        },
+        {
+          "authorId": "14659395",
+          "name": "G. Oelsner"
+        },
+        {
+          "authorId": "5911244",
+          "name": "Denise M. Argue"
+        }
+      ],
+      "venue": "Water Research",
+      "externalIds": {
+        "MAG": "2564973095",
+        "DOI": "10.1016/j.watres.2016.12.024",
+        "CorpusId": 23507577,
+        "PubMed": "28027524"
+      },
+      "discovered_for": [
+        "relwork_1"
+      ],
+      "match_score": 99,
+      "source_index": "s2"
+    },
+    {
+      "paperId": "https://openalex.org/W4391782373",
+      "title": "CAMELS-Chem: augmenting CAMELS (Catchment Attributes and Meteorology for Large-sample Studies) with atmospheric and stream water chemistry data",
+      "abstract": "Abstract. Large sample datasets are transforming the catchment sciences, but there are few off-the-shelf stream water chemistry datasets with complementary atmospheric deposition, streamflow, meteorology, and catchment physiographic attributes. The existing CAMELS (Catchment Attributes and Meteorology for Large-sample Studies) dataset includes data on topography, climate, streamflow, land cover, soil, and geology across the continental US. With CAMELS-Chem, we pair these existing attribute data for 516 catchments with atmospheric deposition data from the National Atmospheric Deposition Program and water chemistry and instantaneous discharge data from the US Geological Survey over the period from 1980 through 2018 in a relational database and corresponding dataset. The data include 18 common stream water chemistry constituents: Al, Ca, Cl, dissolved organic carbon, total organic carbon, HCO3, K, Mg, Na, total dissolved N, total organic N, NO3, dissolved oxygen, pH (field and lab), Si, SO4, and water temperature. Annual deposition loads and concentrations include hydrogen, NH4, NO3, total inorganic N, Cl, SO4, Ca, K, Mg, and Na. We demonstrate that CAMELS-Chem water chemistry data are sampled effectively across climates, seasons, and discharges for trend analysis and highlight the coincident sampling of stream constituents for process-based understanding. To motivate their use by the larger scientific community across a variety of disciplines, we show examples of how these publicly available datasets can be applied to trend detection and attribution, biogeochemical process understanding, and new hypothesis generation via data-driven techniques.",
+      "year": 2024,
+      "authors": [
+        {
+          "name": "Gary Sterle"
+        },
+        {
+          "name": "Julia Perdrial"
+        },
+        {
+          "name": "Dustin W. Kincaid"
+        },
+        {
+          "name": "Kristen L. Underwood"
+        },
+        {
+          "name": "Donna M. Rizzo"
+        },
+        {
+          "name": "Ijaz Ul Haq"
+        },
+        {
+          "name": "Li Li"
+        },
+        {
+          "name": "Byung Suk Lee"
+        },
+        {
+          "name": "Thomas Adler"
+        },
+        {
+          "name": "Hang Wen"
+        },
+        {
+          "name": "Helena Middleton"
+        },
+        {
+          "name": "A. A. Harpold"
+        }
+      ],
+      "venue": "Hydrology and earth system sciences",
+      "externalIds": {
+        "DOI": "10.5194/hess-28-611-2024"
+      },
+      "discovered_for": [
+        "relwork_1"
+      ],
+      "match_score": 100,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "https://openalex.org/W4386090951",
+      "title": "Global microbial water quality data and predictive analytics: Key to health and meeting SDG 6",
+      "abstract": "Microbial water quality is an integral to water security and is directly linked to human health, food safety, and ecosystem services. However, specifically pathogen data and even faecal indicator data (e.g., E . coli ), are sparse and scattered, and their availability in different water bodies (e.g., groundwater) and in different socio-economic contexts (e.g., low- and middle-income countries) are inequitable. There is an urgent need to assess and collate microbial data across the world to evaluate the global state of ambient water quality, water treatment, and health risk, as time is running out to meet Sustainable Development Goal (SDG) 6 by 2030. The overall goal of this paper is to illustrate the need and advocate for building a robust and useful microbial water quality database and consortium worldwide that will help achieve SDG 6. We summarize available data and existing databases on microbial water quality, discuss methods for producing new data on microbial water quality, and identify models and analytical tools that utilize microbial data to support decision making. This review identified global datasets (7 databases), and regional datasets for Africa (3 databases), Australia/New Zealand (6 databases), Asia (3 databases), Europe (7 databases), North America (12 databases) and South America (1 database). Data are missing for low- and middle-income countries. Increased laboratory capacity (due to COVID-19 pandemic) and molecular tools can identify potential pollution sources and monitor directly for pathogens. Models and analytical tools can support microbial water quality assessment by making geospatial and temporal inferences where data are lacking. A genomics, information technology (IT), and data revolution is upon us and presents unprecedented opportunities to develop software and devices for real-time logging, automated analysis, standardization, and modelling of microbial data to strengthen knowledge of global water quality. These opportunities should be leveraged for achieving SDG 6 around the world.",
+      "year": 2023,
+      "authors": [
+        {
+          "name": "Joan B. Rose"
+        },
+        {
+          "name": "Nynke Hofstra"
+        },
+        {
+          "name": "Erica Hollmann"
+        },
+        {
+          "name": "Panagis Katsivelis"
+        },
+        {
+          "name": "Gertjan Medema"
+        },
+        {
+          "name": "Heather Murphy"
+        },
+        {
+          "name": "Colleen C. Naughton"
+        },
+        {
+          "name": "Matthew E. Verbyla"
+        }
+      ],
+      "venue": "PLOS Water",
+      "externalIds": {
+        "DOI": "10.1371/journal.pwat.0000166"
+      },
+      "discovered_for": [
+        "relwork_1"
+      ],
+      "match_score": 100,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "https://openalex.org/W4403637995",
+      "title": "harmonize-wq: Standardize, clean and wrangle WaterQuality Portal data into more analytic-ready formats",
+      "abstract": "Bousquin et al., (2024). harmonize-wq: Standardize, clean and wrangle Water Quality Portal data into more analytic-ready formats. Journal of Open Source Software, 9(102), 7305, https://doi.org/10.21105/joss.07305",
+      "year": 2024,
+      "authors": [
+        {
+          "name": "Justin Bousquin"
+        },
+        {
+          "name": "C. Mullin"
+        }
+      ],
+      "venue": "The Journal of Open Source Software",
+      "externalIds": {
+        "DOI": "10.21105/joss.07305"
+      },
+      "discovered_for": [
+        "relwork_1"
+      ],
+      "match_score": 100,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "https://openalex.org/W2070217851",
+      "title": "Escherichia coli Sampling Reliability at a Frequently Closed Chicago Beach: Monitoring and Management Implications",
+      "abstract": "Monitoring beaches for recreational water quality is becoming more common, but few sampling designs or policy approaches have evaluated the efficacy of monitoring programs. The authors intensively sampled water for E. coli (N=1770) at 63rd Street Beach, Chicago for 6 months in 2000 in order to (1) characterize spatial-temporal trends, (2) determine between and within transect variation, and (3) estimate sample size requirements and determine sampling reliability. E. coli counts were highly variable within and between sampling sites but spatially and diurnally autocorrelated. Variation in counts decreased with water depth and time of day. Required number of samples was high for 70% precision around the critical closure level (i.e., 6 within or 24 between transect replicates). Since spatial replication may be cost prohibitive, composite sampling is an alternative once sources of error have been well defined. The results suggest that beach monitoring programs may be requiring too few samples to fulfill management objectives desired. As the recreational water quality national database is developed, it is important that sampling strategies are empirically derived from a thorough understanding of the sources of variation and the reliability of collected data. Greater monitoring efficacy will yield better policy decisions, risk assessments, programmatic goals, and future usefulness of the information.",
+      "year": 2004,
+      "authors": [
+        {
+          "name": "Richard L. Whitman"
+        },
+        {
+          "name": "Meredith B. Nevers"
+        }
+      ],
+      "venue": "Environmental Science & Technology",
+      "externalIds": {
+        "DOI": "10.1021/es034978i"
+      },
+      "discovered_for": [
+        "intro_5",
+        "relwork_3"
+      ],
+      "match_score": 97,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "https://openalex.org/W2035352201",
+      "title": "Variability of Indicator Bacteria at Different Time Scales in the Upper Hoosic River Watershed",
+      "abstract": "Accurately evaluating whether a water body is meeting water quality criteria for indicator bacteria requires an understanding of the spatial and temporal variability in concentrations of these indicators. We have collected data on concentrations of Escherichia coli at 12 sites within the upper Hoosic River Basin, spanning a range of land uses and levels of development. Sampling was conducted with the goal of assessing the variation in E. coli levels over different time scales: seasonal, storm-related, and diurnal. General linear models were constructed to describe the factors contributing to E. coli concentrations at a given location and time. We found that bacterial levels were higher in more developed watersheds; in summer rather than winter; in storms rather than baseflow; and in the early morning rather than afternoon. Seasonal and storm sampling captured different portions of the range of E. coli concentrations, but the levels of variability at these two scales were similar. Diurnal sampling produced concentrations intermediate between seasonal and storm sampling. Compared to a pristine stream, a more urbanized stream exhibited greater diurnal variability, but less variation from baseflow to stormflow. We recommend collecting both seasonal and storm data, but not necessarily diurnal data, in assessment of stream bacterial quality.",
+      "year": 2006,
+      "authors": [
+        {
+          "name": "Elena Traister"
+        },
+        {
+          "name": "Shimon C. Anisfeld"
+        }
+      ],
+      "venue": "Environmental Science & Technology",
+      "externalIds": {
+        "DOI": "10.1021/es0601437"
+      },
+      "discovered_for": [
+        "intro_5",
+        "relwork_3"
+      ],
+      "match_score": 100,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "https://openalex.org/W2067187505",
+      "title": "Solar and Temporal Effects on Escherichia coli Concentration at a Lake Michigan Swimming Beach",
+      "abstract": "Studies on solar inactivation of Escherichia coli in freshwater and in situ have been limited. At 63rd St. Beach, Chicago, Ill., factors influencing the daily periodicity of culturable E. coli, particularly insolation, were examined. Water samples for E. coli analysis were collected twice daily between April and September 2000 three times a week along five transects in two depths of water. Hydrometeorological conditions were continuously logged: UV radiation, total insolation, wind speed and direction, wave height, and relative lake level. On 10 days, transects were sampled hourly from 0700 to 1500 h. The effect of sunlight on E. coli inactivation was evaluated with dark and transparent in situ mesocosms and ambient lake water. For the study, the number of E. coli samples collected (n) was 2,676. During sunny days, E. coli counts decreased exponentially with day length and exposure to insolation, but on cloudy days, E. coli inactivation was diminished; the E. coli decay rate was strongly influenced by initial concentration. In situ experiments confirmed that insolation primarily inactivated E. coli; UV radiation only marginally affected E. coli concentration. The relationship between insolation and E. coli density is complicated by relative lake level, wave height, and turbidity, all of which are often products of wind vector. Continuous importation and nighttime replenishment of E. coli were evident. These findings (i) suggest that solar inactivation is an important mechanism for natural reduction of indicator bacteria in large freshwater bodies and (ii) have implications for management strategies of nontidal waters and the use of E. coli as an indicator organism.",
+      "year": 2004,
+      "authors": [
+        {
+          "name": "Richard L. Whitman"
+        },
+        {
+          "name": "Meredith B. Nevers"
+        },
+        {
+          "name": "Ginger C. Korinek"
+        },
+        {
+          "name": "Muruleedhara N. Byappanahalli"
+        }
+      ],
+      "venue": "Applied and Environmental Microbiology",
+      "externalIds": {
+        "DOI": "10.1128/aem.70.7.4276-4285.2004"
+      },
+      "discovered_for": [
+        "intro_5"
+      ],
+      "match_score": 96,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "877e112b3cd24c4cf3b4ff39d4bedc255f7c51a9",
+      "title": "Fecal indicators and antibiotic resistance genes exhibit diurnal trends in the Chattahoochee River: Implications for water quality monitoring",
+      "abstract": "Water bodies that serve as sources of drinking or recreational water are routinely monitored for fecal indicator bacteria (FIB) by state and local agencies. Exceedances of monitoring thresholds set by those agencies signal likely elevated human health risk from exposure, but FIB give little information about the potential source of contamination. To improve our understanding of how within-day variation could impact monitoring data interpretation, we conducted a study at two sites along the Chattahoochee River that varied in their recreational usage and adjacent land-use (natural versus urban), collecting samples every 30\u2009min over one 24-h period. We assayed for three types of microbial indicators: FIB (total coliforms and Escherichia coli); human fecal-associated microbial source tracking (MST) markers (crAssphage and HF183/BacR287); and a suite of clinically relevant antibiotic resistance genes (ARGs; blaCTX-M, blaCMY, MCR, KPC, VIM, NDM) and a gene associated with antibiotic resistance (intl1). Mean levels of FIB and clinically relevant ARGs (blaCMY and KPC) were similar across sites, while MST markers and intI1 occurred at higher mean levels at the natural site. The human-associated MST markers positively correlated with antibiotic resistant-associated genes at both sites, but no consistent associations were detected between culturable FIB and any molecular markers. For all microbial indicators, generalized additive mixed models were used to examine diurnal variability and whether this variability was associated with environmental factors (water temperature, turbidity, pH, and sunlight). We found that FIB peaked during morning and early afternoon hours and were not associated with environmental factors. With the exception of HF183/BacR287 at the urban site, molecular MST markers and intI1 exhibited diurnal variability, and water temperature, pH, and turbidity were significantly associated with this variability. For blaCMY and KPC, diurnal variability was present but was not correlated with environmental factors. These results suggest that differences in land use (natural or urban) both adjacent and upstream may impact overall levels of microbial contamination. Monitoring agencies should consider matching sample collection times with peak levels of target microbial indicators, which would be in the morning or early afternoon for the fecal associated indicators. Measuring multiple microbial indicators can lead to clearer interpretations of human health risk associated with exposure to contaminated water.",
+      "year": 2022,
+      "authors": [
+        {
+          "authorId": "35725263",
+          "name": "K. Nguyen"
+        },
+        {
+          "authorId": "2110487263",
+          "name": "Shanon M. Smith"
+        },
+        {
+          "authorId": "6989511",
+          "name": "Alexis Roundtree"
+        },
+        {
+          "authorId": "30799093",
+          "name": "Dorian J. Feistel"
+        },
+        {
+          "authorId": "2174626117",
+          "name": "Amy E. Kirby"
+        },
+        {
+          "authorId": "50493915",
+          "name": "K. Levy"
+        },
+        {
+          "authorId": "31402589",
+          "name": "Mia C. Mattioli"
+        }
+      ],
+      "venue": "Frontiers in Microbiology",
+      "externalIds": {
+        "PubMedCentral": "9684717",
+        "DOI": "10.3389/fmicb.2022.1029176",
+        "CorpusId": 253425881,
+        "PubMed": "36439800"
+      },
+      "discovered_for": [
+        "relwork_3"
+      ],
+      "match_score": 100,
+      "source_index": "s2"
+    },
+    {
+      "paperId": "https://openalex.org/W2013217470",
+      "title": "Diurnal variability in concentrations and sources of Escherichia coli in three streams",
+      "abstract": "Microbial contamination is a major concern for drinking water worldwide. Many monitoring protocols that use one or very few samples are inadequate and introduce a very large margin of error. An intensive sampling program needs to be conducted to characterize the Escherichia coli concentrations of a source water stream prior to establishing a monitoring program so that the sample frequency can be determined statistically, based on an acceptable margin of error. Developing meaningful monitoring programs for managing bacterial water quality is dependant on scientific data that determine the bacterial sources. In this study, three streams from drinking water watersheds were sampled every 15 min over a 24 h period on three different days to determine the concentrations of E. coli and to identify their sources, using ribosomal RNA finger printing (ribotyping). The concentrations of E. coli varied throughout the day in each of the three streams. Ribotyping identified many different animal sources of E. coli in the samples. The sources of E. coli varied significantly with stream (P < 0.001, df = 16). The development of monitoring programs for watersheds needs to consider the watershed, and care needs to be taken in selecting appropriate sample sites, sampling regime, and number of samples taken during each sampling period. This note provides a prescription for the development of monitoring programs for watersheds.",
+      "year": 2006,
+      "authors": [
+        {
+          "name": "Cindy L. Meays"
+        },
+        {
+          "name": "Klaas Broersma"
+        },
+        {
+          "name": "Rick Nordin"
+        },
+        {
+          "name": "Asit Mazumder"
+        },
+        {
+          "name": "Mansour Samadpour"
+        }
+      ],
+      "venue": "Canadian Journal of Microbiology",
+      "externalIds": {
+        "DOI": "10.1139/w06-066"
+      },
+      "discovered_for": [
+        "relwork_3"
+      ],
+      "match_score": 96,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "https://openalex.org/W2054548460",
+      "title": "Escherichia coli Concentrations in Urban Watersheds Exhibit Diurnal Sag: Implications for Water\u2010Quality Monitoring and Assessment",
+      "abstract": "Abstract The variability of indicator bacteria over a fine resolution time scale on the order of minutes has yet to be fully understood. In this study, we collected more than 700 Escherichia coli samples at a 10\u2010 and 30\u2010min resolution in an urban watershed in Houston. A Bacteria Diurnal Sag ( BDS ) marked with daytime exponential decay followed by an exponential nighttime regeneration was observed. This pattern was observed during all sampled events but varied depending on other variables. The concentrations during a 24\u2010h period varied 1 to 5 orders of magnitude and the fecal load was at least 10 times lower than what would be obtained using a single morning E. coli measurement, the typical sampling scheme in most monitoring programs. Decay rates, ranging from 3.67 to 24.7/day, decreased E. coli concentrations to below the water\u2010quality standards from 14:00 to 18:00 h and were strongly influenced by water temperatures and solar radiation intensities. Rapid regeneration occurred on the order of 9.41 to 64.1/day allowing E. coli concentrations to return to their pre\u2010decay levels. The data indicated that four to six samples taken between 06:00 and 18:00 h may be sufficient to define the BDS depending on stream conditions, and that a threshold concentration of approximately 100 MPN /dl (most probable number in a deciliter) existed for the studied urban watershed. These findings have significant implications for water\u2010quality monitoring, regulation, and compliance.",
+      "year": 2013,
+      "authors": [
+        {
+          "name": "Anuradha M. Desai"
+        },
+        {
+          "name": "Hanadi S. Rifai"
+        }
+      ],
+      "venue": "JAWRA Journal of the American Water Resources Association",
+      "externalIds": {
+        "DOI": "10.1111/jawr.12039"
+      },
+      "discovered_for": [
+        "relwork_3"
+      ],
+      "match_score": 97,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "https://openalex.org/W4379197204",
+      "title": "High-frequency fecal indicator bacteria (FIB) observations to assess water quality drivers at an enclosed beach",
+      "abstract": "Fecal indicator bacteria (FIB) are monitored at beaches to assess water quality and associated health risk from recreational exposure. However, monitoring is generally conducted infrequently (i.e. weekly or less often), potentially leading to inaccurate assessment of water quality at a beach at the time of use. While some work has shown that FIB in marine environments can vary over short (e.g. subhourly) time scales, that work has been mainly focused on 'open' beaches. 'Enclosed' beaches-those that are partially barriered from exchange with offshore water and thus have different residence times and mixing dynamics in the nearshore environment-have been less studied. Here we present results from a high-frequency (once per 30 minutes) FIB sampling event conducted within a Central California, USA, harbor over 48 hours. FIB concentrations at this enclosed site were more variable at high-frequencies than what has been reported at open beach sites. Correlation and regression analyses showed FIB concentrations were most strongly associated with chlorophyll a concentration, turbidity, wind speed, and tide level. Results indicate the importance of measuring FIB concentrations and explanatory environmental parameters at appropriate temporal resolutions when conducting water quality monitoring or source tracking studies. Overall, this work highlights how high-frequency sampling can effectively provide information about water quality dynamics at beaches of interest.",
+      "year": 2023,
+      "authors": [
+        {
+          "name": "Ryan T. Searcy"
+        },
+        {
+          "name": "Jacob R. Phaneuf"
+        },
+        {
+          "name": "Alexandria B. Boehm"
+        }
+      ],
+      "venue": "PLoS ONE",
+      "externalIds": {
+        "DOI": "10.1371/journal.pone.0286029"
+      },
+      "discovered_for": [
+        "relwork_3"
+      ],
+      "match_score": 100,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "https://openalex.org/W1965731374",
+      "title": "Public Mis-Notification of Coastal Water Quality: A Probabilistic Evaluation of Posting Errors at Huntington Beach, California",
+      "abstract": "Whenever measurements of fecal pollution in coastal bathing waters reach levels that might pose a significant health risk, warning signs are posted on public beaches in California. Analysis of historical shoreline monitoring data from Huntington Beach, southern California, reveals that protocols used to decide whether to post a sign are prone to error. Errors in public notification (referred to here as posting errors) originate from the variable character of pollutant concentrations in the ocean, the relatively infrequent sampling schedule adopted by most monitoring programs (daily to weekly), and the intrinsic error associated with binary advisories in which the public is either warned or not. In this paper, we derive a probabilistic framework for estimating posting error rates, which at Huntington Beach range from 0 to 41%, and show that relatively high sample-to-sample correlations (>0.4) are required to significantly reduce binary advisory posting errors. Public mis-notification of coastal water quality can be reduced by utilizing probabilistic approaches for predicting current coastal water quality, and adopting analog, instead of binary, warning systems.",
+      "year": 2004,
+      "authors": [
+        {
+          "name": "Joon Ha Kim"
+        },
+        {
+          "name": "Stanley B. Grant"
+        }
+      ],
+      "venue": "Environmental Science & Technology",
+      "externalIds": {
+        "DOI": "10.1021/es034382v"
+      },
+      "discovered_for": [
+        "relwork_3"
+      ],
+      "match_score": 100,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "https://openalex.org/W2586566326",
+      "title": "Barriers to sharing water quality data: experiences from the Shale Network",
+      "abstract": "The Shale Network is a group of stakeholders collating, publishing, and conducting research on water quality data collected in the northeastern United States experiencing natural gas extraction from shale using hydraulic fracturing. In developing the Shale Network, we have experienced reluctance to share data from all participating sectors. This paper explores this reluctance, identifying barriers to greater collaboration among multiple stakeholders in natural resource management projects. Findings are derived from participant observation of the Shale Network team, surveys conducted during Shale Network workshops, interviews with water quality stakeholders, and participant observation of water quality monitoring training sessions. The barriers identified include perceptions about data problems and quality, technical capacity, regulatory and legal limitations, competition for resources, and resource allocation decisions. This paper identifies strategies the Shale Network has used to overcome data-sharing barriers to expand a culture of data sharing that supports enhanced nature resource management and citizen engagement.",
+      "year": 2017,
+      "authors": [
+        {
+          "name": "Kathryn J. Brasier"
+        },
+        {
+          "name": "Kirk Jalbert"
+        },
+        {
+          "name": "Abby Kinchy"
+        },
+        {
+          "name": "Susan L. Brantley"
+        },
+        {
+          "name": "Colleen Unroe"
+        }
+      ],
+      "venue": "Journal of Environmental Planning and Management",
+      "externalIds": {
+        "DOI": "10.1080/09640568.2016.1276435"
+      },
+      "discovered_for": [
+        "intro_4"
+      ],
+      "match_score": 100,
+      "source_index": "openalex"
+    },
+    {
+      "paperId": "https://openalex.org/W3016934696",
+      "title": "Capacity challenges in water quality monitoring: understanding the role of human development",
+      "abstract": "Monitoring the qualitative status of freshwaters is an important goal of the international community, as stated in the Sustainable Development Goal (SDGs) indicator 6.3.2 on good ambient water quality. Monitoring data are, however, lacking in many countries, allegedly because of capacity challenges of less-developed countries. So far, however, the relationship between human development and capacity challenges for water quality monitoring have not been analysed systematically. This hinders the implementation of fine-tuned capacity development programmes for water quality monitoring. Against this background, this study takes a global perspective in analysing the link between human development and the capacity challenges countries face in their national water quality monitoring programmes. The analysis is based on the latest data on the human development index and an international online survey amongst experts from science and practice. Results provide evidence of a negative relationship between human development and the capacity challenges to meet SDG 6.3.2 monitoring requirements. This negative relationship increases along the course of the monitoring process, from defining the enabling environment, choosing parameters for the collection of field data, to the analytics and analysis of five commonly used parameters (DO, EC, pH, TP and TN). Our assessment can be used to help practitioners improve technical capacity development activities and to identify and target investment in capacity development for monitoring.",
+      "year": 2020,
+      "authors": [
+        {
+          "name": "Sabrina Kirschke"
+        },
+        {
+          "name": "Tamara Avell\u00e1n"
+        },
+        {
+          "name": "Ilona B\u00e4rlund"
+        },
+        {
+          "name": "J\u00e1nos J. Bog\u00e1rdi"
+        },
+        {
+          "name": "Laurence Carvalho"
+        },
+        {
+          "name": "Deborah V. Chapman"
+        },
+        {
+          "name": "Chris Dickens"
+        },
+        {
+          "name": "Kenneth Irvine"
+        },
+        {
+          "name": "SungBong Lee"
+        },
+        {
+          "name": "Thomas Mehner"
+        },
+        {
+          "name": "Stuart Warner"
+        }
+      ],
+      "venue": "Environmental Monitoring and Assessment",
+      "externalIds": {
+        "DOI": "10.1007/s10661-020-8224-3"
+      },
+      "discovered_for": [
+        "relwork_4"
+      ],
+      "match_score": 100,
+      "source_index": "openalex"
+    }
+  ]
+}
