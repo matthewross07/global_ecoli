@@ -31,8 +31,8 @@ pc <- sf_project(from = "+proj=longlat +datum=WGS84", to = "+proj=robin",
 proj_df <- data.frame(x = pc[,1], y = pc[,2])
 p_map1 <- ggplot() +
   geom_sf(data = world_robin, fill = "#eceff1", color = "#cfd8dc", linewidth = 0.12) +
-  geom_hex(data = proj_df, aes(x = x, y = y), bins = 115) +
-  scale_fill_viridis_c(option = "viridis", direction = -1, trans = "log10",
+  geom_hex(data = proj_df, aes(x = x, y = y), bins = 175) +
+  scale_fill_viridis_c(option = "mako", direction = -1, trans = "log10",
                        labels = scales::comma, name = "Observations per hex (log scale)") +
   guides(fill = guide_colorbar(barwidth = 14, barheight = 0.5, title.position = "top", title.hjust = 0.5)) +
   theme_void(base_size = 11) +
@@ -60,12 +60,11 @@ ggsave("fig1_surface_distribution.png", fig1, width = 12, height = 5.6, dpi = 30
 cat("fig1 done\n")
 
 ## ---------------- FIG 2: sampling-cadence mismatch (Wisconsin, 2022) ----------------
-# Same indicator (E. coli), same state, same year - three deliberately different
-# sampling designs: a daily beach, a monthly river, a quarterly river.
+# Same indicator (E. coli), state, and year; three monitoring designs differing in
+# cadence. Map (A) on the left; objective-labeled time series (B-D) stacked on the right.
 wi_sites <- data.table(
-  lab = c("A","B","C"),
+  lab = c("B","C","D"),
   id  = c("WIDNR_WQX-133331","WIDNR_WQX-283220","WIDNR_WQX-413640"),
-  kind= c("Daily beach","Monthly river","Quarterly river"),
   lat = c(42.972,43.188,43.100), lon = c(-89.229,-88.726,-87.909))
 neigh <- as.data.table(map_data("state",
    region=c("wisconsin","minnesota","iowa","illinois","michigan","indiana")))
@@ -73,33 +72,43 @@ p_loc <- ggplot() +
   geom_polygon(data=neigh, aes(long,lat,group=group), fill="#f3f4f6", color="#ffffff", linewidth=0.4) +
   geom_polygon(data=neigh[region=="wisconsin"], aes(long,lat,group=group),
                fill="#e3edf5", color="#90a4ae", linewidth=0.5) +
-  geom_point(data=wi_sites, aes(lon,lat), size=3, color="#08519c") +
+  geom_point(data=wi_sites, aes(lon,lat), size=3, color="#333333") +
   ggrepel::geom_text_repel(data=wi_sites, aes(lon,lat,label=lab), fontface="bold", size=4.6,
      box.padding=0.7, point.padding=0.4, min.segment.length=0, segment.color="grey25", seed=3) +
   coord_quickmap(xlim=c(-93,-86.5), ylim=c(42,47.2)) + theme_void(base_size=11) +
-  labs(title="Same indicator (E. coli), state, and year (2022) - three sampling designs") +
+  labs(title="A) Wisconsin, USA monitoring sites") +
   theme(plot.title=element_text(face="bold", size=12, hjust=0.5, color="#1a1a1a"))
-fig2_panel <- function(lab, id, kind, yr=2022, thr=FRESH_THR, ylab=NULL) {
+fig2_panel <- function(lab, id, objective, yr=2022, thr=FRESH_THR, ylab=NULL, show_x=FALSE) {
   x <- d %>% filter(site_id==id, var=="Escherichia coli") %>% select(date,val) %>% collect(); setDT(x)
   x <- x[as.integer(format(date,"%Y"))==yr][, .(val=max(val)), by=date][order(date)]
   jan <- as.Date(sprintf("%d-01-01",yr)); dec <- as.Date(sprintf("%d-12-31",yr))
-  ggplot(x, aes(date, val)) +
+  g <- ggplot(x, aes(date, val)) +
     annotate("rect", xmin=jan, xmax=dec, ymin=1, ymax=thr, fill="#0072B2", alpha=0.07) +
-    geom_hline(yintercept=thr, linetype="dashed", color="#E69F00", linewidth=0.7) +
+    geom_hline(data=data.frame(y=thr), aes(yintercept=y, linetype="410 CFU/100 mL (EPA 2012 freshwater threshold)"),
+               color="#E69F00", linewidth=0.7) +
     geom_line(color="grey75", linewidth=0.3) +
     geom_point(aes(color=val>thr), size=1.9) +
-    scale_color_manual(values=c("FALSE"="#0072B2","TRUE"="#E69F00")) +
-    scale_y_log10(breaks=10^(0:6), labels=scales::comma, limits=c(1,1e5)) +
+    scale_color_manual(values=c("FALSE"="#0072B2","TRUE"="#E69F00"),
+                       labels=c("FALSE"="At or below threshold","TRUE"="Above threshold"), name=NULL) +
+    scale_linetype_manual(values=c("410 CFU/100 mL (EPA 2012 freshwater threshold)"="dashed"), name=NULL) +
+    scale_y_log10(breaks=10^(0:4), labels=scales::comma, limits=c(1,25000)) +
     scale_x_date(limits=c(jan,dec), breaks=as.Date(sprintf("%d-%02d-01",yr,1:12)),
                  labels=c("J","F","M","A","M","J","J","A","S","O","N","D"), expand=expansion(mult=0.01)) +
-    theme_pub(10) + theme(legend.position="none", plot.title=element_text(size=10)) +
-    labs(title=sprintf("%s) %s (n = %d)", lab, kind, nrow(x)), x=NULL, y=ylab)
+    theme_pub(10) + theme(plot.title=element_text(size=10), legend.position="bottom") +
+    labs(title=sprintf("%s) %s", lab, objective), x=NULL, y=ylab)
+  if (!show_x) g <- g + theme(axis.text.x=element_blank())
+  g
 }
-g2A <- fig2_panel("A","WIDNR_WQX-133331","Daily beach", ylab="E. coli (CFU/100mL)")
-g2B <- fig2_panel("B","WIDNR_WQX-283220","Monthly river")
-g2C <- fig2_panel("C","WIDNR_WQX-413640","Quarterly river")
-fig2 <- p_loc / (g2A | g2B | g2C) + plot_layout(heights=c(1,1.35))
-ggsave("fig2_cadence_mismatch.png", fig2, width=12, height=7, dpi=300)
+g2B <- fig2_panel("B","WIDNR_WQX-133331","Swimming (daily req.)")
+g2C <- fig2_panel("C","WIDNR_WQX-283220","Regulatory (monthly)", ylab="E. coli (CFU/100 mL)")
+g2D <- fig2_panel("D","WIDNR_WQX-413640","Long-term trend (quarterly)", show_x=TRUE)
+header <- ggplot() + theme_void() +
+  labs(title="E. coli observations by monitoring objective, 2022") +
+  theme(plot.title=element_text(face="bold", size=11, hjust=0.5, color="#1a1a1a"))
+right_col <- header / g2B / g2C / g2D + plot_layout(heights=c(0.12,1,1,1))
+fig2 <- (p_loc | right_col) + plot_layout(widths=c(1.0,1.3), guides="collect") &
+  theme(legend.position="bottom")
+ggsave("fig2_cadence_mismatch.png", fig2, width=11.5, height=6.5, dpi=300)
 cat("fig2 done\n")
 
 ## ---------------- FIG 3: actionability gap ----------------
