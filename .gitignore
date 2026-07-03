@@ -15,3 +15,6 @@
 *.txt
 temp.feather
 *.swp
+
+# Legacy / non-analysis files kept out of the archive
+misc/
