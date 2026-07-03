@@ -1,6 +1,9 @@
 # Ignore large binary feather files
 *.feather
 
+# Derived cache for the down-sampling analysis (rebuilt from the feather)
+.cache_nearlydaily.rds
+
 # R session history and user files
 .Rhistory
 .RData

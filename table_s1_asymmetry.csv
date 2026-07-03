@@ -1,0 +1,8 @@
+group,level,n,weekly_FS,weekly_FU,weekly_diff,monthly_FS,monthly_FU,monthly_diff,quarterly_FS,quarterly_FU,quarterly_diff
+contam,Rarely exceeds (<5%),401,1.3,1.3,0,1.7,1.5,0.2,1.9,1.4,0.5
+contam,Intermittent (5-50%),845,7.7,7.7,0.1,11.3,9.6,1.7,12.3,9.7,2.6
+contam,Frequent (50-95%),36,8.7,7.2,1.5,15.9,9.6,6.3,22.6,11.3,11.3
+contam,Chronic (>95%),26,0.7,0.5,0.2,1,0.7,0.3,1.5,0.7,0.8
+seas,Seasonal (<=170 d),1051,5.4,5.4,0,7.7,6.6,1.1,8.4,6.4,2
+seas,Mid (170-300 d),11,4.6,4.4,0.2,6.5,6,0.5,7.1,4.9,2.2
+seas,Year-round (>=300 d),246,6.7,6.1,0.6,10.7,8.4,2.3,12.8,9.6,3.2
