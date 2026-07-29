@@ -7,8 +7,9 @@
 # Mirrors the filter/realm logic of clean_data.R (which writes the feather), so
 # the staged counts match the analysis dataset exactly.
 suppressMessages({ library(arrow); library(dplyr) })
+source("paths.R")
 
-tab <- read_feather("../../pipeline/data/harmonized/harmonized.feather", as_data_frame = FALSE)
+tab <- read_feather(FIB_HARMONIZED, as_data_frame = FALSE)
 
 # canonical fecal-indicator keep-list (case-insensitive), same as clean_data.R
 keep_var <- function(v) dplyr::case_when(

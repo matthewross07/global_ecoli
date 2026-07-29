@@ -18,3 +18,8 @@ temp.feather
 
 # Legacy / non-analysis files kept out of the archive
 misc/
+
+# Code Ocean capsule mount points. Data assets and run outputs live outside
+# git; leading slashes keep paper_stats/data/ tracked.
+/data/
+/results/

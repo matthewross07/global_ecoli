@@ -24,16 +24,18 @@ theme_pub <- function(b = 11) theme_minimal(base_size = b) +
         panel.grid.minor = element_blank(),
         panel.grid.major = element_line(color = "grey92"))
 
+source("paths.R")
+
 FRESH_THR <- 410; MARINE_THR <- 130          # single-sample (STV) thresholds
 FRESH_GM  <- 126; MARINE_GM  <- 35           # 30-day geometric-mean criteria (sensitivity)
-CACHE <- ".cache_nearlydaily.rds"            # derived; safe to delete (gitignored)
+CACHE <- FIB_CACHE                           # derived; safe to delete (gitignored)
 
 ## ---------------- Build near-daily site-years (ground truth) ----------------
 # Per site-year, collapse same-day replicates to a daily geometric mean, then
 # keep GENUINE near-daily years: >=30 distinct sampling days with distinct-day
 # median gap <=3 d, in a recent year (>=2018). Fresh = E. coli, marine = entero.
 build_realm <- function(rl, vv, thr) {
-  d <- read_feather("fecal_indicators_clean.feather", as_data_frame = FALSE)
+  d <- read_feather(fib_in("fecal_indicators_clean.feather"), as_data_frame = FALSE)
   x <- d %>% filter(realm == rl, var == vv) %>%
     select(site_id, lat, lon, loc_type, date, val) %>% collect(); setDT(x)
   x[, sk := fifelse(is.na(site_id), paste0("c_", round(lat, 4), "_", round(lon, 4)), site_id)]
@@ -137,7 +139,7 @@ strata_rows <- function(col, order_levels) {
 tblS1 <- rbind(
   strata_rows("contam", c("Rarely exceeds (<5%)", "Intermittent (5-50%)", "Frequent (50-95%)", "Chronic (>95%)")),
   strata_rows("seas", c("Seasonal (<=170 d)", "Mid (170-300 d)", "Year-round (>=300 d)")))
-fwrite(tblS1, "table_s1_asymmetry.csv")
+fwrite(tblS1, fib_out("table_s1_asymmetry.csv"))
 cat("\n=== ASYMMETRY breakdown (Table S1; FS/FU/diff, % of monitored days) ===\n")
 print(tblS1)
 
@@ -213,6 +215,6 @@ pA <- ggplot() +
          shape = guide_legend(order = 1, nrow = 1, override.aes = list(size = 2.6)),
          fill = guide_legend(order = 2))
 
-ggsave("fig5_downsampling.png", pA + pB + plot_layout(widths = c(1.55, 1)),
+ggsave(fib_out("fig5_downsampling.png"), pA + pB + plot_layout(widths = c(1.55, 1)),
        width = 13, height = 6, dpi = 300)
 cat("\nfig5_downsampling.png written\n")

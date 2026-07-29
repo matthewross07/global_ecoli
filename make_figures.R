@@ -14,8 +14,10 @@ theme_pub <- function(base = 11) {
           panel.grid.minor = element_blank(),
           panel.grid.major = element_line(color = "grey92"))
 }
+source("paths.R")
+
 FRESH_THR <- 410; MARINE_THR <- 130
-d <- read_feather("fecal_indicators_clean.feather", as_data_frame = FALSE)
+d <- read_feather(fib_in("fecal_indicators_clean.feather"), as_data_frame = FALSE)
 
 ## ---------------- FIG 1: global density + ecosystem inset ----------------
 eco <- d %>% select(loc_type, lat, lon) %>% filter(!is.na(lat) & !is.na(lon)) %>% collect()
@@ -56,7 +58,7 @@ p_eco <- ggplot(eco_inset, aes(x = reorder(class, N), y = N/1e6)) +
         plot.background = element_rect(fill = "white", color = "grey75", linewidth = 0.4),
         plot.margin = margin(5,7,5,5))
 fig1 <- p_map1 + inset_element(p_eco, left = 0.015, bottom = 0.13, right = 0.33, top = 0.35)
-ggsave("fig1_surface_distribution.png", fig1, width = 12, height = 5.6, dpi = 300)
+ggsave(fib_out("fig1_surface_distribution.png"), fig1, width = 12, height = 5.6, dpi = 300)
 cat("fig1 done\n")
 
 ## ---------------- FIG 2: sampling-cadence mismatch (Wisconsin, 2022) ----------------
@@ -108,7 +110,7 @@ header <- ggplot() + theme_void() +
 right_col <- header / g2B / g2C / g2D + plot_layout(heights=c(0.12,1,1,1))
 fig2 <- (p_loc | right_col) + plot_layout(widths=c(1.0,1.3), guides="collect") &
   theme(legend.position="bottom")
-ggsave("fig2_cadence_mismatch.png", fig2, width=11.5, height=6.5, dpi=300)
+ggsave(fib_out("fig2_cadence_mismatch.png"), fig2, width=11.5, height=6.5, dpi=300)
 cat("fig2 done\n")
 
 ## ---------------- FIG 3: actionability gap ----------------
@@ -136,7 +138,7 @@ p_int <- ggplot(idf, aes(band, pct, fill=hl)) +
   scale_fill_manual(values=c("hi"="#d7301f","Other"="#74a9cf")) +
   expand_limits(y=max(idf$pct)*1.13) + theme_pub(11) + theme(panel.grid.major.x=element_blank()) +
   labs(title="B) Distribution of Sampling Return Intervals", x="Median sampling interval (days)", y="Percentage of Multi-Sample Sites (%)")
-ggsave("fig3_actionability.png", p_surv + p_int, width = 12, height = 6, dpi = 300)
+ggsave(fib_out("fig3_actionability.png"), p_surv + p_int, width = 12, height = 6, dpi = 300)
 cat("fig3 done\n")
 
 ## ---------------- FIG 4 (merged): hi-freq map + donut + 2x2 cases ----------------
@@ -215,5 +217,5 @@ pD <- case_panel("D","uk_bwq_SW-70511008","Enterococci",MARINE_THR,2024,"Devon",
 top <- p_hfmap + p_donut + plot_layout(widths=c(2.2,1.15))
 grid <- (pA | pB) / (pC | pD)
 fig4 <- top / grid + plot_layout(heights=c(1.0,1.5))
-ggsave("fig4_highfreq_cases.png", fig4, width=12, height=11, dpi=300)
+ggsave(fib_out("fig4_highfreq_cases.png"), fig4, width=12, height=11, dpi=300)
 cat("fig4 done\n")

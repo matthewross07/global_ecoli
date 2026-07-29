@@ -9,8 +9,9 @@
 # Definitional choices made explicit: "well-sampled" = >=3 samples per site;
 # per-site concentration summarized by geometric mean (log-mean, floored at 1).
 suppressMessages({ library(arrow); library(dplyr); library(data.table) })
+source("paths.R")
 
-d <- read_feather("fecal_indicators_clean.feather", as_data_frame = FALSE)
+d <- read_feather(fib_in("fecal_indicators_clean.feather"), as_data_frame = FALSE)
 
 # total NMMP contribution (all indicators; matches the source table)
 nmmp_total <- d %>% filter(source == "NMMP") %>% summarise(n = n()) %>% collect() %>% pull(n)

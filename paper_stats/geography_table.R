@@ -9,6 +9,7 @@
 # The region grouping (which countries count as "Europe") is the one
 # methodological choice here and is defined explicitly below.
 suppressMessages({ library(arrow); library(dplyr); library(data.table) })
+source("paths.R")
 
 # Region grouping for Table 2 (corrected). Albania and Montenegro -- European
 # Adriatic bathing-water countries -- are included in Europe; an earlier draft of
@@ -21,7 +22,7 @@ europe <- c("France", "United Kingdom", "Spain", "Germany", "Denmark", "Croatia"
             "Estonia", "Slovakia", "Albania", "Bulgaria", "Montenegro", "Luxembourg",
             "Romania")
 
-d  <- read_feather("fecal_indicators_clean.feather", as_data_frame = FALSE)
+d  <- read_feather(fib_in("fecal_indicators_clean.feather"), as_data_frame = FALSE)
 cc <- d %>% count(country, source) %>% collect(); setDT(cc)
 N  <- cc[, sum(n)]
 cc[, region := fcase(country == "United States", "United States",

@@ -9,19 +9,21 @@
 # Data (paper_stats/data/):
 #   pop.csv   UN World Population Prospects, national population (undesa_wpp)
 #   wash.csv  WHO GHO mortality attributable to unsafe WASH, SDG 3.9.2 (who_gho_wash)
-# fw_sites_by_country.csv is rebuilt here from the cleaned feather (also cached
-# in data/ for reference). NOTE: an unsafe-water-only mortality series (uw.csv)
+# fw_sites_by_country.csv is rebuilt here from the cleaned feather and written to
+# the output directory (a copy is cached in data/ for reference).
+# NOTE: an unsafe-water-only mortality series (uw.csv)
 # was explored during drafting but is NOT used; that OWID chart is
 # non-redistributable and returns HTTP 403, so all reported numbers use wash.csv.
 suppressMessages({ library(arrow); library(dplyr); library(data.table) })
+source("paths.R")
 
 ## freshwater monitoring sites per country (distinct sites, coord-hashed if unnamed)
-d  <- read_feather("fecal_indicators_clean.feather", as_data_frame = FALSE)
+d  <- read_feather(fib_in("fecal_indicators_clean.feather"), as_data_frame = FALSE)
 fw <- d %>% filter(realm == "freshwater") %>% select(country, site_id, lat, lon) %>% collect()
 setDT(fw)
 fw[, sk := fifelse(is.na(site_id), paste0("c_", round(lat, 4), "_", round(lon, 4)), site_id)]
 sites <- fw[!is.na(country), .(sites = uniqueN(sk)), by = country][order(-sites)]
-fwrite(sites, "paper_stats/data/fw_sites_by_country.csv")
+fwrite(sites, fib_out("fw_sites_by_country.csv"))
 cat("countries with open freshwater monitoring:", nrow(sites), "\n")
 
 ## join to 2019 population and WASH mortality

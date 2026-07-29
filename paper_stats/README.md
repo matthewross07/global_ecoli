@@ -5,6 +5,10 @@ of this analysis lived in throwaway scripts under `/tmp`; it is collected here s
 the paper is reproducible and archivable. Run everything from the **repo root**
 (where `fecal_indicators_clean.feather` lives), e.g. `Rscript paper_stats/equity_correlation.R`.
 
+Input and output locations come from `../paths.R`, whose defaults are exactly the
+layout described above. See `../CODE_OCEAN.md` for the Code Ocean capsule, which
+overrides them to read from `/data` and write to `/results`.
+
 ## Verified, clean, reproduce-from-feather scripts
 
 | Script | Paper location | Key numbers |
@@ -31,7 +35,10 @@ The 6,086-record shift changes no conclusion.
 
 - `pop.csv` — UN World Population Prospects national population (`undesa_wpp`).
 - `wash.csv` — WHO GHO mortality attributable to unsafe WASH, SDG 3.9.2 (`who_gho_wash`).
-- `fw_sites_by_country.csv` — freshwater sites per country, rebuilt by `equity_correlation.R`.
+- `fw_sites_by_country.csv` — freshwater sites per country. Cached copy for
+  reference; `equity_correlation.R` rebuilds it from the feather on every run and
+  writes the fresh copy to the output directory (repo root by default,
+  `/results` in the capsule).
 
 **Provenance note:** an unsafe-water-only mortality series (`uw.csv`) was explored
 but is *not* used — that OWID chart is non-redistributable and returns HTTP 403.

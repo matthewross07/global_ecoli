@@ -2,14 +2,15 @@ library(arrow)
 library(dplyr)
 library(tidyr)
 library(lubridate)
+source("paths.R")
 
 # Input and Output file paths
 # Input: the harmonized DB produced by the data pipeline (sibling repo).
 # Output: the SURFACE-WATER cleaned dataset this paper is built from
 #   (fresh + marine/coastal/estuarine; groundwater excluded). Each record
 #   carries a `realm` column ("freshwater"/"marine") for realm-specific analysis.
-input_file <- "../../pipeline/data/harmonized/harmonized.feather"
-output_file <- "fecal_indicators_clean.feather"
+input_file <- FIB_HARMONIZED
+output_file <- fib_out("fecal_indicators_clean.feather")
 
 cat("Opening input feather database...\n")
 tab <- read_feather(input_file, as_data_frame = FALSE)
