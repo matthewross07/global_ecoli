@@ -19,11 +19,16 @@ temp.feather
 # Legacy / non-analysis files kept out of the archive
 misc/
 
-# Code Ocean capsule mount points. Data assets and run outputs live outside
-# git; leading slashes keep paper_stats/data/ tracked. data/LICENSE is the
-# exception: Code Ocean requires a license for the capsule's data and keeps it
-# there, so it has to survive a round trip through git.
-/data/*
-!/data/LICENSE
+# Platform-owned paths. Code Ocean populates /data from attached data assets,
+# writes /results during a run, and maintains .codeocean/ itself -- it does not
+# check any of them out from git. Tracking a file under them therefore creates a
+# permanent phantom deletion in the capsule: git says the file should exist, the
+# capsule never materializes it, and the resulting "uncommitted changes" state
+# blocks pushes via a server-side hook. Verified by re-cloning: a brand-new
+# capsule shows .codeocean/environment.json as deleted from its first moment.
+# Leave all three to the platform. The leading slashes keep paper_stats/data/
+# tracked.
+/data/
 /results/
+.codeocean/
 out/

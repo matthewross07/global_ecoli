@@ -6,11 +6,17 @@
 # libraries and R packages alike -- has to be declared below. Nothing installed
 # by hand in a Cloud Workstation survives into a Reproducible Run.
 #
-# The base image is Code Ocean's own, matching .codeocean/environment.json.
-# Keeping their image (rather than rocker/r-ver) preserves the platform
-# integration: RStudio Server, the expected user and paths, and a working Cloud
-# Workstation. To build this outside Code Ocean, swap the FROM line for
-# `rocker/r-ver:4.5.1` -- everything below is base-image agnostic.
+# The base image below is Code Ocean's own. Keeping their image (rather than
+# rocker/r-ver) preserves the platform integration: RStudio Server, the expected
+# user and paths, and a working Cloud Workstation. To build this outside Code
+# Ocean, swap the FROM line for `rocker/r-ver:4.5.1` -- everything below is
+# base-image agnostic.
+#
+# The capsule records the same image in .codeocean/environment.json, which is
+# deliberately NOT tracked in git: Code Ocean owns that path and never checks it
+# out, so a tracked copy shows up forever as a deleted file and blocks pushes.
+# If the two ever disagree, .codeocean/environment.json is what actually builds
+# and this FROM line needs updating to match.
 #
 # R version: 4.6.1 produced the submitted figures, but it is not a requirement.
 # The strictest dependency in the stack is R (>= 4.1.0), from dplyr, sf, tidyr,
