@@ -53,7 +53,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libssl-dev \
         libcurl4-openssl-dev \
         libxml2-dev \
+        libicu-dev \
     && rm -rf /var/lib/apt/lists/*
+
+# This list was derived, not guessed: `ldd` against the compiled .so files of a
+# known-working install shows sf and terra linking libgdal, libgeos, libproj,
+# libsqlite3, libssl, libcurl and libxml2; units linking libudunits2; and arrow,
+# s2 and stringi linking libicu. Anything beyond these (libz, libbz2, liblz4,
+# libzstd, libsnappy) is either already in the base image or vendored by the
+# arrow binary.
 
 # Three of these are never named in a library() call, so they are invisible to a
 # scan of the source and easy to omit: hexbin backs geom_hex in Figure 1, maps
