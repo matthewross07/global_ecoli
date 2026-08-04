@@ -20,7 +20,10 @@ temp.feather
 misc/
 
 # Code Ocean capsule mount points. Data assets and run outputs live outside
-# git; leading slashes keep paper_stats/data/ tracked.
-/data/
+# git; leading slashes keep paper_stats/data/ tracked. data/LICENSE is the
+# exception: Code Ocean requires a license for the capsule's data and keeps it
+# there, so it has to survive a round trip through git.
+/data/*
+!/data/LICENSE
 /results/
 out/
