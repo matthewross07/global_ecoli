@@ -50,9 +50,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libxml2-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# ggrepel and maps are Figure 2 only: ggrepel::geom_text_repel labels the
-# Wisconsin sites, and ggplot2::map_data("state") loads its outlines from maps.
-RUN Rscript -e 'install.packages(c("arrow", "data.table", "dplyr", "ggplot2", "ggrepel", "lubridate", "maps", "patchwork", "rnaturalearth", "rnaturalearthdata", "scales", "sf", "tidyr"))'
+# Three of these are never named in a library() call, so they are invisible to a
+# scan of the source and easy to omit: hexbin backs geom_hex in Figure 1, maps
+# supplies the outlines behind ggplot2::map_data("state") in Figure 2, and
+# ggrepel::geom_text_repel labels that same panel. Omitting any of them fails at
+# draw time, not load time -- the run dies partway through with figures already
+# written, which reads like a data problem rather than a missing package.
+RUN Rscript -e 'install.packages(c("arrow", "data.table", "dplyr", "ggplot2", "ggrepel", "hexbin", "lubridate", "maps", "patchwork", "rnaturalearth", "rnaturalearthdata", "scales", "sf", "tidyr"))'
 
 # make_figures.R calls ne_countries(scale = "medium"), whose basemap ships inside
 # the rnaturalearthdata package -- so the run needs no network access. Do not
