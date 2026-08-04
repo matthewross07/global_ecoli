@@ -1,2 +1,28 @@
 metadata_version: 1
-name: Eleven Million Measurements, Two Blind Spots
+name: 'Eleven Million Measurements, Two Blind Spots: The State of Global Surface-Water
+  Fecal Indicator Monitoring'
+description: |-
+  Analysis code and reproducible run for a global assessment of surface-water fecal indicator bacteria (FIB) monitoring. The capsule begins from a harmonized database of 11.1 million observations (E. coli, enterococci, fecal coliform, total coliform, and fecal streptococcus) compiled from nine public monitoring archives spanning freshwater and marine sites worldwide.
+
+  The analysis characterizes two gaps in the global record. The first is geographic: countries carrying the highest WASH-attributable disease burden contribute little or no open data, and 17 of the 20 highest-burden countries contribute none at all. The second is temporal: prevailing monthly-to-quarterly sampling cadences cannot resolve the day-to-day variability that recreational-water advisories depend on. A down-sampling simulation over genuinely near-daily site-years quantifies the resulting advisory error, decomposed into false-safe and false-unsafe rates across weekly, monthly, and quarterly regimes.
+
+  Pressing Reproduce Run executes run.sh, which regenerates Figures 1–5, Table S1, and every reported statistic from the archived dataset, writing outputs and a per-step log to /results. Acquisition and harmonization of the source archives are performed by a separate repository, cited by DOI in the manuscript's Code Availability statement.
+tags:
+- fecal indicator bacteria
+- water quality
+- E. coli
+- Public health
+- data harmonization
+- global dataset
+- enterococci
+- Escherichia coli
+authors:
+- name: Michael J. Vlah
+  affiliations:
+  - name: OpenCurrent, LLC
+- name: Evan A. Thomas
+  affiliations:
+  - name: University of Colorado Boulder
+- name: Matthew R. V. Ross
+  affiliations:
+  - name: OpenCurrent, LLC
