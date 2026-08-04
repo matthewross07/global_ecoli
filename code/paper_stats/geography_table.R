@@ -4,7 +4,7 @@
 # U.S. total exceeds the Water Quality Portal source count (6,904,889) by the
 # ~21,000 U.S. records contributed through GEMStat.
 #
-# Run from the repo root:  Rscript paper_stats/geography_table.R
+# Run from code/:  Rscript paper_stats/geography_table.R
 #
 # The region grouping (which countries count as "Europe") is the one
 # methodological choice here and is defined explicitly below.

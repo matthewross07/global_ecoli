@@ -3,7 +3,7 @@
 # validity filter; 26,496 groundwater records removed to yield 11,110,309 surface
 # observations (5,899,783 freshwater, 53.1%; 5,210,526 marine, 46.9%).
 #
-# Run from the repo root:  Rscript paper_stats/record_cascade.R
+# Run from code/:  Rscript paper_stats/record_cascade.R
 # Mirrors the filter/realm logic of clean_data.R (which writes the feather), so
 # the staged counts match the analysis dataset exactly.
 suppressMessages({ library(arrow); library(dplyr) })

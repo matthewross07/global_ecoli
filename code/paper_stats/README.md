@@ -2,12 +2,13 @@
 
 Code and data reproducing the numbers in the manuscript. During drafting, much
 of this analysis lived in throwaway scripts under `/tmp`; it is collected here so
-the paper is reproducible and archivable. Run everything from the **repo root**
-(where `fecal_indicators_clean.feather` lives), e.g. `Rscript paper_stats/equity_correlation.R`.
+the paper is reproducible and archivable. Run everything from **`code/`**, e.g.
+`Rscript paper_stats/equity_correlation.R`.
 
-Input and output locations come from `../paths.R`, whose defaults are exactly the
-layout described above. See `../CODE_OCEAN.md` for the Code Ocean capsule, which
-overrides them to read from `/data` and write to `/results`.
+Input and output locations come from `../paths.R`, whose defaults resolve to the
+repo root one level above `code/` — that is where `fecal_indicators_clean.feather`
+lives and where outputs are written. See `../../CODE_OCEAN.md` for the Code Ocean
+capsule, which overrides them to read from `/data` and write to `/results`.
 
 ## Verified, clean, reproduce-from-feather scripts
 

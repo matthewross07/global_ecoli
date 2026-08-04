@@ -4,7 +4,7 @@
 # fifth of sites with geometric mean >1,000 (chronically severe); median per-site
 # sampling interval ~32 days.
 #
-# Run from the repo root:  Rscript paper_stats/south_africa.R
+# Run from code/:  Rscript paper_stats/south_africa.R
 #
 # Definitional choices made explicit: "well-sampled" = >=3 samples per site;
 # per-site concentration summarized by geometric mean (log-mean, floored at 1).

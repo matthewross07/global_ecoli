@@ -4,7 +4,7 @@
 # 94 countries at/above median WASH mortality, 73 (78%) absent from the open
 # record, 17 of the 20 highest-burden countries absent.
 #
-# Run from the repo root:  Rscript paper_stats/equity_correlation.R
+# Run from code/:  Rscript paper_stats/equity_correlation.R
 #
 # Data (paper_stats/data/):
 #   pop.csv   UN World Population Prospects, national population (undesa_wpp)

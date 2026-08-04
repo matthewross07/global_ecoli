@@ -5,9 +5,26 @@ Measurements, Two Blind Spots: The State of Global Surface-Water Fecal Indicator
 Monitoring."* It is packaged as a Code Ocean capsule so reviewers can reproduce
 every figure and every reported statistic without installing anything.
 
-Pressing **Reproduce Run** executes `run.sh`, which regenerates Figures 1–5,
+Pressing **Reproduce Run** executes `code/run.sh`, which regenerates Figures 1–5,
 Table S1, and the numbers quoted in Results 3.1, 3.2, 3.6, and 3.7, writing all
 of them plus a per-step log to `/results`.
+
+## Repository layout
+
+The repository is laid out to match Code Ocean's fixed capsule structure, so that
+a capsule cloned from it needs no rearranging:
+
+| Path | Role |
+|---|---|
+| `code/` | all scripts, including the master script `run.sh` |
+| `environment/` | the Dockerfile of record |
+| `metadata/` | `metadata.yml`, maintained by the platform |
+| `data/`, `results/` | capsule mount points — gitignored, never committed |
+
+Code Ocean will only accept a master script that lives in `code/`, and it treats
+anything outside these directories as auxiliary rather than as part of the run.
+The documentation, license, and reference outputs at the repo root are therefore
+deliberate: they belong to the repository, not to the reproducible run.
 
 ## What is and is not in the capsule
 
@@ -72,9 +89,10 @@ actually used.
 
 ## Running outside the capsule
 
-The scripts resolve their paths through `paths.R`, whose defaults reproduce the
-original local layout — the cleaned feather in the repo root, outputs written
-beside it. So from the repo root:
+All scripts live in `code/`, because Code Ocean requires the master script and
+everything it calls to sit there. They resolve their paths through `code/paths.R`,
+whose defaults point one level up at the repo root — the cleaned feather is read
+from there and outputs are written beside it. So from `code/`:
 
 ```sh
 Rscript make_figures.R
@@ -84,15 +102,16 @@ Rscript paper_stats/equity_correlation.R
 behaves exactly as it did before the capsule existed. Four environment variables
 override the defaults, and `run.sh` sets all of them to the capsule layout:
 
-| Variable | Local default | Capsule |
+| Variable | Local default (relative to `code/`) | Capsule |
 |---|---|---|
-| `FIB_IN_DIR` | `.` | `/data` |
-| `FIB_OUT_DIR` | `.` | `/results` |
-| `FIB_HARMONIZED` | `../../pipeline/data/harmonized/harmonized.feather` | `/data/harmonized.feather` |
+| `FIB_IN_DIR` | `..` | `/data` |
+| `FIB_OUT_DIR` | `..` | `/results` |
+| `FIB_HARMONIZED` | `../../../virridy/pipeline/data/harmonized/harmonized.feather` | `/data/harmonized.feather` |
 | `FIB_CACHE` | `.cache_nearlydaily.rds` | `/tmp/cache_nearlydaily.rds` |
 
-Run scripts from the repo root either way; `paper_stats/` scripts source
-`paths.R` relative to it.
+Run scripts from `code/` either way; `paper_stats/` scripts source `paths.R`
+relative to it. To run the whole pipeline locally, `cd code && FIB_IN_DIR=..
+FIB_OUT_DIR=../out ./run.sh`.
 
 ## `paper_stats/scratch/`
 
@@ -116,10 +135,15 @@ intermediates from the original drafting session and will not run unmodified.
    and `harmonized.feather` as a second one if you want the record cascade.
    Both stay out of git — Code Ocean caps the git side at 1 GB total and 100 MB
    per file, while data assets allow 5 GB per file.
-4. **Verify.** Press *Reproduce Run* and check `/results` against the figures
+4. **Set the master script.** In the *Reproducible Run* panel, select
+   `code/run.sh`. Code Ocean only offers scripts inside `code/`, which is why the
+   repository is laid out as described above.
+5. **Verify.** Press *Reproduce Run* and check `/results` against the figures
    committed at the repo root and the numbers tabulated in
-   `paper_stats/README.md`.
-5. **Link the manuscript.** In the capsule's *Metadata* tab, select the
+   `code/paper_stats/README.md`. `log_record_cascade.txt` appears only if the
+   `harmonized` asset mounted, so its presence confirms the optional second
+   asset is wired up.
+6. **Link the manuscript.** In the capsule's *Metadata* tab, select the
    manuscript under *Associated Publication*, and set the license to MIT to
    match `LICENSE`.
 

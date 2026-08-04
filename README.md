@@ -21,32 +21,51 @@ The pipeline is excluded from the capsule deliberately: its inputs are ~149 GB o
 raw downloads from the nine source agencies, which is both too large for a capsule
 and already public at the source.
 
+## Layout
+
+The repository matches Code Ocean's fixed capsule structure, so a capsule cloned
+from it needs no rearranging:
+
+| Path | Role |
+|---|---|
+| `code/` | all scripts, including the master script `run.sh` |
+| `environment/` | the Dockerfile of record |
+| `metadata/` | `metadata.yml`, maintained by the platform |
+| `data/`, `results/` | capsule mount points — gitignored, never committed |
+
+Code Ocean only accepts a master script that lives in `code/`, and treats
+anything outside these directories as auxiliary. The documentation, license, and
+committed reference figures at the repo root are therefore deliberate: they
+belong to the repository, not to the reproducible run.
+
 ## Quick start
 
-Everything runs **from the repository root**, and needs one input file that is not
-in git (see [Data](#data)):
+All scripts live in `code/` and run **from `code/`**. They need one input file
+that is not in git (see [Data](#data)):
 
 ```sh
-# the whole reproducible run, writing to ./out
-FIB_IN_DIR=. FIB_OUT_DIR=./out ./run.sh
+cd code
+
+# the whole reproducible run, writing to ../out
+FIB_IN_DIR=.. FIB_OUT_DIR=../out ./run.sh
 
 # or one piece at a time, using the defaults in paths.R
 Rscript make_figures.R
 Rscript paper_stats/equity_correlation.R
 ```
 
-Scripts under `paper_stats/` `source("paths.R")` relative to the repository root,
-so invoke them as `Rscript paper_stats/<script>.R` — not from inside the
-directory.
+Scripts under `code/paper_stats/` `source("paths.R")` relative to `code/`, so
+invoke them as `Rscript paper_stats/<script>.R` — not from inside the directory.
 
 `paths.R` parameterizes every location through environment variables, which is
-what lets the same scripts run locally and in the capsule:
+what lets the same scripts run locally and in the capsule. The local defaults are
+relative to `code/`, so they resolve to the repo root:
 
 | Variable | Local default | Capsule |
 |---|---|---|
-| `FIB_IN_DIR` | `.` | `/data` |
-| `FIB_OUT_DIR` | `.` | `/results` |
-| `FIB_HARMONIZED` | `../../pipeline/data/harmonized/harmonized.feather` | `/data/harmonized.feather` |
+| `FIB_IN_DIR` | `..` | `/data` |
+| `FIB_OUT_DIR` | `..` | `/results` |
+| `FIB_HARMONIZED` | `../../../virridy/pipeline/data/harmonized/harmonized.feather` | `/data/harmonized.feather` |
 | `FIB_CACHE` | `.cache_nearlydaily.rds` | `/tmp/cache_nearlydaily.rds` |
 
 The defaults reproduce the original local layout: cleaned feather in the root,
@@ -69,6 +88,8 @@ from the cleaned file. Optional; `run.sh` skips both scripts with a note if it i
 absent.
 
 ## Scripts
+
+All paths below are relative to `code/`.
 
 | Script | Produces |
 |---|---|
@@ -99,7 +120,7 @@ CFU/100 mL for freshwater and 130 for marine.
 
 ## Reported-statistics provenance
 
-[`paper_stats/README.md`](paper_stats/README.md) maps every number in the
+[`code/paper_stats/README.md`](code/paper_stats/README.md) maps every number in the
 manuscript to the script that produces it, and is the place to look when checking
 a specific claim. Two things it documents are worth surfacing here:
 

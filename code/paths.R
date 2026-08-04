@@ -1,21 +1,22 @@
 # Input/output path resolution, shared by every analysis script in this repo.
 #
-# The defaults reproduce the original local layout exactly: the cleaned feather
-# sits in the repo root, outputs are written to the repo root, and the
-# harmonized database is a sibling checkout of the acquisition pipeline. So
-# `Rscript make_figures.R` from the repo root behaves as it always has.
+# Scripts live in code/ because Code Ocean requires it, and are run from there.
+# The defaults are therefore relative to code/: the cleaned feather is read from
+# the repo root one level up, outputs are written beside it, and the harmonized
+# database is a sibling checkout of the acquisition pipeline. So `cd code &&
+# Rscript make_figures.R` reads and writes exactly where it always has.
 #
 # The Code Ocean capsule overrides these via environment variables (see run.sh)
 # because a capsule mounts inputs read-only at /data and requires outputs to be
 # written to /results.
 #
-# Sourced from the repo root, including by scripts in paper_stats/.
+# Sourced with code/ as the working directory, including by paper_stats/ scripts.
 
 # Directory holding fecal_indicators_clean.feather.
-FIB_IN_DIR <- Sys.getenv("FIB_IN_DIR", unset = ".")
+FIB_IN_DIR <- Sys.getenv("FIB_IN_DIR", unset = "..")
 
 # Directory for figures, tables, and derived CSVs.
-FIB_OUT_DIR <- Sys.getenv("FIB_OUT_DIR", unset = ".")
+FIB_OUT_DIR <- Sys.getenv("FIB_OUT_DIR", unset = "..")
 
 # The 2.2 GB harmonized database produced by the acquisition pipeline
 # (github.com/OpenCurrentLLC/wqual_pipeline). Only clean_data.R and
@@ -23,7 +24,7 @@ FIB_OUT_DIR <- Sys.getenv("FIB_OUT_DIR", unset = ".")
 # cleaned feather.
 FIB_HARMONIZED <- Sys.getenv(
   "FIB_HARMONIZED",
-  unset = "../../pipeline/data/harmonized/harmonized.feather"
+  unset = "../../../virridy/pipeline/data/harmonized/harmonized.feather"
 )
 
 # Derived near-daily site-year cache for the down-sampling analysis. Rebuilt
