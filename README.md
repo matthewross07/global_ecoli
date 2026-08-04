@@ -143,10 +143,25 @@ Code Ocean maintains its own environment through the capsule's Environment tab;
 this file is the reconciliation reference, and `log_sessionInfo.txt` in the
 results is ground truth for any published run.
 
-Note that `workspace/` contains an earlier manuscript-drafting apparatus (an AGU
-LaTeX template, bibliography, caption tooling) that predates the marine expansion
-and the current title. It is unrelated to the capsule and to everything described
-above.
+## Manuscript drafting (`workspace/`)
+
+`workspace/` is the working directory for
+[PaperOrchestra](https://arxiv.org/abs/2604.05018), the agent pipeline used to
+draft the manuscript. It plays no part in the analysis and nothing in the
+reproducible run touches it.
+
+What it retains is the accumulated drafting state that cannot be regenerated
+cheaply: `outline.json`, the verified citation pool and its raw counterpart,
+`refs.bib`, `research_brief.md`, `metrics.json`, the figure captions, and the
+`inputs/` set the pipeline requires. The generated drafts themselves have been
+removed — the manuscript now lives in its own Overleaf-synced repository, and the
+copy here had fallen behind both the title and the figure set.
+
+Two things need attention before the pipeline is run again. `sync_captions.py`
+targets `drafts/paper.tex` and matches figures by a `fig_<id>.png` pattern, so it
+must be retargeted to the current manuscript and the `fig1`–`fig5` filenames.
+And `inputs/template.tex` is still the AGU class the paper was originally drafted
+against.
 
 ## License and AI use
 
