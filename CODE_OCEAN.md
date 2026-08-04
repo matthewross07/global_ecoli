@@ -120,4 +120,11 @@ intermediates from the original drafting session and will not run unmodified.
    committed at the repo root and the numbers tabulated in
    `paper_stats/README.md`.
 5. **Link the manuscript.** In the capsule's *Metadata* tab, select the
-   manuscript under *Associated Publication*.
+   manuscript under *Associated Publication*, and set the license to MIT to
+   match `LICENSE`.
+
+## Licensing and AI use
+
+The code here is MIT-licensed; see `LICENSE`. Use of AI-assisted coding tools is
+disclosed in `AI_USE.md`, which is the repository-level counterpart to the
+statement in the manuscript's Methods section.

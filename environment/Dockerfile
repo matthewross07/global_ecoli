@@ -32,7 +32,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libxml2-dev \
     && rm -rf /var/lib/apt/lists/*
 
-RUN Rscript -e 'install.packages(c("arrow", "data.table", "dplyr", "ggplot2", "lubridate", "patchwork", "rnaturalearth", "rnaturalearthdata", "scales", "sf", "tidyr"))'
+# ggrepel and maps are Figure 2 only: ggrepel::geom_text_repel labels the
+# Wisconsin sites, and ggplot2::map_data("state") loads its outlines from maps.
+RUN Rscript -e 'install.packages(c("arrow", "data.table", "dplyr", "ggplot2", "ggrepel", "lubridate", "maps", "patchwork", "rnaturalearth", "rnaturalearthdata", "scales", "sf", "tidyr"))'
 
 # make_figures.R calls ne_countries(scale = "medium"), whose basemap ships inside
 # the rnaturalearthdata package -- so the run needs no network access. Do not
