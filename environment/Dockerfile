@@ -1,26 +1,21 @@
-# Reference environment for the Code Ocean capsule.
+# Environment for the Code Ocean capsule.
 #
-# Code Ocean's own workflow is to pick a base image in the capsule's Environment
-# tab and add packages there; it then maintains this file itself. Keep this copy
-# as the record of what the analysis actually needs, and reconcile it against
-# whatever the Environment tab produces -- log_sessionInfo.txt in the results is
-# the ground truth for any published run.
+# This file IS the capsule's build definition, not a record of one. Committing a
+# hand-written Dockerfile here puts Code Ocean into custom-environment mode and
+# disables the Environment Editor GUI, so everything the analysis needs -- system
+# libraries and R packages alike -- has to be declared below. Nothing installed
+# by hand in a Cloud Workstation survives into a Reproducible Run.
 #
-# The capsule does not use the FROM line below. Its base image is pinned in
-# .codeocean/environment.json, currently the platform's R 4.5.1 / RStudio image
-# on Ubuntu 22.04 (jammy). This file stays on rocker/r-ver so it remains buildable
-# outside Code Ocean; the two differ in R version only, which is immaterial here
-# for the reasons given below.
+# The base image is Code Ocean's own, matching .codeocean/environment.json.
+# Keeping their image (rather than rocker/r-ver) preserves the platform
+# integration: RStudio Server, the expected user and paths, and a working Cloud
+# Workstation. To build this outside Code Ocean, swap the FROM line for
+# `rocker/r-ver:4.5.1` -- everything below is base-image agnostic.
 #
-# rocker/r-ver pins CRAN to a snapshot matching the R release date and installs
-# Linux binaries from Posit Package Manager, so `install.packages` here is both
-# fast and version-stable.
-#
-# R version: 4.6.1 is what produced the submitted figures, but it is not a
-# requirement. The strictest dependency in the stack is R (>= 4.1.0), from dplyr,
-# sf, tidyr, and ggrepel; nothing here needs 4.6. The analysis code uses no
-# version-gated syntax -- no native pipe, no lambda shorthand, no version checks.
-# Any R >= 4.1 will run it, so pick whatever base image the platform offers.
+# R version: 4.6.1 produced the submitted figures, but it is not a requirement.
+# The strictest dependency in the stack is R (>= 4.1.0), from dplyr, sf, tidyr,
+# and ggrepel. The analysis code uses no version-gated syntax -- no native pipe,
+# no lambda shorthand, no version checks -- so R 4.5.1 runs it unchanged.
 #
 # Package versions used to produce the submitted figures:
 #   arrow 24.0.0        data.table 1.18.4   dplyr 1.2.1
@@ -29,16 +24,20 @@
 #                       for the medium-scale basemap this analysis uses)
 #   scales 1.4.0        sf 1.1.1            tidyr 1.3.2
 #
-# These matter more than the R version. rocker/r-ver pins CRAN to a snapshot
-# matching its R release date, so an older base image silently resolves to older
-# packages -- an R 4.5.1 image yields ggplot2 3.5.x, a major version behind the
-# 4.0.3 that rendered the figures. Pin the versions above rather than accepting
-# the snapshot default; all of them install on R >= 4.1.
+# These matter more than the R version, which is why the repo is pinned to a
+# dated Posit Package Manager snapshot below. Left to its own devices this base
+# image resolves to ggplot2 3.5.2 and dplyr 1.1.4 -- ggplot2 being a full major
+# version behind what rendered the figures. The snapshot also serves prebuilt
+# jammy binaries, which matters enormously for sf, terra, and arrow: from source
+# they are a long and failure-prone compile.
 
-FROM rocker/r-ver:4.6.1
+FROM registry.codeocean.com/codeocean/r-studio:r-4.5.1-1.2204.0-rstudio-server-2025.05.1-513-ubuntu22.04
 
-# Geospatial and I/O system libraries: sf needs GDAL/PROJ/GEOS/udunits,
-# arrow and the http-facing packages need ssl/curl/xml2.
+# Geospatial and I/O system libraries. sf and terra both compile against
+# GDAL/PROJ/GEOS, and terra is not optional -- rnaturalearth imports it. Without
+# libgdal-dev the build fails at `configure: error: gdal-config not found`.
+# units (via sf) needs udunits2; arrow and the http-facing packages need
+# ssl/curl/xml2.
 RUN apt-get update && apt-get install -y --no-install-recommends \
         libgdal-dev \
         libproj-dev \
@@ -56,7 +55,23 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # ggrepel::geom_text_repel labels that same panel. Omitting any of them fails at
 # draw time, not load time -- the run dies partway through with figures already
 # written, which reads like a data problem rather than a missing package.
-RUN Rscript -e 'install.packages(c("arrow", "data.table", "dplyr", "ggplot2", "ggrepel", "hexbin", "lubridate", "maps", "patchwork", "rnaturalearth", "rnaturalearthdata", "scales", "sf", "tidyr"))'
+#
+# The dated snapshot is deliberate: `latest` would make this environment drift.
+RUN Rscript -e 'options(repos = c(CRAN = "https://packagemanager.posit.co/cran/__linux__/jammy/2026-08-01")); \
+      install.packages(c("arrow", "data.table", "dplyr", "ggplot2", "ggrepel", \
+                         "hexbin", "lubridate", "maps", "patchwork", \
+                         "rnaturalearth", "rnaturalearthdata", "scales", "sf", \
+                         "tidyr"))'
+
+# Fail the build, not the run, if anything above did not land. Every one of these
+# is loaded by the analysis, and a missing package that only surfaces mid-figure
+# costs far more to diagnose than a failed build does.
+RUN Rscript -e 'pk <- c("arrow","data.table","dplyr","ggplot2","ggrepel","hexbin", \
+                        "lubridate","maps","patchwork","rnaturalearth", \
+                        "rnaturalearthdata","scales","sf","tidyr"); \
+      miss <- pk[!vapply(pk, requireNamespace, logical(1), quietly = TRUE)]; \
+      if (length(miss)) stop("missing packages: ", paste(miss, collapse = ", ")); \
+      print(installed.packages()[pk, "Version"])'
 
 # make_figures.R calls ne_countries(scale = "medium"), whose basemap ships inside
 # the rnaturalearthdata package -- so the run needs no network access. Do not
