@@ -1,4 +1,4 @@
-# hash:sha256:0b4321c02e092fd66d5197211c74ab62e35e78aeac5fa2ea684b76f2956df304
+# hash:sha256:255cfcb5eb2a8641cffc70dd450ca97d4efae7e24d0a9e859fa68a91c8f66dd0
 FROM registry.codeocean.com/codeocean/r-studio:r-4.5.1-1.2204.0-rstudio-server-2025.05.1-513-ubuntu22.04
 
 ARG DEBIAN_FRONTEND=noninteractive
@@ -6,6 +6,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         libcurl4-openssl-dev=7.81.0-1ubuntu1.25 \
+        libgdal-dev \
         libgeos-dev=3.10.2-1 \
         libicu-dev=70.1-2 \
         libproj-dev=8.2.1-1 \
@@ -29,3 +30,6 @@ RUN Rscript -e 'remotes::install_version("arrow", "24.0.0")' \
     && Rscript -e 'remotes::install_version("scales", "1.4.0")' \
     && Rscript -e 'remotes::install_version("sf", "1.1.1")' \
     && Rscript -e 'remotes::install_version("tidyr", "1.3.2")'
+
+COPY postInstall /
+RUN /postInstall
