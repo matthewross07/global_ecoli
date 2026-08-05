@@ -1,18 +1,17 @@
 #!/usr/bin/env bash
 set -e
-
+  
 Rscript - <<'EOF'
 pk <- c("arrow", "data.table", "dplyr", "ggplot2", "ggrepel", "hexbin",
-        "lubridate", "maps", "patchwork", "rnaturalearth",
-        "rnaturalearthdata", "scales", "sf", "tidyr")
-
+        "lubridate", "maps", "patchwork", "rnaturalearthdata", "scales",
+        "sf", "tidyr")
+          
 miss <- pk[!vapply(pk, requireNamespace, logical(1), quietly = TRUE)]
 if (length(miss)) stop("missing packages: ", paste(miss, collapse = ", "))
-
-# The basemap must load from rnaturalearthdata without network access, since a
-# Reproducible Run has none. Do not switch this to scale = "large": that data
-# lives in rnaturalearthhires, which is not on CRAN.
-stopifnot(nrow(rnaturalearth::ne_countries(scale = "medium", returnclass = "sf")) > 0)
   
+w <- sf::st_as_sf(rnaturalearthdata::countries50)
+stopifnot(nrow(w) > 0, !is.na(sf::st_crs(w)))
+cat("basemap OK:", nrow(w), "features\n")
+
 print(installed.packages()[pk, "Version"])
 EOF

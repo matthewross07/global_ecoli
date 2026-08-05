@@ -28,7 +28,7 @@ from it needs no rearranging:
 
 | Path | Role |
 |---|---|
-| `code/` | all scripts, including the master script `run.sh` |
+| `code/` | all scripts, including the master script `reproduce.sh` |
 | `environment/` | the Dockerfile of record |
 | `metadata/` | `metadata.yml`, maintained by the platform |
 | `data/`, `results/` | capsule mount points — gitignored, never committed |
@@ -47,7 +47,7 @@ that is not in git (see [Data](#data)):
 cd code
 
 # the whole reproducible run, writing to ../out
-FIB_IN_DIR=.. FIB_OUT_DIR=../out ./run.sh
+FIB_IN_DIR=.. FIB_OUT_DIR=../out ./reproduce.sh
 
 # or one piece at a time, using the defaults in paths.R
 Rscript make_figures.R
@@ -84,7 +84,7 @@ and 100 MB per file, while data assets allow 5 GB per file.
 **`harmonized.feather`** (2.2 GB) is the pre-cleaning database from
 `wqual_pipeline`, needed only by `clean_data.R` and `paper_stats/record_cascade.R`.
 The cascade counts records that cleaning *removes*, so they cannot be recovered
-from the cleaned file. Optional; `run.sh` skips both scripts with a note if it is
+from the cleaned file. Optional; `reproduce.sh` skips both scripts with a note if it is
 absent.
 
 ## Scripts
@@ -101,7 +101,7 @@ All paths below are relative to `code/`.
 | `paper_stats/south_africa.R` | §3.7 |
 | `paper_stats/record_cascade.R` | the Methods record cascade |
 | `paths.R` | path configuration, sourced by all of the above |
-| `run.sh` | the capsule entrypoint: runs the six analysis scripts, teeing a log per step |
+| `reproduce.sh` | the capsule entrypoint: runs the six analysis scripts, teeing a log per step |
 
 `clean_data.R` restricts to five canonical indicator classes (*E. coli*, fecal
 coliform, total coliform, enterococci, fecal streptococcus), applies date,
@@ -109,7 +109,7 @@ coordinate, and value-range filters, standardizes country names, assigns each
 record a `realm` — marine if the location type is ocean or estuary or the Eionet
 bathing-water category is coastal or transitional, groundwater if the location
 type says so, freshwater otherwise — and drops groundwater. It is the only script
-that writes the cleaned feather, which is why `run.sh` places it *last* and
+that writes the cleaned feather, which is why `reproduce.sh` places it *last* and
 behind an opt-in flag (`FIB_RUN_CLEAN=1`): the cleaned file is archived as a data
 asset, so a normal run consumes it rather than rebuilding it.
 
@@ -154,15 +154,27 @@ files.
 
 ## Environment
 
-`environment/Dockerfile` records what the analysis needs: R 4.6.1 on
-`rocker/r-ver`, GDAL/PROJ/GEOS/udunits system libraries for `sf`, and thirteen R
-packages. It also asserts at build time that the `rnaturalearth` medium-scale
-basemap loads, so the run needs no network access. Package versions used for the
-submitted figures are listed in the file's header.
+`environment/Dockerfile` is generated and owned by Code Ocean's Environment
+Editor; edit the environment through that interface rather than the file, or the
+capsule switches to custom-environment mode and the editor is disabled. The
+capsule builds on Code Ocean's R 4.5.1 image on Ubuntu 22.04, adds the
+GDAL/PROJ/GEOS/udunits system libraries `sf` needs, and pins thirteen R packages
+to the versions that produced the submitted figures.
 
-Code Ocean maintains its own environment through the capsule's Environment tab;
-this file is the reconciliation reference, and `log_sessionInfo.txt` in the
-results is ground truth for any published run.
+R 4.6.1 produced those figures, but nothing requires it — the strictest
+dependency in the stack is `R (>= 4.1.0)` and the analysis code uses no
+version-gated syntax.
+
+Two constraints are worth knowing before changing anything here. The basemap is
+read directly from `rnaturalearthdata` rather than through
+`rnaturalearth::ne_countries()`, because `rnaturalearth` imports `terra`, and
+`terra` requires GDAL >= 3.8 to compile while Ubuntu 22.04 supplies 3.4.1. And
+three packages — `hexbin`, `maps`, and `ggrepel` — are never named in a
+`library()` call, so a dependency scan will not find them; they back `geom_hex()`
+in Figure 1 and the labelled Wisconsin panel in Figure 2, and omitting any of
+them fails while drawing rather than while loading.
+
+`log_sessionInfo.txt` in the results is ground truth for any published run.
 
 ## Manuscript drafting (`workspace/`)
 
