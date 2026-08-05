@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e
-
+  
 Rscript - <<'EOF'
 pk <- c("arrow", "data.table", "dplyr", "ggplot2", "ggrepel", "hexbin",
         "lubridate", "maps", "patchwork", "rnaturalearthdata", "scales",
