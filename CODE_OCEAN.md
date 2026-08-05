@@ -5,7 +5,7 @@ Measurements, Two Blind Spots: The State of Global Surface-Water Fecal Indicator
 Monitoring."* It is packaged as a Code Ocean capsule so reviewers can reproduce
 every figure and every reported statistic without installing anything.
 
-Pressing **Reproduce Run** executes `code/run.sh`, which regenerates Figures 1–5,
+Pressing **Reproduce Run** executes `code/reproduce.sh`, which regenerates Figures 1–5,
 Table S1, and the numbers quoted in Results 3.1, 3.2, 3.6, and 3.7, writing all
 of them plus a per-step log to `/results`.
 
@@ -16,7 +16,7 @@ a capsule cloned from it needs no rearranging:
 
 | Path | Role |
 |---|---|
-| `code/` | all scripts, including the master script `run.sh` |
+| `code/` | all scripts, including the master script `reproduce.sh` |
 | `environment/` | the Dockerfile of record |
 | `metadata/` | `metadata.yml`, maintained by the platform |
 | `data/`, `results/` | capsule mount points — gitignored, never committed |
@@ -58,12 +58,12 @@ It is produced by `clean_data.R` from the harmonized database.
 `harmonized.feather` is the pre-cleaning database. It is only needed to
 reproduce the Methods record cascade (the 11,151,268 → 11,136,805 → 11,110,309
 counts), because those counts are of records that cleaning removes and so cannot
-be recovered from the cleaned file. `run.sh` detects whether it is attached and
+be recovered from the cleaned file. `reproduce.sh` detects whether it is attached and
 skips that one step if it is not; everything else still reproduces.
 
 ## Reproducible run
 
-`run.sh` runs these steps in order, teeing each to `/results/log_<step>.txt`:
+`reproduce.sh` runs these steps in order, teeing each to `/results/log_<step>.txt`:
 
 | Step | Reproduces |
 |---|---|
@@ -100,7 +100,7 @@ Rscript paper_stats/equity_correlation.R
 ```
 
 behaves exactly as it did before the capsule existed. Four environment variables
-override the defaults, and `run.sh` sets all of them to the capsule layout:
+override the defaults, and `reproduce.sh` sets all of them to the capsule layout:
 
 | Variable | Local default (relative to `code/`) | Capsule |
 |---|---|---|
@@ -111,7 +111,7 @@ override the defaults, and `run.sh` sets all of them to the capsule layout:
 
 Run scripts from `code/` either way; `paper_stats/` scripts source `paths.R`
 relative to it. To run the whole pipeline locally, `cd code && FIB_IN_DIR=..
-FIB_OUT_DIR=../out ./run.sh`.
+FIB_OUT_DIR=../out ./reproduce.sh`.
 
 ## `paper_stats/scratch/`
 
@@ -136,7 +136,7 @@ intermediates from the original drafting session and will not run unmodified.
    Both stay out of git — Code Ocean caps the git side at 1 GB total and 100 MB
    per file, while data assets allow 5 GB per file.
 4. **Set the master script.** In the *Reproducible Run* panel, select
-   `code/run.sh`. Code Ocean only offers scripts inside `code/`, which is why the
+   `code/reproduce.sh`. Code Ocean only offers scripts inside `code/`, which is why the
    repository is laid out as described above.
 5. **Verify.** Press *Reproduce Run* and check `/results` against the figures
    committed at the repo root and the numbers tabulated in

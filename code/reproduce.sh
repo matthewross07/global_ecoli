@@ -9,7 +9,7 @@
 # The defaults below are the capsule's layout, so running this script on a
 # workstation means pointing it at local directories. From code/, e.g.
 #
-#   FIB_IN_DIR=.. FIB_OUT_DIR=../out ./run.sh
+#   FIB_IN_DIR=.. FIB_OUT_DIR=../out ./reproduce.sh
 #
 # The individual R scripts, by contrast, need no environment at all: their
 # defaults resolve to the repo root, one level above code/. See CODE_OCEAN.md.

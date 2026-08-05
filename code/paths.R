@@ -6,7 +6,7 @@
 # database is a sibling checkout of the acquisition pipeline. So `cd code &&
 # Rscript make_figures.R` reads and writes exactly where it always has.
 #
-# The Code Ocean capsule overrides these via environment variables (see run.sh)
+# The Code Ocean capsule overrides these via environment variables (see reproduce.sh)
 # because a capsule mounts inputs read-only at /data and requires outputs to be
 # written to /results.
 #

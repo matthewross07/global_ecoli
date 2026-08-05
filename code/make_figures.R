@@ -2,7 +2,7 @@
 # Reads fecal_indicators_clean.feather (all surface waters, with `realm`).
 suppressMessages({
   library(arrow); library(dplyr); library(data.table)
-  library(ggplot2); library(sf); library(rnaturalearth); library(patchwork); library(scales)
+  library(ggplot2); library(sf); library(patchwork); library(scales)
 })
 
 theme_pub <- function(base = 11) {
@@ -27,7 +27,14 @@ eco$class <- dplyr::case_when(
   eco$loc_type %in% c("lake","reservoir","pond","wetland") ~ "Lake",
   eco$loc_type == "estuary" ~ "Estuary",
   TRUE ~ "Other")
-world_robin <- st_transform(ne_countries(scale = "medium", returnclass = "sf"), crs = "+proj=robin")
+# The basemap is taken straight from the rnaturalearthdata data package rather
+# than through rnaturalearth::ne_countries(scale = "medium"). The two return the
+# same object -- 242 features, 169 columns, identical geometry and CRS -- but
+# rnaturalearth imports terra, and terra requires GDAL >= 3.8 to compile, which
+# Ubuntu 22.04 (GDAL 3.4.1) cannot provide. Going direct drops both packages and
+# needs no compilation at all. Do not substitute countries110 (coarser) or
+# countries10 (in rnaturalearthhires, not on CRAN).
+world_robin <- st_transform(st_as_sf(rnaturalearthdata::countries50), crs = "+proj=robin")
 pc <- sf_project(from = "+proj=longlat +datum=WGS84", to = "+proj=robin",
                  pts = as.matrix(eco[, c("lon","lat")]))
 proj_df <- data.frame(x = pc[,1], y = pc[,2])
