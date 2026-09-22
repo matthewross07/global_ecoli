@@ -51,6 +51,14 @@ mount read-only under `/data`.
 | `fecal_indicators_clean` | `/data/fecal_indicators_clean.feather` | 600 MB | everything — **required** |
 | `harmonized` | `/data/harmonized.feather` | 2.2 GB | `paper_stats/record_cascade.R` — optional |
 
+SHA-256 of `fecal_indicators_clean.feather` as archived (verify a download against it):
+`08005f64806a7a0cd687e515559b01e418fddc975b3aebdb4b688e587bea1c82`.
+
+Both files are gitignored, so a clone of the repository carries neither. Collaborators
+who need to rerun anything should download the data asset from the capsule rather than
+retrieve records from the Open Water Quality portal, whose export is a different
+snapshot with different cleaning and does not reproduce the manuscript's numbers.
+
 `fecal_indicators_clean.feather` is the surface-water analysis dataset: all
 11,110,309 records that survive cleaning, each tagged `freshwater` or `marine`.
 It is produced by `clean_data.R` from the harmonized database.

@@ -73,6 +73,26 @@ outputs written beside it.
 
 ## Data
 
+> **Collaborators: the analysis dataset is not in this repository.** Every
+> reported number comes from `fecal_indicators_clean.feather`, which is gitignored
+> (`*.feather`) because it is 600 MB. A clone of this repo has the code but no
+> data. Get the file from the Code Ocean capsule's `fecal_indicators_clean` data
+> asset (or from a coauthor), place it at the repo root, and confirm it before
+> using it:
+>
+> ```sh
+> sha256sum fecal_indicators_clean.feather
+> # 08005f64806a7a0cd687e515559b01e418fddc975b3aebdb4b688e587bea1c82
+> ```
+>
+> Do **not** substitute a pull from the Open Water Quality portal or its export
+> API. That export is a different snapshot with different cleaning (no 1950 date
+> filter, no bathing-water realm rule, fecal streptococci merged into enterococci)
+> and will not reproduce the manuscript's numbers. The first draft of the Nature
+> Water revision was computed that way and had to be redone; see
+> `nature-water/NEW_NUMBERS.md` in the manuscript repository.
+
+
 Two Feather files, both gitignored — Code Ocean caps the git side at 1 GB total
 and 100 MB per file, while data assets allow 5 GB per file.
 
