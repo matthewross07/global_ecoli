@@ -70,6 +70,9 @@ skips that one step if it is not; everything else still reproduces.
 | `paper_stats/geography_table.R` | Results 3.1, Table 2 — regional record counts |
 | `paper_stats/equity_correlation.R` | Results 3.2 — Spearman ρ = −0.71, high-burden absence |
 | `paper_stats/south_africa.R` | Results 3.7 — NMMP summary |
+| `paper_stats/temporal_coverage.R` | Results "Temporal coverage", Table 4 First/Last, indicator provenance |
+| `paper_stats/cadence_highfreq.R` | Results 3.4, 3.5, Table 3 — cadence bands, near-daily sites, safe fractions, case-study exceedance |
+| `paper_stats/compliance_criteria.R` | Results "Compliance assessed as the criteria are written", Limitations — EPA 30-day and annual tests, WHO 2021 |
 | `make_figures.R` | Figures 1–4 |
 | `make_fig5_downsampling.R` | Figure 5 and Table S1 |
 | `paper_stats/record_cascade.R` | Methods record cascade (needs `harmonized`) |

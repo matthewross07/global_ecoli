@@ -100,8 +100,11 @@ All paths below are relative to `code/`.
 | `paper_stats/equity_correlation.R` | §3.2, and `fw_sites_by_country.csv` |
 | `paper_stats/south_africa.R` | §3.7 |
 | `paper_stats/record_cascade.R` | the Methods record cascade |
+| `paper_stats/temporal_coverage.R` | temporal coverage of the record (Results, Table 4 first/last years, indicator provenance) |
+| `paper_stats/cadence_highfreq.R` | sampling-cadence and high-frequency statistics (§3.4, §3.5, Table 3) |
+| `paper_stats/compliance_criteria.R` | EPA 2012 criteria assessed on 30-day intervals and calendar years; WHO 2021 classification (Results, Limitations) |
 | `paths.R` | path configuration, sourced by all of the above |
-| `reproduce.sh` | the capsule entrypoint: runs the six analysis scripts, teeing a log per step |
+| `reproduce.sh` | the capsule entrypoint: runs the nine analysis scripts, teeing a log per step |
 
 `clean_data.R` restricts to five canonical indicator classes (*E. coli*, fecal
 coliform, total coliform, enterococci, fecal streptococcus), applies date,

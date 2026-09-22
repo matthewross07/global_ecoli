@@ -51,6 +51,15 @@ run_step geography_table    Rscript paper_stats/geography_table.R
 run_step equity_correlation Rscript paper_stats/equity_correlation.R
 run_step south_africa       Rscript paper_stats/south_africa.R
 
+# ---- Nature Water revision statistics ----
+# Temporal coverage (Results, Table 4), the cadence and high-frequency statistics
+# (Results 3.4, 3.5, Table 3), and criteria compliance assessed as written
+# (Results "Compliance assessed as the criteria are written", Limitations).
+# compliance_criteria.R shares the near-daily cache with make_fig5_downsampling.R.
+run_step temporal_coverage   Rscript paper_stats/temporal_coverage.R
+run_step cadence_highfreq    Rscript paper_stats/cadence_highfreq.R
+run_step compliance_criteria Rscript paper_stats/compliance_criteria.R
+
 # ---- Figures 1-4 (Results 3.1, 3.4, 3.5) ----
 run_step make_figures Rscript make_figures.R
 

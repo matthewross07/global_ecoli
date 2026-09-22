@@ -20,6 +20,9 @@ capsule, which overrides them to read from `/data` and write to `/results`.
 | `record_cascade.R` | Methods | 11,151,268 harmonized → 11,136,805 after validity filter; 26,496 groundwater excluded → 11,110,309 surface (5,899,783 freshwater 53.1%, 5,210,526 marine 46.9%) |
 | `geography_table.R` | §3.1, Table 2 | US 6,926,157 (62.3%), Europe 3,165,984 (28.5%), Canada 412,450 (3.7%), RoW 605,718 (5.5%); ~21,000 GEMStat U.S. records (footnote) |
 | `south_africa.R` | §3.7 | NMMP 167,336 obs; 1,566 well-sampled E. coli sites; median per-site geomean 182 CFU/100 mL; 20% >1,000; 32-day median cadence |
+| `temporal_coverage.R` | Results "Temporal coverage of the record", Table 4, §3.3 provenance sentence, Abstract | span 1950–2026; median year 2013; 87.1% / 67.4% / 43.8% from 2000 / 2010 / 2015; per-source first and last year; fecal coliform 81% WQP median 2007, total coliform 75% WQP median 2010, fecal streptococci 92% WQP median 1986 |
+| `cadence_highfreq.R` | §3.4, §3.5, Table 3, Fig 4 caption | 198,296 sites, 13.5% ≥100 obs, 1.7% ≥500; 164,566 multi-sample sites, 0.9% daily, 0.6% near-daily, 48.2% monthly, 24.7% quarterly; ~80% of timed records 08:00–14:00, ~80% Mon–Wed, 3% weekend, 1% 17:00–23:00; 374 near-daily sites (181 fresh / 193 marine), 95.2% US, 18 elsewhere; 129,832 fresh samples 89.4% ≤410, 162,615 marine samples 82.7% ≤130; case-study exceedance 44.7 / 6.7 / 24.0 / 97.3% |
+| `compliance_criteria.R` | Results "Compliance assessed as the criteria are written", Limitations, Methods | 30-day test at near-daily site-years: fresh E. coli 62.1% fail (GM 34.3%, STV 61.4%; n=560), marine enterococci 76.4% (54.0%, 75.9%; n=755); calendar-year test: fresh 46.1% (n=69,102), marine 16.3% (n=96,285); near-daily fresh annual 37.0% vs 30-day 62.1%; WHO category A 40.5%, >200 25.1% (n=119,437) |
 
 The composition table (§3.3) is intentionally left for readers to recompute: it is a
 plain group-by on the archived feather, and its only definitional choices (indicator
@@ -55,8 +58,8 @@ to the paper (by what each computes):
 - `cascade.R` — Methods record cascade (**superseded by `record_cascade.R`**).
 - `mstats.R`, `sw_full_recount.R` — §3.1 geography (**superseded by `geography_table.R`**) plus the §3.3 composition table (left for readers).
 - `sa.R`, `sa_year.R`, `sa_scout.R` — §3.7 South Africa / NMMP (**superseded by `south_africa.R`**; `sa_scout.R`/`sa_year.R` retained for site-level detail).
-- `distinct_day.R`, `genuine2.R`, `hf_diag.R` — §3.5 genuine near-daily site selection and counts (374 sites, US share, realm-specific safe fractions; also reproduced by `../make_figures.R`).
-- `fig3num.R` — §3.4 sampling-cadence statistics (site counts, retention percentages, multi-sample interval distribution).
-- `case_lock.R`, `canada_yr.R` — §3.5 case-study site selection (Gisborne, Alberta, Marina del Rey, Devon).
+- `distinct_day.R`, `genuine2.R`, `hf_diag.R` — §3.5 genuine near-daily site selection and counts (374 sites, US share, realm-specific safe fractions; **superseded by `cadence_highfreq.R`**, and also reproduced by `../make_figures.R`).
+- `fig3num.R` — §3.4 sampling-cadence statistics (**superseded by `cadence_highfreq.R`**).
+- `case_lock.R`, `canada_yr.R` — §3.5 case-study site selection (Gisborne, Alberta, Marina del Rey, Devon); the Table 3 exceedance rates are now printed by `cadence_highfreq.R`.
 - `wi3.R` — Fig 2 Wisconsin site selection.
 - `euro_marine_scout.R` — European marine coverage scouting.
